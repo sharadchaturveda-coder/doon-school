@@ -6,21 +6,21 @@ import Card from '../../components/ui/card';
 import newsData from '../../data/news.json';
 
 export default function NewsPage() {
-  const gradients = [
-    "from-pink-400 to-rose-500",
-    "from-purple-400 to-indigo-500",
-    "from-blue-400 to-cyan-500",
-    "from-emerald-400 to-teal-500",
-    "from-orange-400 to-red-500",
-    "from-violet-400 to-purple-500"
+  const brandGradients = [
+    "from-orange-brand to-blue-primary",
+    "from-blue-primary to-light-blue",
+    "from-light-blue to-orange-brand",
+    "from-orange-brand to-blue-primary",
+    "from-blue-primary to-light-blue",
+    "from-light-blue to-orange-brand"
   ];
 
   return (
     <>
       {/* Vibrant Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-blue-500 to-purple-600">
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-500/90 via-blue-600/90 to-indigo-700/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-light-blue via-orange-brand to-blue-primary">
+          <div className="absolute inset-0 bg-gradient-to-r from-light-blue/90 via-orange-brand/90 to-blue-primary/90" />
         </div>
         
         {/* Floating Elements */}
@@ -70,7 +70,7 @@ export default function NewsPage() {
       </section>
 
       {/* News Grid */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-indigo-50">
+      <section className="py-20 bg-gradient-to-br from-orange-brand/10 via-light-blue/10 to-blue-primary/10">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -98,7 +98,7 @@ export default function NewsPage() {
                 }}
               >
                 <Link href={`/news/${news.slug || news.id}`}>
-                  <Card className={`p-8 h-full bg-gradient-to-br ${gradients[index % gradients.length]} text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer`}>
+                  <Card className={`p-8 h-full bg-gradient-to-br ${brandGradients[index % brandGradients.length]} text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer`}>
                     <div className="mb-6">
                       <div className="flex items-center justify-between mb-4">
                         <span className="px-3 py-1 bg-white/20 rounded-full text-sm font-semibold backdrop-blur-sm">
@@ -128,7 +128,7 @@ export default function NewsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600">
+      <section className="py-20 bg-gradient-to-br from-orange-brand via-blue-primary to-light-blue">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

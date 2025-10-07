@@ -11,8 +11,8 @@ export default function ContactPage() {
     <>
       {/* Vibrant Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600">
-          <div className="absolute inset-0 bg-gradient-to-r from-rose-500/90 via-fuchsia-600/90 to-violet-700/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-primary via-orange-brand to-light-blue">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-primary/90 via-orange-brand/90 to-light-blue/90" />
         </div>
         
         {/* Animated Background Elements */}
@@ -73,7 +73,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Information */}
-      <section className="py-20 bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50">
+      <section className="py-20 bg-gradient-to-br from-blue-primary/10 via-orange-brand/10 to-light-blue/10">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -92,7 +92,7 @@ export default function ContactPage() {
                 icon: "📍",
                 title: "Visit Us",
                 content: siteData.contact.address,
-                gradient: "from-orange-400 to-pink-500",
+                gradient: "from-orange-brand to-blue-primary",
                 delay: 0
               },
               {
@@ -100,14 +100,14 @@ export default function ContactPage() {
                 title: "Call Us",
                 content: siteData.contact.phone,
                 subtitle: "Mon-Fri: 8:00 AM - 4:00 PM",
-                gradient: "from-purple-400 to-indigo-500",
+                gradient: "from-blue-primary to-light-blue",
                 delay: 0.1
               },
               {
                 icon: "✉️",
                 title: "Email Us",
                 content: siteData.contact.email,
-                gradient: "from-cyan-400 to-blue-500",
+                gradient: "from-light-blue to-orange-brand",
                 delay: 0.2
               }
             ].map((contact, index) => (

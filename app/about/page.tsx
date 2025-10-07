@@ -42,7 +42,7 @@ export default function About() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-heading font-black mb-8 text-white leading-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black mb-8 text-white leading-tight">
                 About 
                 <span className="block gradient-text-hero">Excellence</span>
               </h1>
@@ -78,7 +78,7 @@ export default function About() {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Our Foundation</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black mb-4 gradient-text">Our Foundation</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">The pillars that guide our educational excellence</p>
           </motion.div>
 
@@ -144,7 +144,7 @@ export default function About() {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Our Core Values</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black mb-4 gradient-text">Our Core Values</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">The fundamental principles that shape our educational philosophy</p>
           </motion.div>
 

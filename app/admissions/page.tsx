@@ -7,46 +7,46 @@ import Link from 'next/link';
 
 export default function AdmissionsPage() {
   const steps = [
-    { 
-      step: "01", 
-      title: "Inquiry", 
+    {
+      step: "01",
+      title: "Inquiry",
       desc: "Submit an online inquiry form or contact our admissions office",
-      gradient: "from-blue-400 to-cyan-500",
+      gradient: "from-blue-primary to-light-blue",
       icon: "📇"
     },
-    { 
-      step: "02", 
-      title: "Campus Visit", 
+    {
+      step: "02",
+      title: "Campus Visit",
       desc: "Schedule a visit to experience our facilities and meet our staff",
-      gradient: "from-purple-400 to-pink-500",
+      gradient: "from-orange-brand to-blue-primary",
       icon: "🏠"
     },
-    { 
-      step: "03", 
-      title: "Application", 
+    {
+      step: "03",
+      title: "Application",
       desc: "Complete and submit the application form with required documents",
-      gradient: "from-emerald-400 to-teal-500",
+      gradient: "from-light-blue to-orange-brand",
       icon: "📝"
     },
-    { 
-      step: "04", 
-      title: "Assessment", 
+    {
+      step: "04",
+      title: "Assessment",
       desc: "Students undergo assessment or interview based on grade level",
-      gradient: "from-orange-400 to-red-500",
+      gradient: "from-blue-primary to-orange-brand",
       icon: "🎤"
     },
-    { 
-      step: "05", 
-      title: "Admission Offer", 
+    {
+      step: "05",
+      title: "Admission Offer",
       desc: "Successful applicants receive an admission offer",
-      gradient: "from-indigo-400 to-purple-500",
+      gradient: "from-orange-brand to-light-blue",
       icon: "🎉"
     },
-    { 
-      step: "06", 
-      title: "Enrollment", 
+    {
+      step: "06",
+      title: "Enrollment",
       desc: "Complete enrollment formalities and secure your child's place",
-      gradient: "from-green-400 to-blue-500",
+      gradient: "from-light-blue to-blue-primary",
       icon: "🎓"
     }
   ];
@@ -55,8 +55,8 @@ export default function AdmissionsPage() {
     <>
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-rose-400 via-fuchsia-500 to-indigo-500">
-          <div className="absolute inset-0 bg-gradient-to-r from-pink-600/90 via-purple-700/90 to-indigo-600/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-primary via-orange-brand to-light-blue">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-primary/90 via-orange-brand/90 to-light-blue/90" />
         </div>
         
         {/* Floating Elements */}
@@ -103,7 +103,7 @@ export default function AdmissionsPage() {
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-10 py-4 text-xl font-semibold border-0">
+                <Button size="lg" className="bg-gradient-to-r from-orange-brand to-blue-primary text-white hover:from-orange to-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-10 py-4 text-xl font-semibold border-0">
                   Schedule Visit
                 </Button>
               </Link>
@@ -173,11 +173,11 @@ export default function AdmissionsPage() {
             
             <div className="grid md:grid-cols-2 gap-6">
               {[
-                { icon: "📄", title: "Birth Certificate", gradient: "from-blue-400 to-cyan-500" },
-                { icon: "📊", title: "Academic Records", gradient: "from-purple-400 to-pink-500" },
-                { icon: "📜", title: "Transfer Certificate", gradient: "from-green-400 to-emerald-500" },
-                { icon: "🖼️", title: "Photographs", gradient: "from-orange-400 to-red-500" },
-                { icon: "🎫", title: "Identity Documents", gradient: "from-indigo-400 to-purple-500" },
+                { icon: "📄", title: "Birth Certificate", gradient: "from-blue-primary to-light-blue" },
+                { icon: "📊", title: "Academic Records", gradient: "from-orange-brand to-blue-primary" },
+                { icon: "📜", title: "Transfer Certificate", gradient: "from-light-blue to-orange-brand" },
+                { icon: "🖼️", title: "Photographs", gradient: "from-blue-primary to-orange-brand" },
+                { icon: "🎫", title: "Identity Documents", gradient: "from-orange-brand to-light-blue" },
               ].map((doc, index) => (
                 <motion.div
                   key={index}
@@ -207,7 +207,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-600">
+      <section className="py-20 bg-gradient-to-br from-blue-primary via-light-blue to-orange-brand">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -223,12 +223,12 @@ export default function AdmissionsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <Button size="lg" className="bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg px-8 py-4 text-lg font-semibold">
+                <Button size="lg" className="bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg px-8 py-4 text-lg font-semibold">
                   Contact Admissions
                 </Button>
               </Link>
               <Link href="/admissions/prospectus">
-                <Button size="lg" className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg px-8 py-4 text-lg font-semibold border-0">
+                <Button size="lg" className="bg-gradient-to-r from-orange-brand to-blue-primary text-white hover:from-orange-brand hover:to-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg px-8 py-4 text-lg font-semibold border-0">
                   Download Prospectus
                 </Button>
               </Link>

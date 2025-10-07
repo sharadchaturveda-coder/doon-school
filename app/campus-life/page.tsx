@@ -18,8 +18,8 @@ const CampusLifePage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-cyan-500 to-blue-600">
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-500/90 via-cyan-600/90 to-blue-700/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-primary via-light-blue to-orange-brand">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-primary/90 via-light-blue/90 to-orange-brand/90" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4">
@@ -82,7 +82,7 @@ const CampusLifePage: React.FC = () => {
       </section>
 
       {/* Student Life Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+      <section className="py-20 bg-gradient-to-br from-orange-brand/10 via-light-blue/10 to-blue-primary/10">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -116,7 +116,7 @@ const CampusLifePage: React.FC = () => {
       </section>
 
       {/* Community Engagement Section */}
-      <section className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+      <section className="py-20 bg-gradient-to-br from-blue-primary/10 via-orange-brand/10 to-light-blue/10">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

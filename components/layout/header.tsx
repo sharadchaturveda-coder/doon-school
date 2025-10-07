@@ -32,7 +32,7 @@ const Header: React.FC = () => {
               <div key={item.name} className="relative group">
                 <Link
                   href={item.href}
-                  className="font-body font-medium text-foreground hover:text-primary transition-colors flex items-center gap-1"
+                  className="font-body font-medium text-foreground hover:text-light-blue transition-colors flex items-center gap-1"
                   onMouseEnter={() => setOpenDropdown(item.name)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu */}
         <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-          <SheetTrigger className="md:hidden">
+          <SheetTrigger className="md:hidden" onClick={() => setIsMobileMenuOpen(true)}>
             <Menu className="h-6 w-6" />
             <span className="sr-only">Toggle mobile menu</span>
           </SheetTrigger>

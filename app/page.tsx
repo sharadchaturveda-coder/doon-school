@@ -23,12 +23,12 @@ export default function Home() {
         imageAlt="Doon International School building"
       >
           <Link href="/about">
-            <Button size="lg" className="bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
+            <Button size="lg" className="bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold">
               Learn More
             </Button>
           </Link>
               <Link href="/admissions">
-                <Button size="lg" className="bg-gradient-to-r from-orange-brand to-blue-primary text-white hover:from-orange-brand hover:to-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold border-0">
+                <Button size="lg" className="bg-gradient-to-r from-orange-brand to-blue-primary text-white hover:from-orange-brand hover:to-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold border-0">
                   Start Admissions
                 </Button>
               </Link>
@@ -38,7 +38,7 @@ export default function Home() {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-heading font-bold mb-6 text-foreground">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-6 text-foreground">
               Welcome to Excellence in Education
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
