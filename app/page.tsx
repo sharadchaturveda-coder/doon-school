@@ -23,15 +23,15 @@ export default function Home() {
         imageAlt="Doon International School building"
       >
           <Link href="/about">
-            <Button size="lg" className="bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
+            <Button size="lg" className="bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
               Learn More
             </Button>
           </Link>
-          <Link href="/admissions">
-            <Button size="lg" className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold border-0">
-              Start Admissions
-            </Button>
-          </Link>
+              <Link href="/admissions">
+                <Button size="lg" className="bg-gradient-to-r from-orange-brand to-blue-primary text-white hover:from-orange-brand hover:to-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold border-0">
+                  Start Admissions
+                </Button>
+              </Link>
       </Hero>
 
       {/* Welcome Section */}
@@ -63,7 +63,7 @@ export default function Home() {
             >
               <Card className="p-8 text-center h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 hover:border-white/40 transition-all duration-300 shadow-xl hover:shadow-2xl">
                 <div className="mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-primary to-orange-brand rounded-2xl flex items-center justify-center mx-auto shadow-lg">
                     <span className="text-3xl">🎓</span>
                   </div>
                 </div>
@@ -87,7 +87,7 @@ export default function Home() {
             >
               <Card className="p-8 text-center h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 hover:border-white/40 transition-all duration-300 shadow-xl hover:shadow-2xl">
                 <div className="mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto shadow-lg">
+                  <div className="w-20 h-20 bg-gradient-to-br from-orange to-blue-primary rounded-2xl flex items-center justify-center mx-auto shadow-lg">
                     <span className="text-3xl">🌟</span>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ export default function Home() {
             >
               <Card className="p-8 text-center h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 hover:border-white/40 transition-all duration-300 shadow-xl hover:shadow-2xl">
                 <div className="mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto shadow-lg">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-primary to-orange rounded-2xl flex items-center justify-center mx-auto shadow-lg">
                     <span className="text-3xl">🏫</span>
                   </div>
                 </div>

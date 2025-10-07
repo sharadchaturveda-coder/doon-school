@@ -146,8 +146,8 @@ export default function NewsPage() {
               <Link href="/contact">
                 <motion.button 
                   className="bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg px-8 py-4 text-lg font-semibold rounded-lg"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.03, y: -2, transition: { duration: 0.15 } }}
+                whileTap={{ scale: 0.98 }}
                 >
                   Subscribe to Updates
                 </motion.button>

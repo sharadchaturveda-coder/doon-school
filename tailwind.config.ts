@@ -26,6 +26,10 @@ const config: Config = {
         },
         text: tokens.colors.text,
         neutral: tokens.colors.neutral,
+        // Your brand colors
+        'blue-primary': '#004A99',
+        'orange-brand': '#F7941D',
+        'light-blue': '#0096D6',
         // shadcn/ui aliases
         border: tokens.colors.neutral["200"],
         input: tokens.colors.neutral["200"],

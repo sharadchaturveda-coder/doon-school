@@ -1,61 +1,152 @@
+'use client';
+
 import React from 'react';
 import Head from 'next/head';
+import { motion } from 'framer-motion';
 import siteData from '../../data/site.json';
 import Card from '../../components/ui/card';
 import Grid from '../../components/ui/grid';
+import campusLifeData from '../../data/doon/campus-life.json';
 
 const CampusLifePage: React.FC = () => {
-  const activities = [
-    {
-      title: 'Sports',
-      description: 'A wide range of sports including football, basketball, cricket, and athletics.',
-      icon: '⚽',
-    },
-    {
-      title: 'Arts & Culture',
-      description: 'Opportunities in music, dance, drama, and visual arts.',
-      icon: '🎭',
-    },
-    {
-      title: 'Clubs & Societies',
-      description: 'Various clubs like science, debate, eco, and literary societies.',
-      icon: '📚',
-    },
-    {
-      title: 'Community Service',
-      description: 'Engaging in initiatives that benefit the local community.',
-      icon: '🤝',
-    },
-  ];
-
   return (
     <>
       <Head>
         <title>Campus Life | {siteData.siteName}</title>
         <meta name="description" content={`Explore campus life and co-curricular activities at ${siteData.siteName}.`} />
       </Head>
-      <section className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-heading font-bold text-primary mb-8 text-center">Campus Life</h1>
 
-        <div className="max-w-4xl mx-auto text-lg font-body space-y-6 mb-12">
-          <p>
-            Life at Doon International School extends far beyond the classroom. We believe in fostering a vibrant and engaging campus environment where students can explore their interests, develop new skills, and build lasting friendships. Our diverse range of co-curricular activities and state-of-the-art facilities ensure that every student finds their passion.
-          </p>
-          <p>
-            From competitive sports to creative arts and intellectual clubs, there's something for everyone. We encourage all students to participate actively, as these experiences are crucial for holistic development and character building.
-          </p>
+      {/* Hero Section */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-cyan-500 to-blue-600">
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-500/90 via-cyan-600/90 to-blue-700/90" />
         </div>
 
-        <h2 className="text-3xl font-heading font-bold text-text-dark mb-8 text-center">Activities & Facilities</h2>
-        <Grid smCols={1} mdCols={2} lgCols={4} gap="gap-6">
-          {activities.map((activity, index) => (
-            <Card key={index} className="text-center">
-              <div className="text-5xl mb-4">{activity.icon}</div>
-              <h3 className="text-xl font-heading font-bold mb-2">{activity.title}</h3>
-              <p className="text-text-light font-body">{activity.description}</p>
-            </Card>
-          ))}
-        </Grid>
+        <div className="relative z-10 container mx-auto px-4">
+          <div className="max-w-5xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-heading font-black mb-8 text-white leading-tight">
+                Campus
+                <span className="block gradient-text-hero">Life</span>
+              </h1>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-xl md:text-2xl mb-12 text-white/90 max-w-4xl mx-auto leading-relaxed"
+            >
+              Life at Doon International School extends far beyond the classroom. We believe in fostering a vibrant and engaging campus environment where students can explore their interests, develop new skills, and build lasting friendships.
+            </motion.p>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Facilities Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Our Facilities</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">State-of-the-art infrastructure supporting holistic development</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+            {campusLifeData.sections.filter(s => ['Infrastructure and Facilities', 'Sports & Physical Education', 'Visual & Performing Arts'].includes(s.heading)).map((section, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                whileHover={{ scale: 1.03, y: -2, transition: { duration: 0.15 } }}
+              >
+                <Card className="p-8 h-full bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <h3 className="text-2xl font-heading font-bold mb-4 text-gray-800">{section.heading}</h3>
+                  <p className="text-gray-600 leading-relaxed">{section.content}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Student Life Section */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Student Life</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Building character, leadership, and lifelong memories</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+            {campusLifeData.sections.filter(s => ['House System', 'Beyond the Classroom: Trips and Immersion'].includes(s.heading)).map((section, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                whileHover={{ scale: 1.03, y: -2, transition: { duration: 0.15 } }}
+              >
+                <Card className="p-8 h-full bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <h3 className="text-2xl font-heading font-bold mb-4 text-gray-800">{section.heading}</h3>
+                  <p className="text-gray-600 leading-relaxed">{section.content}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Community Engagement Section */}
+      <section className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Community Engagement</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Building stronger communities through collaboration and service</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+            {campusLifeData.sections.filter(s => ['Parent Collaboration', 'Community Services'].includes(s.heading)).map((section, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                whileHover={{ scale: 1.03, y: -2, transition: { duration: 0.15 } }}
+              >
+                <Card className="p-8 h-full bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <h3 className="text-2xl font-heading font-bold mb-4 text-gray-800">{section.heading}</h3>
+                  <p className="text-gray-600 leading-relaxed">{section.content}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
     </>
   );

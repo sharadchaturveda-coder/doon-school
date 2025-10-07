@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Card from '../../components/ui/card';
 import Button from '../../components/ui/button';
 import Link from 'next/link';
+import aboutData from '../../data/doon/about.json';
 
 export default function About() {
   return (
@@ -11,8 +12,8 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
         {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 via-purple-700/90 to-pink-600/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-primary via-light-blue to-orange-brand">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-primary/90 via-light-blue/90 to-orange-brand/90" />
         </div>
         
         {/* Floating Elements */}
@@ -70,7 +71,7 @@ export default function About() {
       {/* Mission & Vision */}
       <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -80,20 +81,20 @@ export default function About() {
             <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Our Foundation</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">The pillars that guide our educational excellence</p>
           </motion.div>
-          
+
           <div className="grid lg:grid-cols-2 gap-8">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              whileHover={{ 
-                scale: 1.02, 
-                y: -4,
-                transition: { duration: 0.2, ease: "easeOut" }
+              whileHover={{
+                scale: 1.03,
+                y: -2,
+                transition: { duration: 0.15 }
               }}
             >
-              <Card className="p-10 h-full bg-gradient-to-br from-blue-500 to-purple-600 text-white border-0 shadow-2xl hover:shadow-3xl transition-all duration-300">
+              <Card className="p-10 h-full bg-gradient-to-br from-orange-brand to-blue-primary text-white border-0 shadow-2xl hover:shadow-3xl transition-all duration-300">
                 <div className="mb-6">
                   <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
                     <span className="text-3xl">🎯</span>
@@ -101,26 +102,23 @@ export default function About() {
                 </div>
                 <h2 className="text-4xl font-heading font-bold mb-6">Our Mission</h2>
                 <p className="text-lg leading-relaxed opacity-90">
-                  To provide a nurturing and stimulating environment that enables every student to 
-                  achieve their full potential academically, socially, and personally. We strive to 
-                  develop confident, responsible, and compassionate global citizens who can contribute 
-                  meaningfully to society.
+                  {aboutData.sections.find(s => s.heading === "Our Mission")?.content || "Content not found"}
                 </p>
               </Card>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
-              whileHover={{ 
-                scale: 1.02, 
+              whileHover={{
+                scale: 1.02,
                 y: -4,
                 transition: { duration: 0.2, ease: "easeOut" }
               }}
             >
-              <Card className="p-10 h-full bg-gradient-to-br from-emerald-500 to-cyan-600 text-white border-0 shadow-2xl hover:shadow-3xl transition-all duration-300">
+              <Card className="p-10 h-full bg-gradient-to-br from-blue-primary to-light-blue text-white border-0 shadow-2xl hover:shadow-3xl transition-all duration-300">
                 <div className="mb-6">
                   <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
                     <span className="text-3xl">🔮</span>
@@ -128,10 +126,7 @@ export default function About() {
                 </div>
                 <h2 className="text-4xl font-heading font-bold mb-6">Our Vision</h2>
                 <p className="text-lg leading-relaxed opacity-90">
-                  To be a leading educational institution that inspires excellence, innovation, and 
-                  integrity. We envision a school where learning is joyful, diverse perspectives are 
-                  celebrated, and every student is empowered to make a positive impact in an 
-                  interconnected world.
+                  {aboutData.sections.find(s => s.heading === "Our Vision")?.content || "Content not found"}
                 </p>
               </Card>
             </motion.div>
@@ -152,33 +147,33 @@ export default function About() {
             <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Our Core Values</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">The fundamental principles that shape our educational philosophy</p>
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { 
-                icon: "🎯", 
-                title: "Excellence", 
+              {
+                icon: "🎯",
+                title: "Excellence",
                 desc: "Striving for the highest standards in academics, character, and service.",
                 gradient: "from-red-400 to-pink-500",
                 delay: 0
               },
-              { 
-                icon: "🤝", 
-                title: "Integrity", 
+              {
+                icon: "🤝",
+                title: "Integrity",
                 desc: "Upholding honesty, transparency, and ethical behavior in all our actions.",
                 gradient: "from-blue-400 to-indigo-500",
                 delay: 0.1
               },
-              { 
-                icon: "❤️", 
-                title: "Compassion", 
+              {
+                icon: "❤️",
+                title: "Compassion",
                 desc: "Fostering empathy, kindness, and respect for all members of our community.",
                 gradient: "from-green-400 to-emerald-500",
                 delay: 0.2
               },
-              { 
-                icon: "🚀", 
-                title: "Innovation", 
+              {
+                icon: "🚀",
+                title: "Innovation",
                 desc: "Embracing creativity, critical thinking, and adaptive learning approaches.",
                 gradient: "from-yellow-400 to-orange-500",
                 delay: 0.3
@@ -189,13 +184,13 @@ export default function About() {
                 initial={{ opacity: 0, y: 20, scale: 0.9 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ 
-                  duration: 0.4, 
-                  delay: value.delay, 
+                transition={{
+                  duration: 0.4,
+                  delay: value.delay,
                   ease: "easeOut"
                 }}
-                whileHover={{ 
-                  scale: 1.05, 
+                whileHover={{
+                  scale: 1.05,
                   y: -8,
                   transition: { duration: 0.2, ease: "easeOut" }
                 }}
@@ -214,6 +209,77 @@ export default function About() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Leadership Messages */}
+      <section className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Leadership Messages</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Inspiring words from our school leadership</p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+            {aboutData.sections.filter(s => s.heading.includes("Message from")).map((message, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+                whileHover={{
+                  scale: 1.02,
+                  y: -4,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
+              >
+                <Card className="p-8 h-full bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <h3 className="text-2xl font-heading font-bold mb-4 text-gray-800">
+                    {message.heading.replace("Message from ", "")}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {message.content}
+                  </p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Legacy */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Our Legacy</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">A heritage of educational excellence</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <Card className="p-8 bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {aboutData.sections.find(s => s.heading === "Our Legacy")?.content || "Content not found"}
+              </p>
+            </Card>
+          </motion.div>
         </div>
       </section>
 

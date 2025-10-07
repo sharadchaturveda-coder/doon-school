@@ -1,0 +1,30 @@
+{
+  "title": "Contact Us",
+  "slug": "contact",
+  "sections": [
+    {
+      "heading": "Get in Touch",
+      "content": "We welcome enquiries from prospective parents, alumni, and the community. Please feel free to reach out to us through any of the channels below."
+    },
+    {
+      "heading": "School Address",
+      "content": "Doon International School, [Your School's Address], Jabalpur, Madhya Pradesh, [Pin Code]"
+    },
+    {
+      "heading": "Email",
+      "content": "For general enquiries: info@doonjabalpur.com\nFor admissions: admissions@doonjabalpur.com"
+    },
+    {
+      "heading": "Phone",
+      "content": "+91 [Your Phone Number]"
+    },
+    {
+      "heading": "Work With Us",
+      "content": "Raghubir Singh Junior Modern School offers a professional and nurturing work environment for educators who are passionate about teaching, learning, and child development. The school seeks individuals who are creative, committed, and capable of contributing to its dynamic educational ethos. Vacancies are periodically announced on the official school website. Prospective candidates are invited to apply by submitting their detailed resume and a covering letter to the school’s HR department at admin@rsjms.com."
+    }
+  ],
+  "lastUpdated": "2025-10-07",
+  "mergedFrom": [
+    "career.json"
+  ]
+}

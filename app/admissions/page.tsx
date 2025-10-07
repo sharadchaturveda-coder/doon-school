@@ -134,10 +134,10 @@ export default function AdmissionsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{ 
-                  scale: 1.03, 
-                  y: -5,
-                  transition: { duration: 0.2 }
+                whileHover={{
+                  scale: 1.03,
+                  y: -2,
+                  transition: { duration: 0.15 }
                 }}
               >
                 <Card className={`p-8 h-full bg-gradient-to-br ${step.gradient} text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300`}>
@@ -185,11 +185,11 @@ export default function AdmissionsPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  whileHover={{ 
-                    scale: 1.03, 
-                    y: -4,
-                    transition: { duration: 0.15, ease: "easeOut" }
-                  }}
+                whileHover={{
+                  scale: 1.03,
+                  y: -2,
+                  transition: { duration: 0.15 }
+                }}
                 >
                   <Card className={`p-6 bg-gradient-to-r ${doc.gradient} text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300`}>
                     <div className="flex items-center">

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import ContactForm from '../../components/blocks/contact-form';
 import Card from '../../components/ui/card';
 import siteData from '../../data/site.json';
+import contactData from '../../data/doon/contact.json';
 
 export default function ContactPage() {
   return (
@@ -116,10 +117,10 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: contact.delay, ease: "easeOut" }}
-                whileHover={{ 
-                  scale: 1.05, 
-                  y: -8,
-                  transition: { duration: 0.15, ease: "easeOut" }
+                whileHover={{
+                  scale: 1.03,
+                  y: -4,
+                  transition: { duration: 0.15 }
                 }}
               >
                 <Card className={`p-8 text-center h-full bg-gradient-to-br ${contact.gradient} text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300`}>

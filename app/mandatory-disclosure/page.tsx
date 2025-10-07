@@ -3,6 +3,7 @@ import Head from 'next/head';
 import siteData from '../../data/site.json';
 import disclosuresData from '../../data/disclosures.json';
 import DocumentTable from '../../components/blocks/document-table';
+import mandatoryDisclosureData from '../../data/doon/mandatory-disclosure.json';
 
 const MandatoryDisclosurePage: React.FC = () => {
   return (
@@ -18,6 +19,13 @@ const MandatoryDisclosurePage: React.FC = () => {
           <p className="mb-8">
             In compliance with regulatory requirements, Doon International School provides the following mandatory disclosure documents for public access. These documents offer transparency into our operations, affiliations, and academic policies.
           </p>
+
+          {mandatoryDisclosureData.sections.map((section, index) => (
+            <div key={index} className="mb-8">
+              <h2 className="text-2xl font-heading font-bold mb-4">{section.heading}</h2>
+              <p className="text-gray-700 leading-relaxed">{section.content}</p>
+            </div>
+          ))}
 
           <DocumentTable title="Official Documents" documents={disclosuresData} />
 

@@ -1,0 +1,48 @@
+{
+  "title": "About Us",
+  "slug": "about",
+  "sections": [
+    {
+      "heading": "Our Mission",
+      "content": "• Strive for excellence in academics, sports, creative pursuits and skills.\n• Provide the best infrastructure and technology in emerging fields of study and knowledge.\n• Constantly raise our benchmarks to integrate our culture and heritage with the best education in the world.\n• Provide the best facilities and training to our teachers.\n• Promote core human values and practise inclusivity and service through academic and socially relevant programmes, engaging all stakeholders."
+    },
+    {
+      "heading": "Our Vision",
+      "content": "Modern School aims to build a community of confident, global leaders with social conscience and national pride, committed to excellence and continuous learning."
+    },
+    {
+      "heading": "Our Motto",
+      "content": "Self-realisation cannot be achieved by the weak-willed.\nनायमात्मा बलहीनेन लभ्यः"
+    },
+    {
+      "heading": "The Logo",
+      "content": "The logo was designed by Sarada Ukil, an artist of great repute and a teacher at Modern School in the 1920s. The school crest signifies the circle of eternity crossed by the three elements in human development—body, mind and spirit—with the sun shining between the triangle and the circle. Inside the triangle is a banyan tree representing stability and firmness of character; the swan and the lotus symbolise refinement, culture and the arts—the fundamental elements of progress in life."
+    },
+    {
+      "heading": "Message from the President",
+      "content": "Raghubir Singh Junior Modern School was established to nurture young minds in a learning environment that promotes creativity, integrity, and curiosity. The school has steadfastly upheld the ideals envisioned by our founder, Lala Raghubir Singh, blending traditional Indian values with a progressive educational outlook. It is our constant endeavour to create a space where students develop a lifelong love for learning, compassion for others, and a sense of responsibility toward the nation. Every child is encouraged to discover their potential and contribute meaningfully to society.\n\n— Mrs. Mira Pradeep Singh, President, Board of Trustees, Modern Schools"
+    },
+    {
+      "heading": "Message from the Chairman",
+      "content": "Our founder, Lala Raghubir Singh, believed in an education that is not confined to textbooks, but one that enables children to think independently and act with conviction. Raghubir Singh Junior Modern School continues to uphold that vision. Our teachers play a crucial role in making learning relevant, dynamic, and joyful, ensuring that students are equipped for an ever-changing world. We remain committed to providing an environment where innovation and tradition coexist harmoniously, fostering confident, ethical, and empathetic learners.\n\n— Mr. Ajay Verma, Chairman, Managing Committee"
+    },
+    {
+      "heading": "Message from the Headmistress",
+      "content": "Acknowledged as a premier institution in early and primary education, RSJMS provides an enriching academic experience that balances intellectual rigour with emotional growth. Our philosophy is centred around holistic development — nurturing children who are not just intelligent but kind, creative, and self-aware. We take pride in an atmosphere where learning is participatory, curiosity is celebrated, and every achievement — academic, artistic, or athletic — is valued. We continue to evolve, ensuring that our students grow into well-rounded global citizens.\n\n— Headmistress, Raghubir Singh Junior Modern School"
+    },
+    {
+      "heading": "Our Legacy",
+      "content": "Schools managed by the Modern School Society represent a unified vision of holistic education, founded upon the ideals of Lala Raghubir Singh. Each branch maintains a shared heritage while evolving to meet the educational needs of contemporary society."
+    }
+  ],
+  "lastUpdated": "2025-10-07",
+  "mergedFrom": [
+    "ethos.json",
+    "leaders.json",
+    "teacher_empowerment.json",
+    "parent_collaboration.json",
+    "community-services.json",
+    "branches.json",
+    "other_branches.json"
+  ]
+}

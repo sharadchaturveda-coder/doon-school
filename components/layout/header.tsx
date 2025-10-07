@@ -30,7 +30,8 @@ const Header: React.FC = () => {
           {siteData.navigation.map((item) =>
             item.dropdown ? (
               <div key={item.name} className="relative group">
-                <button 
+                <Link
+                  href={item.href}
                   className="font-body font-medium text-foreground hover:text-primary transition-colors flex items-center gap-1"
                   onMouseEnter={() => setOpenDropdown(item.name)}
                   onMouseLeave={() => setOpenDropdown(null)}
@@ -39,8 +40,8 @@ const Header: React.FC = () => {
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
-                </button>
-                <div 
+                </Link>
+                <div
                   className={`absolute top-full left-0 mt-1 w-56 bg-white border rounded-md shadow-lg transition-all duration-200 ${
                     openDropdown === item.name ? 'opacity-100 visible' : 'opacity-0 invisible'
                   }`}
@@ -49,9 +50,9 @@ const Header: React.FC = () => {
                 >
                   <div className="py-2">
                     {item.dropdown.map((subItem) => (
-                      <Link 
-                        key={subItem.name} 
-                        href={subItem.href} 
+                      <Link
+                        key={subItem.name}
+                        href={subItem.href}
                         className="block px-4 py-2 text-sm text-foreground hover:bg-muted hover:text-primary transition-colors"
                       >
                         {subItem.name}
@@ -61,9 +62,9 @@ const Header: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <Link 
-                key={item.name} 
-                href={item.href} 
+              <Link
+                key={item.name}
+                href={item.href}
                 className="font-body font-medium text-foreground hover:text-primary transition-colors"
               >
                 {item.name}

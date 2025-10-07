@@ -1,0 +1,44 @@
+{
+  "title": "Campus Life",
+  "slug": "campus-life",
+  "sections": [
+    {
+      "heading": "Infrastructure and Facilities",
+      "content": "The infrastructure of Raghubir Singh Junior Modern School is designed to foster creativity, curiosity, and comfort. Each facility reflects the school’s commitment to providing an environment conducive to holistic learning, innovation, and well-being."
+    },
+    {
+      "heading": "Sports & Physical Education",
+      "content": "Sports at Raghubir Singh Junior Modern School are an integral part of the curriculum, designed to nurture physical fitness, discipline, teamwork, and sportsmanship. The school believes that athletics and movement are vital for a child’s all-round development and well-being."
+    },
+    {
+      "heading": "Visual & Performing Arts",
+      "content": "At Raghubir Singh Junior Modern School, the Visual Arts curriculum encourages children to explore colour, form, and texture through a range of media. Art is viewed not only as a creative activity but also as a way to develop patience, perception, and emotional intelligence. Every artwork is treated as an individual expression of thought and feeling. Performing Arts at Raghubir Singh Junior Modern School serve as a medium for self-expression, creativity, and emotional development. The school integrates dance, music, and theatre into the curriculum to help children explore movement, rhythm, and performance with confidence and joy."
+    },
+    {
+      "heading": "House System",
+      "content": "The House System at Raghubir Singh Junior Modern School lies at the heart of school life. It promotes teamwork, healthy competition, leadership, and a sense of belonging among students. Every child from Class 1 onward is placed into one of the four houses, and through participation in inter-house activities, they develop camaraderie, discipline, and school spirit."
+    },
+    {
+      "heading": "Beyond the Classroom: Trips and Immersion",
+      "content": "Excursions and educational trips at Raghubir Singh Junior Modern School form an essential part of experiential learning. Each trip is designed to expose children to new environments, cultures, and ideas, extending learning beyond the classroom walls. These journeys foster independence, curiosity, teamwork, and responsibility. The Immersion Programme at Raghubir Singh Junior Modern School is designed to engage students in experiential and thematic learning beyond the conventional classroom framework. It immerses children in real-world contexts, encouraging observation, creativity, and reflection through carefully curated academic and cultural modules."
+    },
+    {
+      "heading": "Parent Collaboration",
+      "content": "Raghubir Singh Junior Modern School believes that education is a shared journey between the school and the home. Active parental involvement enhances a child’s learning experience and helps create a stronger, more empathetic community. The school’s Parent Collaboration Programme encourages dialogue, transparency, and participation across academic and co-curricular spheres."
+    },
+    {
+      "heading": "Community Services",
+      "content": "Community service is an integral component of life at Raghubir Singh Junior Modern School. The school encourages students to look beyond themselves and engage actively with their surroundings. From environmental initiatives to social outreach, RSJMS instills empathy, responsibility, and civic awareness from an early age."
+    }
+  ],
+  "lastUpdated": "2025-10-07",
+  "mergedFrom": [
+    "facilities.json",
+    "sports.json",
+    "performing_arts.json",
+    "visual_arts.json",
+    "house_system.json",
+    "trips.json",
+    "immersion.json"
+  ]
+}
