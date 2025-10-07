@@ -1,0 +1,26 @@
+{
+  "photos": [
+    {
+      "id": "1",
+      "src": "/images/gallery/photo1.jpg",
+      "alt": "Students in classroom"
+    },
+    {
+      "id": "2",
+      "src": "/images/gallery/photo2.jpg",
+      "alt": "School building exterior"
+    }
+  ],
+  "videos": [
+    {
+      "id": "1",
+      "src": "https://www.youtube.com/embed/video1",
+      "alt": "School event video"
+    },
+    {
+      "id": "2",
+      "src": "https://www.youtube.com/embed/video2",
+      "alt": "Campus tour video"
+    }
+  ]
+}
