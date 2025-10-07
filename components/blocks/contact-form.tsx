@@ -7,7 +7,7 @@ import * as z from 'zod';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
-import { Form, FormField, FormLabel, FormControl, FormMessage } from '../ui/form';
+import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '../ui/form';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -57,82 +57,92 @@ export default function ContactForm() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <div>
-                  <FormLabel>Full Name *</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Your full name" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </div>
-              )}
-            />
+            <FormItem>
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Full Name *</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Your full name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </FormItem>
             
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <div>
-                  <FormLabel>Email Address *</FormLabel>
-                  <FormControl>
-                    <Input type="email" placeholder="your.email@example.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </div>
-              )}
-            />
+            <FormItem>
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email Address *</FormLabel>
+                    <FormControl>
+                      <Input type="email" placeholder="your.email@example.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </FormItem>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <FormField
-              control={form.control}
-              name="phone"
-              render={({ field }) => (
-                <div>
-                  <FormLabel>Phone Number *</FormLabel>
-                  <FormControl>
-                    <Input type="tel" placeholder="+91 98765 43210" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </div>
-              )}
-            />
+            <FormItem>
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Phone Number *</FormLabel>
+                    <FormControl>
+                      <Input type="tel" placeholder="+91 98765 43210" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </FormItem>
             
-            <FormField
-              control={form.control}
-              name="subject"
-              render={({ field }) => (
-                <div>
-                  <FormLabel>Subject *</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Inquiry about..." {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </div>
-              )}
-            />
+            <FormItem>
+              <FormField
+                control={form.control}
+                name="subject"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Subject *</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Inquiry about..." {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </FormItem>
           </div>
 
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <div>
-                <FormLabel>Message *</FormLabel>
-                <FormControl>
-                  <Textarea 
-                    placeholder="Please tell us about your inquiry..."
-                    className="min-h-[120px]"
-                    {...field} 
-                  />
-                </FormControl>
-                <FormMessage />
-              </div>
-            )}
-          />
+          <FormItem>
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Message *</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Please tell us about your inquiry..."
+                      className="min-h-[120px]"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </FormItem>
 
           {submitStatus === 'success' && (
             <div className="p-4 bg-green-50 border border-green-200 rounded-md">
