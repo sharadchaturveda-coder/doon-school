@@ -21,14 +21,17 @@ const GalleryGrid: React.FC<GalleryGridProps> = ({ items, type }) => {
         <Card key={item.id} className="overflow-hidden">
           {type === 'photo' ? (
             <div className="relative w-full h-48">
-              <Image
-                src={item.src}
-                alt={item.alt}
-                fill
-                style={{ objectFit: 'cover' }}
-                className="rounded-t-lg"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+              <picture>
+                <source srcSet={item.src} type="image/avif" />
+                <Image
+                  src={item.src.replace('.avif', '.webp')}
+                  alt={item.alt}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  className="rounded-t-lg"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </picture>
             </div>
           ) : (
             <div className="relative w-full h-48">

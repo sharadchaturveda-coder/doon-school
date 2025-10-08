@@ -1,0 +1,24 @@
+{
+  "title": "Facilities",
+  "slug": "facilities",
+  "sections": [
+    {
+      "heading": "Academic Departments",
+      "content": "Doon International School houses well-equipped laboratories, digital classrooms, and a comprehensive library to support modern learning."
+    },
+    {
+      "heading": "Sports & Co-Curricular Spaces",
+      "gallery": [
+        "/assets/facilities/sports-field.avif",
+        "/assets/facilities/gym.avif",
+        "/assets/facilities/art-room.avif"
+      ]
+    },
+    {
+      "heading": "Infrastructure",
+      "content": "Our campus features advanced safety systems, dedicated transport facilities, and eco-friendly architecture."
+    }
+  ],
+  "source": "Doon International School Mohali Official Media",
+  "lastUpdated": "2025-10-07"
+}

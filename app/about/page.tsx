@@ -43,7 +43,6 @@ export default function About() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black mb-8 text-white leading-tight">
-                About 
                 <span className="block gradient-text-hero">Excellence</span>
               </h1>
             </motion.div>
@@ -212,76 +211,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Leadership Messages */}
-      <section className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Leadership Messages</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Inspiring words from our school leadership</p>
-          </motion.div>
 
-          <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
-            {aboutData.sections.filter(s => s.heading.includes("Message from")).map((message, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
-                whileHover={{
-                  scale: 1.02,
-                  y: -4,
-                  transition: { duration: 0.2, ease: "easeOut" }
-                }}
-              >
-                <Card className="p-8 h-full bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <h3 className="text-2xl font-heading font-bold mb-4 text-gray-800">
-                    {message.heading.replace("Message from ", "")}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {message.content}
-                  </p>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Legacy */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Our Legacy</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">A heritage of educational excellence</p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-          >
-            <Card className="p-8 bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg">
-              <p className="text-lg text-gray-700 leading-relaxed">
-                {aboutData.sections.find(s => s.heading === "Our Legacy")?.content || "Content not found"}
-              </p>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
@@ -293,14 +223,14 @@ export default function About() {
             Discover what makes Doon International School special.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/about/principal-message">
+            <Link href="/admissions">
               <Button variant="secondary" size="lg">
-                Principal's Message
+                Admissions
               </Button>
             </Link>
-            <Link href="/about/historical-legacy">
-              <Button variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                Our Legacy
+            <Link href="/facilities">
+              <Button variant="secondary" size="lg">
+                Our Facilities
               </Button>
             </Link>
           </div>

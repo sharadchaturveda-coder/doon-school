@@ -1,11 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Hero from '../components/ui/hero';
 import Button from '../components/ui/button';
 import Card from '../components/ui/card';
 import Link from 'next/link';
+import GalleryGrid from '../components/blocks/gallery-grid';
 import siteData from '../data/site.json';
+import homeData from '../data/doon/home.json';
 import eventsData from '../data/events.json';
 import newsData from '../data/news.json';
 
@@ -19,8 +22,8 @@ export default function Home() {
       <Hero
         title={siteData.siteName}
         subtitle={siteData.tagline}
-        imageUrl="/images/hero-home.svg"
-        imageAlt="Doon International School building"
+        videoSrc={homeData.heroSection.media.src}
+        videoPoster={homeData.heroSection.media.poster}
       >
           <Link href="/about">
             <Button size="lg" className="bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold">
@@ -30,9 +33,137 @@ export default function Home() {
               <Link href="/admissions">
                 <Button size="lg" className="bg-gradient-to-r from-orange-brand to-blue-primary text-white hover:from-orange-brand hover:to-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold border-0">
                   Start Admissions
-                </Button>
+        </Button>
               </Link>
       </Hero>
+
+      {/* Dynamic Home Sections from JSON */}
+      {homeData.sections.map((section, index) => {
+        if (section.type === 'image-text') {
+          return (
+            <section key={index} className="py-16 bg-background">
+              <div className="container mx-auto px-4">
+                <div className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:grid-flow-col-dense' : ''}`}>
+                  <div className={index % 2 === 1 ? 'md:col-start-2' : ''}>
+                    <picture>
+                      <source srcSet={section.image} type="image/avif" />
+                      <Image
+                        src={section.image.replace('.avif', '.webp')}
+                        alt={section.heading}
+                        width={600}
+                        height={400}
+                        className="w-full h-auto rounded-lg shadow-lg"
+                      />
+                    </picture>
+                  </div>
+
+                  <div className={`text-center md:text-left ${index % 2 === 1 ? 'md:col-start-1' : ''}`}>
+                    {index <= 2 ? (
+                      <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        animate={{ y: [0, -8, 0] }}
+                        transition={{
+                          y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                          opacity: { duration: 0.8 },
+                        }}
+                        whileHover={{
+                          scale: 1.02,
+                          boxShadow: "0 30px 60px -15px rgba(141, 50, 28, 0.4), 0 0 40px rgba(9, 94, 197, 0.3)",
+                          transition: { duration: 0.3 }
+                        }}
+                        className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 md:p-8 shadow-2xl shadow-orange-brand/30 hover:shadow-orange-brand/50"
+                      >
+                        <motion.div
+                          initial={{ scaleX: 0 }}
+                          whileInView={{ scaleX: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: 0.3 }}
+                          className="w-16 h-px bg-gradient-to-r from-transparent via-orange-brand to-transparent mb-6"
+                        ></motion.div>
+                        <motion.h2
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay: 0.5 }}
+                          className="text-3xl md:text-4xl font-heading font-bold mb-6 text-foreground italic leading-tight"
+                        >
+                          {section.heading}
+                        </motion.h2>
+                        <motion.p
+                          initial={{ opacity: 0 }}
+                          whileInView={{ opacity: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.8, delay: 0.7 }}
+                          className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-thin italic"
+                        >
+                          {section.text}
+                        </motion.p>
+                        {section.citation && (
+                          <motion.cite
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.9 }}
+                            className="block text-base text-muted-foreground italic mt-4"
+                          >
+                            - {section.citation}
+                          </motion.cite>
+                        )}
+                        <motion.div
+                          initial={{ scaleX: 0 }}
+                          whileInView={{ scaleX: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, delay: 1.1 }}
+                          className="w-16 h-px bg-gradient-to-r from-transparent via-orange-brand to-transparent mt-6 ml-auto"
+                        ></motion.div>
+                      </motion.div>
+                    ) : (
+                      <>
+                        <h2 className="text-2xl md:text-3xl font-heading font-bold mb-4 text-foreground">{section.heading}</h2>
+                        <p className="text-lg text-muted-foreground mb-6 leading-relaxed">{section.text}</p>
+                        {section.citation && <cite className="block text-base text-muted-foreground italic">- {section.citation}</cite>}
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        }
+
+        if (section.type === 'gallery') {
+          const galleryItems = section.gallery.map((src, i) => ({
+            id: i.toString(),
+            src: src,
+            alt: `Gallery image ${i + 1}`
+          }));
+
+          return (
+            <section key={index} className="py-16 bg-muted">
+              <div className="container mx-auto px-4">
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl font-heading font-bold mb-4 text-foreground">
+                    {section.heading}
+                  </h2>
+                  <p className="text-lg text-muted-foreground mb-8">
+                    {section.content}
+                  </p>
+                </div>
+                <GalleryGrid items={galleryItems} type="photo" />
+                <div className="text-center mt-8">
+                  <Link href="/facilities">
+                    <Button size="lg">View More</Button>
+                  </Link>
+                </div>
+              </div>
+            </section>
+          );
+        }
+
+        return null;
+      })}
 
       {/* Welcome Section */}
       <section className="py-16 bg-background">
@@ -112,7 +243,7 @@ export default function Home() {
               <Card className="p-8 text-center h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 hover:border-white/40 transition-all duration-300 shadow-xl hover:shadow-2xl">
                 <div className="mb-6">
                   <div className="w-20 h-20 bg-gradient-to-br from-blue-primary to-orange rounded-2xl flex items-center justify-center mx-auto shadow-lg">
-                    <span className="text-3xl">🏫</span>
+                    <span className="text-3xl"></span>
                   </div>
                 </div>
                 <h3 className="text-2xl font-heading font-bold mb-4 text-gray-800">Modern Facilities</h3>
@@ -193,7 +324,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+              <Button variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent">
                 Schedule a Visit
               </Button>
             </Link>

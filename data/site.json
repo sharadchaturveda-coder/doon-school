@@ -2,34 +2,9 @@
   "siteName": "Doon International School, Jabalpur",
   "tagline": "Excellence in Education",
   "navigation": [
-    {
-      "name": "About",
-      "href": "/about",
-      "dropdown": [
-        { "name": "Overview", "href": "/about" },
-        { "name": "Principal's Message", "href": "/about/principal-message" },
-        { "name": "Historical Legacy", "href": "/about/historical-legacy" }
-      ]
-    },
-    {
-      "name": "Admissions",
-      "href": "/admissions",
-      "dropdown": [
-        { "name": "Admission Process", "href": "/admissions" },
-        { "name": "Prospectus", "href": "/admissions/prospectus" }
-      ]
-    },
-    {
-      "name": "Campus Life",
-      "href": "/campus-life",
-      "dropdown": [
-        { "name": "Facilities", "href": "/campus-life/facilities" },
-        { "name": "Gallery", "href": "/campus-life/gallery" },
-        { "name": "Events", "href": "/campus-life/events" }
-      ]
-    },
-    { "name": "News", "href": "/news" },
-    { "name": "Mandatory Disclosure", "href": "/mandatory-disclosure" },
+    { "name": "About", "href": "/about" },
+    { "name": "Facilities", "href": "/facilities" },
+    { "name": "Admissions", "href": "/admissions" },
     { "name": "Contact", "href": "/contact" }
   ],
   "contact": {

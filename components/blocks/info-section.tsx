@@ -29,13 +29,16 @@ const InfoSection: React.FC<InfoSectionProps> = ({
         </div>
         {imageUrl && imageAlt && (
           <div className="md:w-1/2 relative h-64 w-full md:h-80 lg:h-96 rounded-lg overflow-hidden shadow-md">
-            <Image
-              src={imageUrl}
-              alt={imageAlt}
-              fill
-              style={{ objectFit: 'cover' }}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
-            />
+            <picture>
+              <source srcSet={imageUrl} type="image/avif" />
+              <Image
+                src={imageUrl.replace('.avif', '.webp')}
+                alt={imageAlt}
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+              />
+            </picture>
           </div>
         )}
       </div>
