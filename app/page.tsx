@@ -9,18 +9,14 @@ import Link from 'next/link';
 import GalleryGrid from '../components/blocks/gallery-grid';
 import siteData from '../data/site.json';
 import homeData from '../data/doon/home.json';
-import eventsData from '../data/events.json';
-import newsData from '../data/news.json';
 
 export default function Home() {
-  const featuredEvents = eventsData.filter(event => event.featured).slice(0, 3);
-  const featuredNews = newsData.filter(news => news.featured).slice(0, 3);
 
   return (
     <>
       {/* Hero Section */}
       <Hero
-        title={siteData.siteName}
+        title="Doon International School"
         subtitle={siteData.tagline}
         videoSrc={homeData.heroSection.media.src}
         videoPoster={homeData.heroSection.media.poster}
@@ -256,75 +252,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* News & Events Section */}
-      <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Latest News */}
-            <div>
-              <h3 className="text-2xl font-heading font-bold mb-6">Latest News</h3>
-              <div className="space-y-4">
-                {featuredNews.map((news) => (
-                  <Card key={news.id} className="p-4 hover:shadow-md transition-shadow">
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <div className="flex-1">
-                        <h4 className="font-semibold mb-2 line-clamp-2">{news.title}</h4>
-                        <p className="text-sm text-muted-foreground mb-2">{news.excerpt}</p>
-                        <p className="text-xs text-muted-foreground">{news.date}</p>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-              <div className="mt-6">
-                <Link href="/news">
-                  <Button variant="outline">View All News</Button>
-                </Link>
-              </div>
-            </div>
 
-            {/* Upcoming Events */}
-            <div>
-              <h3 className="text-2xl font-heading font-bold mb-6">Upcoming Events</h3>
-              <div className="space-y-4">
-                {featuredEvents.map((event) => (
-                  <Card key={event.id} className="p-4 hover:shadow-md transition-shadow">
-                    <h4 className="font-semibold mb-2">{event.title}</h4>
-                    <div className="text-sm text-muted-foreground space-y-1">
-                      <p>📅 {event.date}</p>
-                      <p>⏰ {event.time}</p>
-                      <p>📍 {event.location}</p>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-              <div className="mt-6">
-                <Link href="/campus-life/events">
-                  <Button variant="outline">View All Events</Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white -mt-10 relative z-10 rounded-t-3xl shadow-xl">
+      <section className="py-20 bg-brand-primary -mt-10 relative z-10 rounded-t-3xl shadow-xl">
         <div className="container mx-auto px-4 text-center">
-          <h3 className="text-3xl font-heading font-bold mb-4 text-primary">
+          <h3 className="text-3xl font-heading font-bold mb-4 text-white">
             Ready to Join Our Community?
           </h3>
-          <p className="text-lg mb-8 text-primary max-w-2xl mx-auto">
+          <p className="text-lg mb-8 text-white max-w-2xl mx-auto">
             Discover how Doon International School can help your child reach their full potential.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/admissions">
-              <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
+              <Button size="lg" className="bg-white text-brand-primary hover:bg-white/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
                 Apply Now
               </Button>
             </Link>
             <Link href="/contact">
-              <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
+              <Button size="lg" className="bg-white text-brand-primary hover:bg-white/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
                 Schedule a Visit
               </Button>
             </Link>

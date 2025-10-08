@@ -81,8 +81,8 @@ const CinematicHallExperience: React.FC<HallExperienceProps> = ({
   const opacity2 = useTransform(scrollYProgress, [0, 0.3, 0.8, 1], [0.2, 0.6, 0.9, 1]);
 
   // Biological spring animations
-  const springY1 = useSpring(y1, { stiffness: 250, damping: 35, mass: 0.8 });
-  const springY2 = useSpring(y2, { stiffness: 350, damping: 40, mass: 0.6 });
+  const springY1 = useSpring(y1, { stiffness: 400, damping: 25, mass: 0.8 });
+  const springY2 = useSpring(y2, { stiffness: 550, damping: 30, mass: 0.6 });
 
   // Living architectural system
   const [livingColumns, setLivingColumns] = useState<LivingColumn[]>([]);
@@ -100,7 +100,7 @@ const CinematicHallExperience: React.FC<HallExperienceProps> = ({
       angle: (i * 360) / 12 + Math.random() * 30 - 15,
       length: Math.random() * 50 + 50,
       intensity: Math.random(),
-      pulsationRate: 2 + Math.random() * 4,
+      pulsationRate: 1 + Math.random() * 2,
       phase: Math.random() * Math.PI * 2,
       color: i % 4 === 0 ? '#fbbf24' : i % 4 === 1 ? '#60a5fa' : i % 4 === 2 ? '#f59e0b' : '#8b5cf6'
     }))
@@ -471,7 +471,7 @@ const CinematicHallExperience: React.FC<HallExperienceProps> = ({
               className="space-y-12"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 1.5 }}
+              transition={{ duration: 0.5 }}
             >
               {/* Emotional Decorative Elements */}
               <motion.div
@@ -567,8 +567,8 @@ const CinematicHallExperience: React.FC<HallExperienceProps> = ({
                     }}
                     viewport={{ once: false, amount: 0.1 }}
                     transition={{
-                      duration: 1.2,
-                      delay: currentWordProgress > index ? 0.1 * (currentWordProgress - index) : 0,
+                      duration: 0.4,
+                      delay: currentWordProgress > index ? 0.03 * (currentWordProgress - index) : 0,
                       ease: "easeOut"
                     }}
                   >
@@ -598,7 +598,7 @@ const CinematicHallExperience: React.FC<HallExperienceProps> = ({
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 2 }}
+                transition={{ duration: 0.3, delay: 0.7 }}
                 className="flex justify-center space-x-12 text-lg text-white/80 uppercase tracking-widest"
               >
                 {[transitionSequence.entrance, transitionSequence.hall, transitionSequence.principal].map((text, index) => (
@@ -608,8 +608,8 @@ const CinematicHallExperience: React.FC<HallExperienceProps> = ({
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{
-                      duration: 0.8,
-                      delay: 2.2 + index * 0.3,
+                      duration: 0.3,
+                      delay: 0.8 + index * 0.1,
                       ease: "easeOut"
                     }}
                   >
@@ -653,7 +653,7 @@ const CinematicHallExperience: React.FC<HallExperienceProps> = ({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 3, duration: 1 }}
+          transition={{ delay: 1, duration: 0.3 }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           {/* Progress Container */}
