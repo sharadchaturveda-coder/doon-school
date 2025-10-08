@@ -38,14 +38,14 @@ const Header: React.FC = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <nav className="container mx-auto px-4 py-2 flex items-center justify-between">
-        <Link href="/" className="font-heading text-2xl font-bold text-primary flex items-center space-x-4">
-          <div className="relative w-24 h-24 flex-shrink-0">
+        <Link href="/" className="font-heading text-lg md:text-2xl font-bold text-primary flex items-center space-x-2 md:space-x-4">
+          <div className="relative w-16 h-16 md:w-24 md:h-24 flex-shrink-0">
             <Image
               src="/assets/logo.png"
               alt="Doon International School Logo"
               fill
               className="object-contain"
-              sizes="96px"
+              sizes="(max-width: 768px) 64px, 96px"
             />
           </div>
           <span>{siteData.siteName}</span>
