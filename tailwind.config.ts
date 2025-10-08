@@ -10,30 +10,27 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          ...tokens.colors.primary,
-          foreground: "#ffffff",
+          DEFAULT: tokens.colors.primary,
+          foreground: tokens.colors.foreground,
         },
         secondary: {
-          ...tokens.colors.secondary,
-          foreground: "#0f172a",
+          DEFAULT: tokens.colors.secondary,
+          foreground: tokens.colors.foreground,
         },
-        accent: tokens.colors.accent,
-        background: "#ffffff",
-        foreground: "#0f172a",
+        background: tokens.colors.background,
+        foreground: tokens.colors.foreground,
         muted: {
-          DEFAULT: tokens.colors.neutral["100"],
-          foreground: tokens.colors.neutral["600"],
+          DEFAULT: tokens.colors.muted,
+          foreground: tokens.colors.foreground,
         },
         text: tokens.colors.text,
-        neutral: tokens.colors.neutral,
         // Your brand colors
-        'blue-primary': '#004A99',
-        'orange-brand': '#F7941D',
-        'light-blue': '#0096D6',
+        'brand-primary': tokens.colors.primary,
+        'brand-secondary': tokens.colors.secondary,
         // shadcn/ui aliases
-        border: tokens.colors.neutral["200"],
-        input: tokens.colors.neutral["200"],
-        ring: tokens.colors.primary.DEFAULT,
+        border: "#e2e8f0",
+        input: "#e2e8f0",
+        ring: tokens.colors.primary,
         destructive: {
           DEFAULT: "#ef4444",
           foreground: "#ffffff",
@@ -42,8 +39,6 @@ const config: Config = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-gradient': tokens.gradients.hero,
-        'card-gradient': tokens.gradients.card,
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

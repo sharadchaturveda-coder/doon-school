@@ -26,12 +26,12 @@ export default function Home() {
         videoPoster={homeData.heroSection.media.poster}
       >
           <Link href="/about">
-            <Button size="lg" className="bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold">
+            <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold">
               Learn More
             </Button>
           </Link>
               <Link href="/admissions">
-                <Button size="lg" className="bg-gradient-to-r from-orange-brand to-blue-primary text-white hover:from-orange-brand hover:to-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold border-0">
+                <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold border-0">
                   Start Admissions
         </Button>
               </Link>
@@ -41,7 +41,7 @@ export default function Home() {
       {homeData.sections.map((section, index) => {
         if (section.type === 'image-text') {
           return (
-            <section key={index} className="py-16 bg-background">
+            <section key={index} className="py-16 bg-brand-primary">
               <div className="container mx-auto px-4">
                 <div className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:grid-flow-col-dense' : ''}`}>
                   <div className={index % 2 === 1 ? 'md:col-start-2' : ''}>
@@ -87,7 +87,7 @@ export default function Home() {
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.8, delay: 0.5 }}
-                          className="text-3xl md:text-4xl font-heading font-bold mb-6 text-foreground italic leading-tight"
+                          className="text-3xl md:text-4xl font-heading font-bold mb-6 text-white italic leading-tight"
                         >
                           {section.heading}
                         </motion.h2>
@@ -96,7 +96,7 @@ export default function Home() {
                           whileInView={{ opacity: 1 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.8, delay: 0.7 }}
-                          className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-thin italic"
+                          className="text-xl md:text-2xl text-white/90 leading-relaxed font-thin italic"
                         >
                           {section.text}
                         </motion.p>
@@ -106,7 +106,7 @@ export default function Home() {
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.9 }}
-                            className="block text-base text-muted-foreground italic mt-4"
+                            className="block text-base text-white/70 italic mt-4"
                           >
                             - {section.citation}
                           </motion.cite>
@@ -154,7 +154,7 @@ export default function Home() {
                 <GalleryGrid items={galleryItems} type="photo" />
                 <div className="text-center mt-8">
                   <Link href="/facilities">
-                    <Button size="lg">View More</Button>
+                    <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90">View More</Button>
                   </Link>
                 </div>
               </div>
@@ -166,13 +166,13 @@ export default function Home() {
       })}
 
       {/* Welcome Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-brand-primary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-6 text-foreground">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-6 text-white">
               Welcome to Excellence in Education
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-white/90 max-w-3xl mx-auto leading-relaxed">
               Doon International School is committed to providing a holistic education that fosters 
               academic excellence, personal growth, and social responsibility. We believe in nurturing 
               young minds to become confident, creative, and compassionate global citizens.
@@ -242,8 +242,8 @@ export default function Home() {
             >
               <Card className="p-8 text-center h-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 hover:border-white/40 transition-all duration-300 shadow-xl hover:shadow-2xl">
                 <div className="mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-primary to-orange rounded-2xl flex items-center justify-center mx-auto shadow-lg">
-                    <span className="text-3xl"></span>
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-primary to-orange rounded-2xl flex items-center justify-center mx-auto shadow-lg">
+                    <span className="text-3xl">🏢</span>
                   </div>
                 </div>
                 <h3 className="text-2xl font-heading font-bold mb-4 text-gray-800">Modern Facilities</h3>
@@ -309,22 +309,22 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section className="py-20 bg-white -mt-10 relative z-10 rounded-t-3xl shadow-xl">
         <div className="container mx-auto px-4 text-center">
-          <h3 className="text-3xl font-heading font-bold mb-4">
+          <h3 className="text-3xl font-heading font-bold mb-4 text-primary">
             Ready to Join Our Community?
           </h3>
-          <p className="text-lg mb-8 opacity-90">
+          <p className="text-lg mb-8 text-primary max-w-2xl mx-auto">
             Discover how Doon International School can help your child reach their full potential.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/admissions">
-              <Button variant="secondary" size="lg">
+              <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
                 Apply Now
               </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="outline" size="lg" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent">
+              <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
                 Schedule a Visit
               </Button>
             </Link>

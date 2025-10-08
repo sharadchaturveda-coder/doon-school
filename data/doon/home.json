@@ -8,7 +8,7 @@
       "src": "/assets/hero-bg.webm",
       "poster": "/assets/hero-fallback.avif"
     },
-    "content": "A LEGACY OF EXCELLENCE — NURTURING YOUNG MINDS FOR A BRIGHTER FUTURE."
+    "content": "Doon International School"
   },
   "sections": [
     {
@@ -33,7 +33,7 @@
     {
       "type": "gallery",
       "heading": "Gallery",
-      "content": "Snapshots from school life — moments of learning, creativity, and community.",
+      "content": "Snapshots from school life - moments of learning, creativity, and community.",
       "gallery": [
         "/assets/gallery/gallery1.avif",
         "/assets/gallery/gallery2.avif",

@@ -12,26 +12,21 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
         {/* Animated Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-primary via-light-blue to-orange-brand">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-primary/90 via-light-blue/90 to-orange-brand/90" />
+        <div className="absolute inset-0 bg-brand-primary opacity-90">
+          <div className="absolute inset-0 bg-brand-secondary opacity-20 animate-pulse" />
         </div>
         
-        {/* Floating Elements */}
+        {/* Brand-Aligned Floating Elements */}
         <div className="absolute inset-0">
-          <motion.div 
-            className="absolute top-20 left-10 w-6 h-6 bg-white/20 rounded-full"
+          <motion.div
+            className="absolute top-20 left-10 w-6 h-6 bg-brand-secondary/20 rounded-full"
             animate={{ y: [-10, 10, -10], opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           />
-          <motion.div 
-            className="absolute top-32 right-20 w-4 h-4 bg-yellow-400/30 rounded-full"
+          <motion.div
+            className="absolute top-32 right-20 w-4 h-4 bg-brand-primary/30 rounded-full"
             animate={{ y: [10, -10, 10], x: [-5, 5, -5] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          />
-          <motion.div 
-            className="absolute bottom-20 left-1/4 w-8 h-8 bg-cyan-400/20 rounded-full"
-            animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
           />
         </div>
         
@@ -43,7 +38,7 @@ export default function About() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black mb-8 text-white leading-tight">
-                <span className="block gradient-text-hero">Excellence</span>
+                <span className="block text-white">Excellence</span>
               </h1>
             </motion.div>
             
@@ -69,7 +64,7 @@ export default function About() {
 
       {/* Mission & Vision */}
       <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-        <div className="container mx-auto px-4">
+            <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -77,8 +72,8 @@ export default function About() {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black mb-4 gradient-text">Our Foundation</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">The pillars that guide our educational excellence</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black mb-4 text-primary">Our Foundation</h2>
+            <p className="text-xl text-primary max-w-3xl mx-auto">The pillars that guide our educational excellence</p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8">
@@ -93,14 +88,14 @@ export default function About() {
                 transition: { duration: 0.15 }
               }}
             >
-              <Card className="p-10 h-full bg-gradient-to-br from-orange-brand to-blue-primary text-white border-0 shadow-2xl hover:shadow-3xl transition-all duration-300">
+              <Card className="p-10 h-full bg-brand-primary/5 text-primary border border-brand-primary/20 shadow-2xl hover:shadow-3xl transition-all duration-300">
                 <div className="mb-6">
-                  <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-                    <span className="text-3xl">🎯</span>
+                  <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center">
+                    <span className="text-3xl text-white">🎯</span>
                   </div>
                 </div>
                 <h2 className="text-4xl font-heading font-bold mb-6">Our Mission</h2>
-                <p className="text-lg leading-relaxed opacity-90">
+                <p className="text-lg leading-relaxed text-primary">
                   {aboutData.sections.find(s => s.heading === "Our Mission")?.content || "Content not found"}
                 </p>
               </Card>
@@ -117,14 +112,14 @@ export default function About() {
                 transition: { duration: 0.2, ease: "easeOut" }
               }}
             >
-              <Card className="p-10 h-full bg-gradient-to-br from-blue-primary to-light-blue text-white border-0 shadow-2xl hover:shadow-3xl transition-all duration-300">
+              <Card className="p-10 h-full bg-brand-primary/10 text-primary border border-brand-primary/20 shadow-2xl hover:shadow-3xl transition-all duration-300">
                 <div className="mb-6">
-                  <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
-                    <span className="text-3xl">🔮</span>
+                  <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center">
+                    <span className="text-3xl text-white">🔮</span>
                   </div>
                 </div>
                 <h2 className="text-4xl font-heading font-bold mb-6">Our Vision</h2>
-                <p className="text-lg leading-relaxed opacity-90">
+                <p className="text-lg leading-relaxed text-primary">
                   {aboutData.sections.find(s => s.heading === "Our Vision")?.content || "Content not found"}
                 </p>
               </Card>
@@ -143,8 +138,8 @@ export default function About() {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black mb-4 gradient-text">Our Core Values</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">The fundamental principles that shape our educational philosophy</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black mb-4 text-primary">Our Core Values</h2>
+            <p className="text-xl text-primary max-w-3xl mx-auto">The fundamental principles that shape our educational philosophy</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -174,7 +169,7 @@ export default function About() {
                 icon: "🚀",
                 title: "Innovation",
                 desc: "Embracing creativity, critical thinking, and adaptive learning approaches.",
-                gradient: "from-yellow-400 to-orange-500",
+                gradient: "from-blue-400 to-purple-500",
                 delay: 0.3
               }
             ].map((value, index) => (
@@ -214,22 +209,22 @@ export default function About() {
 
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary text-primary-foreground">
+      <section className="py-20 bg-white -mt-10 relative z-10 rounded-t-3xl shadow-xl">
         <div className="container mx-auto px-4 text-center">
-          <h3 className="text-3xl font-heading font-bold mb-4">
+          <h3 className="text-3xl font-heading font-bold mb-4 text-primary">
             Learn More About Our Community
           </h3>
-          <p className="text-lg mb-8 opacity-90">
+          <p className="text-lg mb-8 text-primary max-w-2xl mx-auto">
             Discover what makes Doon International School special.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/admissions">
-              <Button variant="secondary" size="lg">
+              <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
                 Admissions
               </Button>
             </Link>
             <Link href="/facilities">
-              <Button variant="secondary" size="lg">
+              <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
                 Our Facilities
               </Button>
             </Link>

@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { X } from "lucide-react"
 
@@ -10,26 +11,37 @@ interface SheetProps {
   children: React.ReactNode
 }
 
-const Sheet: React.FC<SheetProps> = ({ open, onOpenChange, children }) => {
+const Sheet: React.FC<SheetProps> = ({ open: externalOpen, onOpenChange, children }) => {
+  const [internalOpen, setInternalOpen] = useState(false);
+  const isOpen = externalOpen !== undefined ? externalOpen : internalOpen;
+  const setOpen = onOpenChange || setInternalOpen;
+
   return (
     <>
-      {open && (
+      {isOpen && (
         <div
-          className="fixed inset-0 z-50 bg-background/80 backdrop-blur-sm"
-          onClick={() => onOpenChange?.(false)}
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-lg"
+          onClick={() => setOpen(false)}
         />
       )}
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child) && child.type === SheetContent) {
           return React.cloneElement(child as React.ReactElement<any>, {
-            open,
-            onOpenChange,
-          })
+            open: isOpen,
+            onOpenChange: setOpen,
+          });
+        } else if (React.isValidElement(child) && child.type === SheetTrigger) {
+          return React.cloneElement(child as React.ReactElement<any>, {
+            onClick: (e: any) => {
+              setOpen(true);
+              (child as React.ReactElement<any>).props.onClick?.(e);
+            },
+          });
         }
-        return child
+        return child;
       })}
     </>
-  )
+  );
 }
 
 interface SheetContentProps {
@@ -44,26 +56,48 @@ const SheetContent = React.forwardRef<HTMLDivElement, SheetContentProps>(
     <div
       ref={ref}
       className={cn(
-        "fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out",
-        "inset-y-0 right-0 h-full w-3/4 border-l",
-        "duration-300",
-        open ? "translate-x-0" : "translate-x-full",
+        "fixed z-[51] bg-gradient-to-b from-white to-slate-50 shadow-2xl border-l border-slate-200/80",
+        "top-20 right-0 bottom-0 w-4/5 max-w-sm",
+        "transition-all duration-400 ease-out transform-gpu",
+        open ? "translate-x-0 opacity-100 scale-100 backdrop-blur-xl" : "translate-x-full opacity-0 scale-95",
         className
       )}
       {...props}
     >
-      <div className="flex flex-col space-y-2">
-        <div className="flex items-center justify-between">
-          <div className="text-lg font-semibold">Menu</div>
+      <div className="flex flex-col h-full">
+        {/* Header with close button */}
+        <div className="flex items-center justify-between p-6 pb-4 border-b border-slate-200/60">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center">
+              <span className="text-white font-bold text-xs">DS</span>
+            </div>
+            <div>
+              <div className="font-heading font-semibold text-foreground text-sm">Doon International</div>
+              <div className="text-xs text-muted-foreground">School, Jabalpur</div>
+            </div>
+          </div>
           <button
-            className="rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+            className="group relative w-8 h-8 rounded-full bg-slate-100 hover:bg-red-50 hover:text-red-600 transition-all duration-200 flex items-center justify-center"
             onClick={() => onOpenChange?.(false)}
           >
-            <X className="h-4 w-4" />
+            <X className="h-4 w-4 group-hover:rotate-90 transition-transform duration-200" />
             <span className="sr-only">Close</span>
           </button>
         </div>
-        {children}
+
+        {/* Navigation */}
+        <div className="flex-1 px-6 py-4">
+          {children}
+        </div>
+
+        {/* Footer */}
+        <div className="p-6 pt-4 border-t border-slate-200/60 space-y-3">
+          <div className="text-xs text-muted-foreground">
+            <div className="font-medium">Contact Us</div>
+            <div className="mt-1">📞 096625 03482</div>
+            <div>✉️ info@dooninternationalschool.com</div>
+          </div>
+        </div>
       </div>
     </div>
   )

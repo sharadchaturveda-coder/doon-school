@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu } from 'lucide-react';
-import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
+import Image from 'next/image';
+import { useScroll, useTransform, motion } from 'framer-motion';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,17 +12,43 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '../ui/navigation-menu';
+import ModernMobileMenu from '../ui/modern-mobile-menu';
+import ModernHamburgerButton from '../ui/modern-hamburger-button';
 import siteData from '../../data/site.json';
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
+  const { scrollY } = useScroll();
+  const headerBackgroundOpacity = useTransform(scrollY, [0, 100], [1, 0.85]);
+  const headerBlur = useTransform(scrollY, [0, 200], [0, 2]);
+  const headerShadow = useTransform(scrollY, [0, 100], ['0 2px 4px 0 rgba(0,0,0,0.05)', '0 4px 12px 0 rgba(0,0,0,0.12)']);
+
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-40">
-      <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="font-heading text-2xl font-bold text-primary">
-          {siteData.siteName}
+    <motion.header
+      className="backdrop-blur-md sticky top-0 z-40 border-b border-white/20"
+      style={{
+        backgroundColor: useTransform(scrollY, [0, 100], ['rgba(255, 255, 255, 1)', 'rgba(255, 255, 255, 0.8)']),
+        boxShadow: headerShadow,
+        backdropFilter: useTransform(scrollY, [0, 100], ['blur(0px)', 'blur(8px)'])
+      }}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      <nav className="container mx-auto px-4 py-2 flex items-center justify-between">
+        <Link href="/" className="font-heading text-2xl font-bold text-primary flex items-center space-x-4">
+          <div className="relative w-24 h-24 flex-shrink-0">
+            <Image
+              src="/assets/logo.png"
+              alt="Doon International School Logo"
+              fill
+              className="object-contain"
+              sizes="96px"
+            />
+          </div>
+          <span>{siteData.siteName}</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -39,28 +65,20 @@ const Header: React.FC = () => {
         </div>
 
         {/* Mobile Menu */}
-        <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-          <SheetTrigger className="md:hidden" onClick={() => setIsMobileMenuOpen(true)}>
-            <Menu className="h-6 w-6" />
-            <span className="sr-only">Toggle mobile menu</span>
-          </SheetTrigger>
-          <SheetContent>
-            <div className="flex flex-col space-y-4 mt-4">
-              {siteData.navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="font-medium text-foreground hover:text-primary"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </SheetContent>
-        </Sheet>
+        <div className="md:hidden">
+          <ModernHamburgerButton
+            isOpen={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          />
+        </div>
+
+        {/* Modern Mobile Menu */}
+        <ModernMobileMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+        />
       </nav>
-    </header>
+    </motion.header>
   );
 };
 

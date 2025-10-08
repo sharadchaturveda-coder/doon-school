@@ -214,7 +214,7 @@ const CinematicHallExperience: React.FC<HallExperienceProps> = ({
   }, [wordProgress]);
 
   return (
-    <div ref={containerRef} className="relative h-[280vh] overflow-hidden bg-gradient-to-b from-indigo-900 via-slate-900 to-black">
+    <div ref={containerRef} className="relative h-[280vh] overflow-hidden bg-brand-primary">
       <div className="sticky top-0 h-screen overflow-hidden">
 
         {/* Multi-dimensional Background Layers */}
@@ -264,14 +264,9 @@ const CinematicHallExperience: React.FC<HallExperienceProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
         </motion.div>
 
-        {/* Enhanced Atmospheric Gradient */}
+        {/* Solid Brand Background Layer */}
         <motion.div
-          className="absolute inset-0"
-          style={{
-            background: `radial-gradient(ellipse at ${mousePosition.x}% ${mousePosition.y}%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
-                        radial-gradient(ellipse at ${100 - mousePosition.x}% ${100 - mousePosition.y}%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
-                        linear-gradient(45deg, rgba(6, 182, 212, 0.1) 0%, transparent 30%, rgba(236, 72, 153, 0.1) 70%, transparent 100%)`
-          }}
+          className="absolute inset-0 bg-brand-primary opacity-20"
         />
 
         {/* Dynamic Living Light Rays */}

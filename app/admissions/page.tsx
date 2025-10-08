@@ -11,42 +11,42 @@ export default function AdmissionsPage() {
       step: "01",
       title: "Inquiry",
       desc: "Submit an online inquiry form or contact our admissions office",
-      gradient: "from-blue-primary to-light-blue",
+      bgColor: "bg-gradient-to-br from-blue-500 to-indigo-600",
       icon: "📇"
     },
     {
       step: "02",
       title: "Campus Visit",
       desc: "Schedule a visit to experience our facilities and meet our staff",
-      gradient: "from-orange-brand to-blue-primary",
+      bgColor: "bg-gradient-to-br from-purple-500 to-pink-500",
       icon: "🏠"
     },
     {
       step: "03",
       title: "Application",
       desc: "Complete and submit the application form with required documents",
-      gradient: "from-light-blue to-orange-brand",
+      bgColor: "bg-gradient-to-br from-green-500 to-teal-500",
       icon: "📝"
     },
     {
       step: "04",
       title: "Assessment",
       desc: "Students undergo assessment or interview based on grade level",
-      gradient: "from-blue-primary to-orange-brand",
+      bgColor: "bg-gradient-to-br from-orange-500 to-red-500",
       icon: "🎤"
     },
     {
       step: "05",
       title: "Admission Offer",
       desc: "Successful applicants receive an admission offer",
-      gradient: "from-orange-brand to-light-blue",
+      bgColor: "bg-gradient-to-br from-cyan-500 to-blue-500",
       icon: "🎉"
     },
     {
       step: "06",
       title: "Enrollment",
       desc: "Complete enrollment formalities and secure your child's place",
-      gradient: "from-light-blue to-blue-primary",
+      bgColor: "bg-gradient-to-br from-emerald-500 to-green-500",
       icon: "🎓"
     }
   ];
@@ -55,8 +55,8 @@ export default function AdmissionsPage() {
     <>
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-primary via-orange-brand to-light-blue">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-primary/90 via-orange-brand/90 to-light-blue/90" />
+        <div className="absolute inset-0 bg-brand-primary opacity-90">
+          <div className="absolute inset-0 bg-brand-secondary opacity-20 animate-pulse" />
         </div>
         
         {/* Floating Elements */}
@@ -64,7 +64,7 @@ export default function AdmissionsPage() {
           <motion.div className="absolute top-20 right-20 w-6 h-6 bg-white/30 rounded-full"
             animate={{ y: [-10, 10, -10], scale: [1, 1.2, 1] }}
             transition={{ duration: 4, repeat: Infinity }} />
-          <motion.div className="absolute bottom-32 left-16 w-8 h-8 bg-yellow-400/30 rounded-full"
+          <motion.div className="absolute bottom-32 left-16 w-8 h-8 bg-brand-primary/20 rounded-full"
             animate={{ rotate: [0, 360], scale: [0.8, 1.2, 0.8] }}
             transition={{ duration: 6, repeat: Infinity, delay: 1 }} />
         </div>
@@ -78,7 +78,7 @@ export default function AdmissionsPage() {
             >
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-heading font-black mb-8 text-white leading-tight">
                 Join Our
-                <span className="block gradient-text-hero">Community</span>
+                <span className="block text-white">Community</span>
               </h1>
             </motion.div>
             
@@ -96,14 +96,15 @@ export default function AdmissionsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Link href="/contact">
-                <Button size="lg" className="bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-pink-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-10 py-4 text-xl font-semibold mr-4">
+                <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-10 py-4 text-xl font-semibold">
                   Start Application
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" className="bg-gradient-to-r from-orange-brand to-blue-primary text-white hover:from-orange to-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-10 py-4 text-xl font-semibold border-0">
+                <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-10 py-4 text-xl font-semibold border-0">
                   Schedule Visit
                 </Button>
               </Link>
@@ -122,8 +123,8 @@ export default function AdmissionsPage() {
             transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Admission Process</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Your journey to excellence in 6 simple steps</p>
+            <h2 className="text-5xl font-heading font-black mb-4 text-primary">Admission Process</h2>
+            <p className="text-xl text-primary max-w-3xl mx-auto">Your journey to excellence in 6 simple steps</p>
           </motion.div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -140,7 +141,7 @@ export default function AdmissionsPage() {
                   transition: { duration: 0.15 }
                 }}
               >
-                <Card className={`p-8 h-full bg-gradient-to-br ${step.gradient} text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300`}>
+                <Card className={`p-8 h-full ${step.bgColor} text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300`}>
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm">
                       <span className="text-2xl">{step.icon}</span>
@@ -167,17 +168,17 @@ export default function AdmissionsPage() {
             className="max-w-4xl mx-auto"
           >
             <div className="text-center mb-12">
-              <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Required Documents</h2>
-              <p className="text-xl text-gray-600">Please prepare these documents for your application</p>
+              <h2 className="text-5xl font-heading font-black mb-4 text-primary">Required Documents</h2>
+              <p className="text-xl text-primary">Please prepare these documents for your application</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-6">
               {[
-                { icon: "📄", title: "Birth Certificate", gradient: "from-blue-primary to-light-blue" },
-                { icon: "📊", title: "Academic Records", gradient: "from-orange-brand to-blue-primary" },
-                { icon: "📜", title: "Transfer Certificate", gradient: "from-light-blue to-orange-brand" },
-                { icon: "🖼️", title: "Photographs", gradient: "from-blue-primary to-orange-brand" },
-                { icon: "🎫", title: "Identity Documents", gradient: "from-orange-brand to-light-blue" },
+                { icon: "📄", title: "Birth Certificate", bgColor: "bg-gradient-to-r from-blue-500 to-cyan-500" },
+                { icon: "📊", title: "Academic Records", bgColor: "bg-gradient-to-r from-slate-500 to-blue-600" },
+                { icon: "📜", title: "Transfer Certificate", bgColor: "bg-gradient-to-r from-purple-500 to-indigo-500" },
+                { icon: "🖼️", title: "Photographs", bgColor: "bg-gradient-to-r from-green-500 to-blue-500" },
+                { icon: "🎫", title: "Identity Documents", bgColor: "bg-gradient-to-r from-pink-500 to-red-500" },
               ].map((doc, index) => (
                 <motion.div
                   key={index}
@@ -185,13 +186,13 @@ export default function AdmissionsPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{
-                  scale: 1.03,
-                  y: -2,
-                  transition: { duration: 0.15 }
-                }}
+                  whileHover={{
+                    scale: 1.03,
+                    y: -2,
+                    transition: { duration: 0.15 }
+                  }}
                 >
-                  <Card className={`p-6 bg-gradient-to-r ${doc.gradient} text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300`}>
+                  <Card className={`p-6 ${doc.bgColor} text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300`}>
                     <div className="flex items-center">
                       <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mr-4 backdrop-blur-sm">
                         <span className="text-2xl">{doc.icon}</span>
@@ -216,8 +217,8 @@ export default function AdmissionsPage() {
             transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-heading font-black mb-4 gradient-text">World-Class Facilities</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Experience a nurturing environment designed for comprehensive development</p>
+            <h2 className="text-5xl font-heading font-black mb-4 text-primary">World-Class Facilities</h2>
+            <p className="text-xl text-primary max-w-3xl mx-auto">Experience a nurturing environment designed for comprehensive development</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -257,7 +258,7 @@ export default function AdmissionsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-primary via-light-blue to-orange-brand">
+      <section className="py-20 bg-brand-primary">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -273,12 +274,12 @@ export default function AdmissionsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <Button size="lg" className="bg-white/20 backdrop-blur-md border border-white/30 text-white hover:bg-white hover:text-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg px-8 py-4 text-lg font-semibold">
+                <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
                   Contact Admissions
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" className="bg-gradient-to-r from-orange-brand to-blue-primary text-white hover:from-orange-brand hover:to-blue-primary transition-all duration-300 transform hover:scale-105 shadow-lg px-8 py-4 text-lg font-semibold border-0">
+                <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
                   Request Information
                 </Button>
               </Link>

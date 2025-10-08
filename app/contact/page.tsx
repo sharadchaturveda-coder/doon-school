@@ -11,29 +11,29 @@ export default function ContactPage() {
     <>
       {/* Vibrant Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-primary via-orange-brand to-light-blue">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-primary/90 via-orange-brand/90 to-light-blue/90" />
+        <div className="absolute inset-0 bg-brand-primary opacity-90">
+          <div className="absolute inset-0 bg-brand-secondary opacity-20 animate-pulse" />
         </div>
         
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
-          <motion.div className="absolute top-20 left-20 w-8 h-8 bg-yellow-400/40 rounded-full"
-            animate={{ 
-              scale: [1, 1.5, 1], 
+          <motion.div className="absolute top-20 left-20 w-8 h-8 bg-secondary/40 rounded-full"
+            animate={{
+              scale: [1, 1.5, 1],
               rotate: [0, 180, 360],
               opacity: [0.4, 0.8, 0.4]
             }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} />
-          <motion.div className="absolute top-40 right-16 w-6 h-6 bg-cyan-400/50 rounded-full"
-            animate={{ 
-              y: [-20, 20, -20], 
+          <motion.div className="absolute top-40 right-16 w-6 h-6 bg-primary/50 rounded-full"
+            animate={{
+              y: [-20, 20, -20],
               x: [-10, 10, -10],
               scale: [0.8, 1.2, 0.8]
             }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }} />
-          <motion.div className="absolute bottom-32 left-1/3 w-10 h-10 bg-emerald-400/30 rounded-full"
-            animate={{ 
-              rotate: [0, -180, 0], 
+          <motion.div className="absolute bottom-32 left-1/3 w-10 h-10 bg-secondary/30 rounded-full"
+            animate={{
+              rotate: [0, -180, 0],
               scale: [1, 0.8, 1.2, 1]
             }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }} />
@@ -48,7 +48,7 @@ export default function ContactPage() {
             >
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-heading font-black mb-8 text-white leading-tight">
                 Let's
-                <span className="block gradient-text-hero">Connect</span>
+                <span className="block text-white">Connect</span>
               </h1>
             </motion.div>
             
@@ -73,7 +73,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Information */}
-      <section className="py-20 bg-gradient-to-br from-blue-primary/10 via-orange-brand/10 to-light-blue/10">
+      <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -82,8 +82,9 @@ export default function ContactPage() {
             transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Get In Touch</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Multiple ways to reach us - we're always here to help!</p>
+            <h2 className="text-5xl font-heading font-black mb-4 text-primary">Get In Touch</h2>
+
+            <p className="text-xl text-primary max-w-3xl mx-auto">Multiple ways to reach us - we're always here to help!</p>
           </motion.div>
           
           <div className="grid lg:grid-cols-3 gap-8">
@@ -92,7 +93,7 @@ export default function ContactPage() {
                 icon: "📍",
                 title: "Visit Us",
                 content: siteData.contact.address,
-                gradient: "from-orange-brand to-blue-primary",
+                bgColor: "bg-brand-primary/5",
                 delay: 0
               },
               {
@@ -100,14 +101,14 @@ export default function ContactPage() {
                 title: "Call Us",
                 content: siteData.contact.phone,
                 subtitle: "Mon-Fri: 8:00 AM - 4:00 PM",
-                gradient: "from-blue-primary to-light-blue",
+                bgColor: "bg-brand-primary/10",
                 delay: 0.1
               },
               {
                 icon: "✉️",
                 title: "Email Us",
                 content: siteData.contact.email,
-                gradient: "from-light-blue to-orange-brand",
+                bgColor: "bg-brand-primary/15",
                 delay: 0.2
               }
             ].map((contact, index) => (
@@ -123,7 +124,7 @@ export default function ContactPage() {
                   transition: { duration: 0.15 }
                 }}
               >
-                <Card className={`p-8 text-center h-full bg-gradient-to-br ${contact.gradient} text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300`}>
+                <Card className={`p-8 text-center h-full ${contact.bgColor} text-primary border border-brand-primary/20 shadow-xl hover:shadow-2xl transition-all duration-300`}>
                   <div className="mb-6">
                     <div className="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center mx-auto backdrop-blur-sm">
                       <span className="text-4xl">{contact.icon}</span>
@@ -144,7 +145,7 @@ export default function ContactPage() {
       </section>
 
       {/* Transport Information */}
-      <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+      <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -153,8 +154,8 @@ export default function ContactPage() {
             transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-heading font-black mb-4 gradient-text">Transportation</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Safe and convenient transport services for our students</p>
+            <h2 className="text-5xl font-heading font-black mb-4 text-primary">Transportation</h2>
+            <p className="text-xl text-primary max-w-3xl mx-auto">Safe and convenient transport services for our students</p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
@@ -167,12 +168,12 @@ export default function ContactPage() {
             >
               <Card className="p-8 border-0">
                 <div className="flex items-start space-x-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-primary to-light-blue rounded-2xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center flex-shrink-0">
                     <span className="text-3xl">🚐</span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-heading font-bold mb-4 gradient-text">Bus Transportation Services</h3>
-                    <p className="text-gray-600 leading-relaxed mb-4">
+                    <h3 className="text-2xl font-heading font-bold mb-4 text-primary">Bus Transportation Services</h3>
+                    <p className="text-primary leading-relaxed mb-4">
                       Our school offers a convenient and efficient bus service, designed to make every student's daily commute safe, comfortable, and stress-free. The transport system reflects our commitment to punctuality, safety, and care. With designated routes and scheduled pick-up and drop-off points, our transport department ensures that students arrive at school and return home comfortably and on time.
                     </p>
                     <div className="bg-blue-50 p-4 rounded-xl">

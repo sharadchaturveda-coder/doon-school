@@ -160,10 +160,10 @@ export default function ContactForm() {
             </div>
           )}
 
-          <Button 
-            type="submit" 
-            size="lg" 
-            className="w-full" 
+          <Button
+            type="submit"
+            size="lg"
+            className="w-full bg-brand-primary text-white hover:bg-brand-primary/90"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
