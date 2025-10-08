@@ -28,7 +28,7 @@ const GalleryGrid: React.FC<GalleryGridProps> = ({ items, type }) => {
                   alt={item.alt}
                   fill
                   style={{ objectFit: 'cover' }}
-                  className="rounded-t-lg"
+                  className="rounded-lg"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </picture>
@@ -40,13 +40,10 @@ const GalleryGrid: React.FC<GalleryGridProps> = ({ items, type }) => {
                 title={item.alt}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                className="absolute top-0 left-0 w-full h-full rounded-t-lg"
+                className="absolute top-0 left-0 w-full h-full rounded-lg"
               ></iframe>
             </div>
           )}
-          <div className="p-4">
-            <p className="font-body text-text-DEFAULT text-sm">{item.alt}</p>
-          </div>
         </Card>
       ))}
     </Grid>
