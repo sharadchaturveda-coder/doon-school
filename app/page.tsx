@@ -140,7 +140,7 @@ export default function Home() {
             <Card className="overflow-hidden">
               <div className="flex flex-col">
                 <div className="w-full">
-                  <Image src="/images/update1.jpeg" alt="Admission" width={200} height={150} className="w-full h-48 object-contain bg-gray-50" />
+                  <Image src="/images/update1.avif" alt="Admission" width={200} height={150} className="w-full h-48 object-contain bg-gray-50" />
                 </div>
                 <div className="p-4 flex flex-col justify-center">
                   <div className="bg-[#f2b33d] text-[#1f4f8b] inline-block px-2 py-1 text-sm rounded mb-2 font-semibold">April 4, 2025</div>
@@ -152,7 +152,7 @@ export default function Home() {
             <Card className="overflow-hidden">
               <div className="flex flex-col">
                 <div className="w-full">
-                  <Image src="/images/update2.jpeg" alt="Facility" width={200} height={150} className="w-full h-48 object-contain bg-gray-50" />
+                  <Image src="/images/update2.avif" alt="Facility" width={200} height={150} className="w-full h-48 object-contain bg-gray-50" />
                 </div>
                 <div className="p-4 flex flex-col justify-center">
                   <div className="bg-[#f2b33d] text-[#1f4f8b] inline-block px-2 py-1 text-sm rounded mb-2 font-semibold">April 4, 2025</div>
@@ -164,7 +164,7 @@ export default function Home() {
             <Card className="overflow-hidden">
               <div className="flex flex-col">
                 <div className="w-full">
-                  <Image src="/images/update3.jpeg" alt="Campus" width={200} height={150} className="w-full h-48 object-contain bg-gray-50" />
+                  <Image src="/images/update3.avif" alt="Campus" width={200} height={150} className="w-full h-48 object-contain bg-gray-50" />
                 </div>
                 <div className="p-4 flex flex-col justify-center">
                   <div className="bg-[#f2b33d] text-[#1f4f8b] inline-block px-2 py-1 text-sm rounded mb-2 font-semibold">April 4, 2025</div>
