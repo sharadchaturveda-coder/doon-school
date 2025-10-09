@@ -13,22 +13,9 @@
   "sections": [
     {
       "type": "image-text",
-      "heading": "Our Grand Vision",
-      "text": "Step through our majestic entrance into a world where learning transcends classrooms and textbooks. Here, every child embarks on a journey of discovery that nurtures intellectual curiosity, moral integrity, and creative thinking, shaping minds that will lead tomorrow's world.",
-      "image": "/assets/main-entrance.avif"
-    },
-    {
-      "type": "image-text",
       "heading": "Meet the Faculty",
       "text": "Welcome to meet our distinguished faculty — educators dedicated to innovation and excellence. Through regular workshops, collaborative sessions, and peer mentorship, our teachers embody the spirit of lifelong learning, ensuring every lesson inspires and transforms.",
       "image": "/assets/main-hall.avif"
-    },
-    {
-      "type": "image-text",
-      "heading": "Principal's Message",
-      "text": "Education is not merely the filling of a pail, but the lighting of a fire within each soul. At Doon International School, we ignite curiosity, foster integrity, and cultivate global citizens who will shape tomorrow's world.",
-      "citation": "Mr. Manjeet Singh, Principal",
-      "image": "/assets/principal.avif"
     },
     {
       "type": "gallery",

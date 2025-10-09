@@ -274,12 +274,12 @@ export default function AdmissionsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
+                <Button size="lg" className="bg-white text-brand-primary hover:bg-gray-100 hover:text-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
                   Contact Admissions
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
+                <Button size="lg" className="bg-white text-brand-primary hover:bg-gray-100 hover:text-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
                   Request Information
                 </Button>
               </Link>
