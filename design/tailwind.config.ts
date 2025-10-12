@@ -3,38 +3,27 @@ import tokens from "./tokens.json";
 
 const config: Config = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{ts,tsx,js,jsx,mdx}",
+    "./components/**/*.{ts,tsx,js,jsx,mdx}"
   ],
   theme: {
     extend: {
       colors: {
         primary: tokens.colors.primary,
-        secondary: tokens.colors.secondary,
-        background: tokens.colors.neutral["50"],
-        foreground: tokens.colors.text.DEFAULT,
-        muted: tokens.colors.neutral["200"],
-        text: {
-          DEFAULT: tokens.colors.text.DEFAULT,
-          light: tokens.colors.text.light,
-          dark: tokens.colors.text.dark,
-          inverse: tokens.colors.text.inverse,
-        },
-        neutral: tokens.colors.neutral,
+        accent: tokens.colors.accent,
+        background: tokens.colors.background,
+        foreground: tokens.colors.foreground,
+        muted: tokens.colors.muted
       },
       fontFamily: {
-        body: [tokens.typography.fontFamily.body[0], "sans-serif"],
-        heading: [tokens.typography.fontFamily.heading[0], "serif"],
+        sans: [tokens.typography.fontFamilySans],
       },
-      fontSize: tokens.typography.fontSize,
-      lineHeight: tokens.typography.lineHeight,
-      spacing: tokens.spacing,
       borderRadius: {
-        DEFAULT: tokens.borderRadius.DEFAULT,
-        ...tokens.borderRadius,
-      },
-    },
+        DEFAULT: tokens.radius
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 };
+
 export default config;

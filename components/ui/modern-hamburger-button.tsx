@@ -24,10 +24,10 @@ export const ModernHamburgerButton: React.FC<ModernHamburgerButtonProps> = ({
       <div className="absolute inset-0 bg-primary/30 rounded-full blur-md scale-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
       {/* Hamburger lines */}
-      <div className="relative w-5 h-4 flex flex-col justify-center items-center">
+      <div className="relative w-5 h-5 flex flex-col justify-center items-center">
         <motion.span
           className="absolute h-0.5 bg-white rounded-full"
-          style={{ width: isOpen ? '16px' : '20px' }}
+          style={{ width: '16px' }}
           animate={{
             top: isOpen ? '50%' : '25%',
             rotate: isOpen ? 45 : 0,
@@ -36,8 +36,8 @@ export const ModernHamburgerButton: React.FC<ModernHamburgerButtonProps> = ({
           transition={{ duration: 0.3, ease: "easeInOut" }}
         />
         <motion.span
-          className="absolute h-0.5 bg-white rounded-full"
-          style={{ width: '20px' }}
+          className="absolute h-px bg-white rounded-full"
+          style={{ width: '16px' }}
           animate={{
             top: '50%',
             opacity: isOpen ? 0 : 1,
@@ -47,7 +47,7 @@ export const ModernHamburgerButton: React.FC<ModernHamburgerButtonProps> = ({
         />
         <motion.span
           className="absolute h-0.5 bg-white rounded-full"
-          style={{ width: isOpen ? '16px' : '20px' }}
+          style={{ width: '16px' }}
           animate={{
             top: isOpen ? '50%' : '75%',
             rotate: isOpen ? -45 : 0,

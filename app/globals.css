@@ -1,15 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import '@fortawesome/fontawesome-free/css/all.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html, body {
+    font-family: 'Futura', 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: #1a1a1a;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #0C2340;
+  }
+
+  p, li, span, a {
+    font-family: 'Futura', 'Trebuchet MS', sans-serif;
+  }
+}
+
 @layer components {
   .font-body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Futura', 'Trebuchet MS', sans-serif;
+    font-size: 15px;
   }
   .font-heading {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-weight: 700;
   }
   
   /* Glassmorphism utilities */
@@ -25,6 +47,15 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
+  /* Brand colors */
+  .bg-brand-primary {
+    background-color: #0C2340;
+  }
+
+  .bg-brand-secondary {
+    background-color: #FFD300;
+  }
+
   /* Brand text colors */
   .brand-text-primary {
     color: #1f4f8b;
@@ -37,9 +68,25 @@
 
 @layer base {
   body {
-    @apply font-body text-text-primary bg-background;
+    @apply text-foreground bg-background;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading text-text-primary;
+    @apply text-foreground;
   }
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  align-items: center;
+  animation: marquee-scroll 15s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

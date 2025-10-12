@@ -1,35 +1,50 @@
 {
-  "title": "Home",
-  "slug": "home",
-  "heroSection": {
-    "heading": "Hero Video Background",
-    "media": {
-      "type": "video",
-      "src": "/assets/hero-bg.webm",
-      "poster": "/assets/hero-fallback.avif"
-    },
-    "content": "Doon International School"
+  "hero": {
+    "title": "Doon International School",
+    "subtitle": "Excellence in Education",
+    "ctaPrimary": { "label": "Enroll Now", "href": "/admissions" },
+    "ctaSecondary": { "label": "Learn More", "href": "/about" }
   },
-  "sections": [
-    {
-      "type": "image-text",
-      "heading": "Meet the Faculty",
-      "text": "Welcome to meet our distinguished faculty — educators dedicated to innovation and excellence. Through regular workshops, collaborative sessions, and peer mentorship, our teachers embody the spirit of lifelong learning, ensuring every lesson inspires and transforms.",
-      "image": "/assets/main-hall.avif"
-    },
-    {
-      "type": "gallery",
-      "heading": "Gallery",
-      "content": "Snapshots from school life - moments of learning, creativity, and community.",
-      "gallery": [
-        "/assets/gallery/gallery1.avif",
-        "/assets/gallery/gallery2.avif",
-        "/assets/gallery/gallery3.avif",
-        "/assets/gallery/gallery4.avif",
-        "/assets/gallery/gallery5.avif",
-        "/assets/gallery/gallery6.avif"
-      ]
-    }
+  "features": [
+    { "title": "World-Class Infrastructure", "desc": "Modern classrooms, advanced labs, rich library, and smart learning tools.", "icon": "GraduationCap" },
+    { "title": "Residential & Day Boarding Facilities", "desc": "Safe hostels, nutritious meals, comfortable stay, and secure environment.", "icon": "User" },
+    { "title": "Sports & Extracurricular Activities", "desc": "Excellent sports, music, arts, drama, and holistic student development programs.", "icon": "Star" }
   ],
-  "lastUpdated": "2025-10-07"
+  "newsTicker": [
+    "Admission Open 2025–26",
+    "Doon International School – World Class Facility",
+    "Welcome to Doon International School",
+    "Join us for Academic Excellence and Holistic Growth"
+  ],
+  "welcome": {
+    "heading": "Welcome to Doon International School, Jabalpur",
+    "subheading": "Under the Aegis of Doon International School, Dehradun",
+    "paragraphs": [
+      "Doon International School, Jabalpur is under the aegis of Doon International School, established in 1993, a leading day and residential, senior secondary school located in the Doon Valley catering to the needs of students from all parts of the world.",
+      "The curriculum for the school students is based on syllabi laid down by the reputed Central Board of Secondary Education, New Delhi, commonly known as the C.B.S.E.",
+      "The school aims at equipping the students with integrity, courage and compassion to face the challenges of the modern world."
+    ]
+  },
+  "stats": [
+    { "title": "15 Acres", "subtitle": "Green Campus", "icon": "Building" },
+    { "title": "3,000+", "subtitle": "No. of Students", "icon": "Users" },
+    { "title": "80+", "subtitle": "Classrooms", "icon": "GraduationCap" },
+    { "title": "20+", "subtitle": "Labs", "icon": "Grid" }
+  ],
+  "director": {
+    "title": "Director's Message",
+    "sub": "Doon International School, Jabalpur",
+    "message": "Dear Parents, Thank you for showing interest in admitting your child to Doon International School, Jabalpur. We believe our school offers an educational experience that equips every child with confidence, curiosity, and compassion to thrive in the modern world. We look forward to welcoming your child to Doon International School!",
+    "image": "/images/director.jpg"
+  },
+  "latestUpdates": [
+    { "title":"Admission Open 2025-26", "date":"April 4, 2025", "desc":"Secure environment ensuring safety with 24/7 security, CCTV, and strict protocols.", "image": "/images/update1.avif" },
+    { "title":"Doon International School - World Class Facility", "date":"April 4, 2025", "desc":"Doon International School offers quality education, expert faculty, modern infrastructure.", "image": "/images/update2.avif" },
+    { "title":"Welcome to Doon International School", "date":"April 4, 2025", "desc":"Doon International School, Jabalpur is under the aegis of Doon International School.", "image": "/images/update3.avif" }
+  ],
+  "upcomingEvents": [
+    { "title":"TED Talks at UCF College", "date":"Jan 06, 2025", "time":"08:00 - 11:00 (January 20, 2027)", "desc":"Bimply dummy text of the printing and typesetting industry." },
+    { "title":"National Capital Leadership 2026", "date":"Oct 21, 2026", "time":"15:30 - 20:30", "desc":"Bimply dummy text of the printing and typesetting industry." }
+  ],
+  "gallery": [ "/assets/gallery/1.avif", "/assets/gallery/2.avif", "/assets/gallery/3.avif" ]
 }

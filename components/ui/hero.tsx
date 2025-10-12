@@ -32,7 +32,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, videoSrc, videoPoster, chi
             Your browser does not support the video tag.
           </video>
           {/* Semi-transparent overlay for text contrast */}
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 43, 107, 0.4)' }} />
         </>
       ) : (
         /* Solid Brand Background */

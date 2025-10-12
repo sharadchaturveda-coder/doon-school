@@ -1,20 +1,53 @@
 {
-  "siteName": "Doon International School, Jabalpur",
+  "siteName": "DOON INTERNATIONAL SCHOOL, JABALPUR",
   "tagline": "Excellence in Education",
   "navigation": [
-    { "name": "About", "href": "/about" },
-    { "name": "Facilities", "href": "/facilities" },
-    { "name": "Admissions", "href": "/admissions" },
-    { "name": "Contact", "href": "/contact" }
+    { "name": "HOME", "href": "/" },
+    {
+      "name": "ABOUT",
+      "href": "/about",
+      "dropdown": [
+        { "name": "About Us", "href": "/about" },
+        { "name": "Principal Message", "href": "/about#principal" },
+        { "name": "School Facilities", "href": "/about#facilities" },
+        { "name": "Vision & Mission", "href": "/about#vision" }
+      ]
+    },
+    { "name": "MANDATORY DISCLOSURE", "href": "/mandatory-disclosure" },
+    {
+      "name": "ADMISSION",
+      "href": "/admissions",
+      "dropdown": [
+        { "name": "Admission Procedure", "href": "/admissions#procedure" },
+        { "name": "Application Form", "href": "/admissions#application" },
+        { "name": "Fee Rules & Regulations", "href": "/admissions#fee-rules" },
+        { "name": "Boarding Fee Structure", "href": "/admissions#boarding-fee" },
+        { "name": "Day School Fee Structure", "href": "/admissions#day-school-fee" },
+        { "name": "Day Boarding Fee Structure", "href": "/admissions#day-boarding-fee" },
+        { "name": "Withdrawal Form", "href": "/admissions#withdrawal" }
+      ]
+    },
+    {
+      "name": "GALLERY",
+      "href": "/gallery",
+      "dropdown": [
+        { "name": "Photo Gallery", "href": "/gallery#photos" },
+
+        { "name": "News Gallery", "href": "/gallery#news" },
+        { "name": "Events", "href": "/gallery#events" }
+      ]
+    },
+    { "name": "UPDATES", "href": "/updates" },
+    { "name": "CONTACT", "href": "/contact" }
   ],
   "contact": {
-    "address": "Suman.Devi Shikshan Sansthan (Ds ward) B-8, 324 Anand enclaves, dayanand saraswati ward. Jabalpur Madhya Pradesh, Code: 23",
     "phone": "096625 03482",
-    "email": "info@dooninternationalschool.com"
+    "email": "info@dooninternationaljabalpur.com",
+    "address": "Doon International School, Jabalpur, Madhya Pradesh"
   },
   "socialMedia": [
-    { "name": "Facebook", "href": "#" },
-    { "name": "Twitter", "href": "#" },
-    { "name": "Instagram", "href": "#" }
+    { "name": "Facebook", "icon": "Facebook", "href": "#" },
+    { "name": "Twitter", "icon": "Twitter", "href": "#" },
+    { "name": "Instagram", "icon": "Instagram", "href": "#" }
   ]
 }

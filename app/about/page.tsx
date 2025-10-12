@@ -1,10 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Card from '../../components/ui/card';
-import Button from '../../components/ui/button';
-import Link from 'next/link';
-import aboutData from '../../data/doon/about.json';
+import AboutCTA from '../../components/sections/about/AboutCTA';
+import MissionVisionSection from '../../components/sections/about/MissionVisionSection';
+import CoreValuesSection from '../../components/sections/about/CoreValuesSection';
 
 export default function About() {
   return (
@@ -15,7 +14,7 @@ export default function About() {
         <div className="absolute inset-0 bg-brand-primary opacity-90">
           <div className="absolute inset-0 bg-brand-secondary opacity-20 animate-pulse" />
         </div>
-        
+
         {/* Brand-Aligned Floating Elements */}
         <div className="absolute inset-0">
           <motion.div
@@ -29,7 +28,7 @@ export default function About() {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           />
         </div>
-        
+
         <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center">
             <motion.div
@@ -37,23 +36,23 @@ export default function About() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-black mb-8 text-white leading-tight">
+              <h1 className="text-2xl md:text-3xl font-heading font-black mb-8 text-white leading-tight">
                 <span className="block text-white">Excellence</span>
               </h1>
             </motion.div>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-              className="text-xl md:text-2xl lg:text-3xl mb-12 text-white/90 max-w-4xl mx-auto leading-relaxed"
+              className="font-body text-[15px] mb-12 text-white/90 max-w-4xl mx-auto leading-relaxed"
             >
-              Nurturing minds, building futures since 1985. We are committed to providing 
+              Nurturing minds, building futures since 1985. We are committed to providing
               world-class education that prepares students for global success.
             </motion.p>
           </div>
         </div>
-        
+
         {/* Wave Separator */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
           <svg className="relative block w-full h-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -62,74 +61,12 @@ export default function About() {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-            <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black mb-4 text-primary">Our Foundation</h2>
-            <p className="text-xl text-primary max-w-3xl mx-auto">The pillars that guide our educational excellence</p>
-          </motion.div>
+      <MissionVisionSection />
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              whileHover={{
-                scale: 1.03,
-                y: -2,
-                transition: { duration: 0.15 }
-              }}
-            >
-              <Card className="p-10 h-full bg-brand-primary/5 text-primary border border-brand-primary/20 shadow-2xl hover:shadow-3xl transition-all duration-300">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center">
-                    <span className="text-3xl text-white">🎯</span>
-                  </div>
-                </div>
-                <h2 className="text-4xl font-heading font-bold mb-6">Our Mission</h2>
-                <p className="text-lg leading-relaxed text-primary">
-                  {aboutData.sections.find(s => s.heading === "Our Mission")?.content || "Content not found"}
-                </p>
-              </Card>
-            </motion.div>
+      <CoreValuesSection />
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
-              whileHover={{
-                scale: 1.02,
-                y: -4,
-                transition: { duration: 0.2, ease: "easeOut" }
-              }}
-            >
-              <Card className="p-10 h-full bg-brand-primary/10 text-primary border border-brand-primary/20 shadow-2xl hover:shadow-3xl transition-all duration-300">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center">
-                    <span className="text-3xl text-white">🔮</span>
-                  </div>
-                </div>
-                <h2 className="text-4xl font-heading font-bold mb-6">Our Vision</h2>
-                <p className="text-lg leading-relaxed text-primary">
-                  {aboutData.sections.find(s => s.heading === "Our Vision")?.content || "Content not found"}
-                </p>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+      {/* Facilities Section */}
+      <section id="facilities" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -138,68 +75,54 @@ export default function About() {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black mb-4 text-primary">Our Core Values</h2>
-            <p className="text-xl text-primary max-w-3xl mx-auto">The fundamental principles that shape our educational philosophy</p>
+            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black mb-4 text-primary">School Facilities</h2>
+            <p className="text-xl text-primary max-w-3xl mx-auto">World-class infrastructure designed for excellence in education</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: "🎯",
-                title: "Excellence",
-                desc: "Striving for the highest standards in academics, character, and service.",
-                gradient: "from-red-400 to-pink-500",
-                delay: 0
+                title: "Smart Classrooms",
+                description: "All classrooms equipped with smart boards, air purifiers, and digital learning resources.",
+                icon: "📚"
               },
               {
-                icon: "🤝",
-                title: "Integrity",
-                desc: "Upholding honesty, transparency, and ethical behavior in all our actions.",
-                gradient: "from-blue-400 to-indigo-500",
-                delay: 0.1
+                title: "Library",
+                description: "Comprehensive library with storytelling programs and creative writing activities.",
+                icon: "📖"
               },
               {
-                icon: "❤️",
-                title: "Compassion",
-                desc: "Fostering empathy, kindness, and respect for all members of our community.",
-                gradient: "from-green-400 to-emerald-500",
-                delay: 0.2
+                title: "Computer Labs",
+                description: "State-of-the-art computer laboratories with updated systems and multimedia facilities.",
+                icon: "💻"
               },
               {
-                icon: "🚀",
-                title: "Innovation",
-                desc: "Embracing creativity, critical thinking, and adaptive learning approaches.",
-                gradient: "from-blue-400 to-purple-500",
-                delay: 0.3
+                title: "Auditorium",
+                description: "Spacious auditorium with modern lighting and sound systems for performances and events.",
+                icon: "🎭"
+              },
+              {
+                title: "Science Park",
+                description: "Interactive outdoor learning space with exhibits demonstrating scientific principles.",
+                icon: "🔬"
+              },
+              {
+                title: "Sports Facilities",
+                description: "Comprehensive sports infrastructure for physical education and athletics.",
+                icon: "⚽"
               }
-            ].map((value, index) => (
+            ].map((facility, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{
-                  duration: 0.4,
-                  delay: value.delay,
-                  ease: "easeOut"
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  y: -8,
-                  transition: { duration: 0.2, ease: "easeOut" }
-                }}
+                transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
-                <Card className={`p-8 text-center h-full bg-gradient-to-br ${value.gradient} text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300`}>
-                  <div className="mb-6">
-                    <div className="w-20 h-20 bg-white/20 rounded-3xl flex items-center justify-center mx-auto backdrop-blur-sm">
-                      <span className="text-4xl">{value.icon}</span>
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-heading font-bold mb-4">{value.title}</h3>
-                  <p className="leading-relaxed opacity-90">
-                    {value.desc}
-                  </p>
-                </Card>
+                <div className="text-4xl mb-4">{facility.icon}</div>
+                <h3 className="text-xl font-heading font-bold mb-3 text-primary">{facility.title}</h3>
+                <p className="text-primary text-[15px] leading-relaxed">{facility.description}</p>
               </motion.div>
             ))}
           </div>
@@ -208,29 +131,7 @@ export default function About() {
 
 
 
-      {/* CTA Section */}
-      <section className="py-20 bg-white -mt-10 relative z-10 rounded-t-3xl shadow-xl">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="text-3xl font-heading font-bold mb-4 text-primary">
-            Learn More About Our Community
-          </h3>
-          <p className="text-lg mb-8 text-primary max-w-2xl mx-auto">
-            Discover what makes Doon International School special.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/admissions">
-              <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
-                Admissions
-              </Button>
-            </Link>
-            <Link href="/facilities">
-              <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
-                Our Facilities
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <AboutCTA />
     </>
   );
 }

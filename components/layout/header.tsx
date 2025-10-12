@@ -15,73 +15,124 @@ import {
 import ModernMobileMenu from '../ui/modern-mobile-menu';
 import ModernHamburgerButton from '../ui/modern-hamburger-button';
 import siteData from '../../data/site.json';
+import { ChevronDown, Facebook, Instagram, Twitter, Phone, Mail } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  const { scrollY } = useScroll();
-  const headerBackgroundOpacity = useTransform(scrollY, [0, 100], [1, 0.85]);
-  const headerBlur = useTransform(scrollY, [0, 200], [0, 2]);
-  const headerShadow = useTransform(scrollY, [0, 100], ['0 2px 4px 0 rgba(0,0,0,0.05)', '0 4px 12px 0 rgba(0,0,0,0.12)']);
+  const socialIconMap: { [key: string]: any } = {
+    Facebook,
+    Twitter,
+    Instagram,
+  };
 
   return (
-    <motion.header
-      className="backdrop-blur-md sticky top-0 z-40 border-b border-white/20"
-      style={{
-        backgroundColor: useTransform(scrollY, [0, 100], ['rgba(255, 255, 255, 1)', 'rgba(255, 255, 255, 0.8)']),
-        boxShadow: headerShadow,
-        backdropFilter: useTransform(scrollY, [0, 100], ['blur(0px)', 'blur(8px)'])
-      }}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
-      <nav className="container mx-auto px-4 py-2 flex items-center justify-between">
-        <Link href="/" className="font-heading text-lg md:text-2xl font-bold text-primary flex items-center space-x-2 md:space-x-4">
-          <div className="relative w-16 h-16 md:w-24 md:h-24 flex-shrink-0">
-            <picture>
-              <source srcSet="/assets/logo.avif" type="image/avif" />
+    <>
+      {/* Header Bar (Contact Strip) */}
+      <div className="bg-white text-[#002B6B] text-sm py-2 border-b border-gray-300">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <span className="flex items-center space-x-1">
+              <Phone className="w-4 h-4" />
+              <span>{siteData.contact?.phone}</span>
+            </span>
+            <span className="flex items-center space-x-1">
+              <Mail className="w-4 h-4" />
+              <span>{siteData.contact?.email}</span>
+            </span>
+          </div>
+          <div className="hidden md:flex items-center space-x-4">
+            {siteData.socialMedia?.map((social) => {
+              const Icon = socialIconMap[social.icon as keyof typeof socialIconMap];
+              return (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  className="w-10 h-10 rounded-full bg-gradient-to-r from-[#002B6B] to-[#083B8C] border-2 border-gray-300 flex items-center justify-center hover:border-[#F2B33D] hover:shadow-lg hover:scale-110 hover:bg-gradient-to-r hover:from-[#F2B33D] hover:to-[#FFC600] transition-all duration-300 group"
+                >
+                  <Icon className="w-5 h-5 text-white group-hover:text-[#002B6B] transition-colors duration-300" />
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Main Navigation Bar */}
+      <header className="bg-white sticky top-0 z-40 shadow-lg border-b border-gray-200">
+        <div className="container mx-auto px-4 py-1 flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="relative w-20 h-20 flex-shrink-0">
               <Image
                 src="/assets/logo.webp"
                 alt="Doon International School Logo"
                 fill
-                className="object-contain"
-                sizes="(max-width: 768px) 64px, 96px"
+                className="object-contain scale-[1.800]"
+                sizes="1000px"
               />
-            </picture>
+            </div>
+            <span className="text-[#002B6B] font-heading font-bold text-lg leading-tight">
+              {siteData.siteName}
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {siteData.navigation.map((item) => (
+              <div key={item.name} className="relative group">
+                <Link
+                  href={item.href}
+                  className="text-[#002B6B] hover:text-[#F2B33D] transition-colors font-medium flex items-center space-x-1"
+                >
+                  <span>{item.name}</span>
+                  {item.dropdown && <ChevronDown className="w-4 h-4" />}
+                </Link>
+                {item.dropdown && (
+                  <div className="absolute top-full left-0 mt-1 bg-white border border-gray-300 py-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[200px]">
+                    {item.dropdown.map((submenu, index) => (
+                      <div key={submenu.name}>
+                        <Link
+                          href={submenu.href}
+                          className="block px-4 py-2 text-[#002B6B] hover:bg-gray-100 hover:text-[#F2B33D] transition-colors text-15px"
+                        >
+                          {submenu.name}
+                        </Link>
+                        {index < item.dropdown.length - 1 && <div className="border-b border-gray-300 mx-2"></div>}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-          <span>{siteData.siteName}</span>
-        </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
-          {siteData.navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="font-body font-medium text-foreground hover:text-primary transition-colors"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </div>
+          {/* Enquiry Button */}
+          <div className="hidden lg:block">
+            <button className="bg-[#F2B33D] text-[#002B6B] px-6 py-2 rounded-full font-medium hover:bg-[#F2B33D]/90 transition-colors">
+              Enquiry
+            </button>
+          </div>
 
-        {/* Mobile Menu */}
-        <div className="md:hidden">
-          <ModernHamburgerButton
+          {/* Mobile Menu */}
+          <div className="lg:hidden">
+            <ModernHamburgerButton
+              isOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            />
+          </div>
+
+          {/* Modern Mobile Menu */}
+          <ModernMobileMenu
             isOpen={isMobileMenuOpen}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClose={() => setIsMobileMenuOpen(false)}
           />
         </div>
+      </header>
 
-        {/* Modern Mobile Menu */}
-        <ModernMobileMenu
-          isOpen={isMobileMenuOpen}
-          onClose={() => setIsMobileMenuOpen(false)}
-        />
-      </nav>
-    </motion.header>
+
+    </>
   );
 };
 
