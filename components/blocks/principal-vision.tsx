@@ -7,7 +7,7 @@ export default function PrincipalVision() {
         {/* Text column */}
         <div className="flex flex-col gap-4 px-6">
           <h2 className="text-xl font-heading font-bold text-primary text-center md:text-left">
-            Principal's Vision
+            Principal's Message
           </h2>
           <p className="text-center md:text-left font-body text-[15px] leading-relaxed">
             Doon International School, Jabalpur

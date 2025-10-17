@@ -36,9 +36,9 @@ export default function UpdatesEvents({ latestUpdates, upcomingEvents }: Updates
                 <Image
                   src={update.image}
                   alt={update.title}
-                  width={128}
-                  height={96}
-                  className="w-32 h-24 object-cover rounded-sm"
+                  width={320}
+                  height={240}
+                  className="w-32 h-24 object-cover rounded-sm transition-transform duration-300 md:hover:scale-125"
                 />
                 <div className="flex flex-col">
                   <h3 className="text-primary font-semibold">{update.title}</h3>
@@ -52,7 +52,7 @@ export default function UpdatesEvents({ latestUpdates, upcomingEvents }: Updates
           </div>
 
           <div className="flex justify-center mt-6">
-            <button className="bg-primary text-white uppercase text-sm font-semibold px-8 py-3">
+            <button className="bg-primary text-white uppercase text-sm font-semibold px-8 py-3 hover:scale-105 transition-all duration-200 cursor-pointer">
               View All
             </button>
           </div>
@@ -89,7 +89,7 @@ export default function UpdatesEvents({ latestUpdates, upcomingEvents }: Updates
           })}
 
           <div className="flex justify-center mt-6">
-            <button className="bg-primary text-white uppercase text-sm font-semibold px-8 py-3">
+            <button className="bg-primary text-white uppercase text-sm font-semibold px-8 py-3 hover:scale-105 transition-all duration-200 cursor-pointer">
               All Events
             </button>
           </div>

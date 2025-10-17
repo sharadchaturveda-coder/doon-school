@@ -45,9 +45,9 @@ export default function CampusStats({ stats }: CampusStatsProps) {
           {stats.map((stat, index) => {
             const Icon = iconMap[stat.icon as keyof typeof iconMap];
             return (
-              <div key={index} className="flex flex-col items-center text-center py-4">
+              <div key={index} className="flex flex-col items-center text-center py-4 hover:scale-[1.4] transition-all duration-300 cursor-pointer">
                 <div className="text-accent mb-2">
-                  <Icon />
+                  <Icon size={32} />
                 </div>
                 <div className="text-2xl font-bold text-foreground">{stat.title}</div>
                 <div className="text-sm text-foreground/70">{stat.subtitle}</div>

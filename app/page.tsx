@@ -7,10 +7,10 @@ import FeatureStripSection from '../components/blocks/feature-strip-section';
 import NewsTickerSection from '../components/blocks/news-ticker-section';
 import WelcomeSection from '../components/blocks/WelcomeSection';
 import CampusStatsSection from '../components/blocks/campus-stats-section';
-import PrincipalVision from '../components/blocks/principal-vision';
+
 import JoinUsToday from '../components/blocks/join-us-today';
 import UpdatesEvents from '../components/blocks/updates-events';
-import VisualHighlights from '../components/sections/home/VisualHighlights';
+import TiltedCarousel from '../components/blocks/TiltedCarousel';
 import siteData from '../data/site.json';
 import homeData from '../data/doon/home.json';
 
@@ -50,17 +50,13 @@ export default function Home() {
       {/* Join Us Today */}
       <JoinUsToday />
 
-      {/* Principal Vision */}
-      <PrincipalVision />
-
       {/* Latest Updates + Upcoming Events */}
       <UpdatesEvents
         latestUpdates={homeData.latestUpdates}
         upcomingEvents={homeData.upcomingEvents}
       />
 
-      {/* Our Visual Highlights */}
-      <VisualHighlights />
+      <TiltedCarousel />
     </>
   );
 }

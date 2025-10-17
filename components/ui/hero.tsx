@@ -16,7 +16,8 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ title, subtitle, videoSrc, videoPoster, children }) => {
 
   return (
-    <section className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden"
+             style={{ marginTop: '0px', paddingTop: '0px' }}>
       {/* Background: Video or Fallback */}
       {videoSrc ? (
         <>

@@ -104,3 +104,51 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* perspective container (parent of the cards) */
+.carousel-perspective {
+  perspective: 1400px;
+  -webkit-perspective: 1400px;
+}
+
+/* the direct wrapper that contains cards must preserve 3d */
+.carousel-3d {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* per-card improvements */
+.carousel-card {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* arrow look (optional) */
+.carousel-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  border: 2px solid rgba(255,255,255,0.95);
+  background: rgba(0,0,0,0.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* small mobile fallback */
+@media (max-width: 640px) {
+  .carousel-3d { perspective: none; transform-style: initial; }
+  .carousel-card { transform: none !important; }
+}
+
+/* smooth transform */
+.carousel-card, .carousel-inner { transition: transform 450ms cubic-bezier(.22,.9,.31,1), box-shadow 300ms ease, opacity 300ms ease; }
+
+/* no scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

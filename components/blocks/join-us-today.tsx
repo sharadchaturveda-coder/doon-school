@@ -15,7 +15,7 @@ export default function JoinUsToday() {
           learning tools, and enriching extracurricular activities, it prepares
           students for global success.
         </p>
-        <button className="bg-[#007bff] hover:bg-[#0062d1] text-white font-semibold py-3 px-6 rounded-md transition-colors duration-200">
+        <button className="bg-[#007bff] hover:bg-[#0062d1] hover:scale-105 text-white font-semibold py-3 px-6 rounded-md transition-all duration-200 cursor-pointer">
           Enroll today!
         </button>
       </div>
