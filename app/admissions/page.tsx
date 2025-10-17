@@ -39,13 +39,13 @@ export default function AdmissionsPage() {
               </h1>
             </motion.div>
             
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-xl md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto leading-relaxed"
             >
-              Begin an extraordinary educational journey at Doon International School. 
+              Begin an extraordinary educational journey at Doon International School.
               We're excited to welcome new students and families to our vibrant community.
             </motion.p>
             

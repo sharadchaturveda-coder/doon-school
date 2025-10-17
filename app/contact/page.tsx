@@ -51,13 +51,13 @@ export default function ContactPage() {
               </h1>
             </motion.div>
             
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-xl md:text-2xl mb-12 text-white/90 max-w-4xl mx-auto leading-relaxed"
             >
-              We're here to help! Get in touch with us for admissions, inquiries, 
+              We're here to help! Get in touch with us for admissions, inquiries,
               or any questions about our programs and facilities.
             </motion.p>
           </div>

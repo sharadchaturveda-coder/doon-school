@@ -26,12 +26,12 @@ export default function Home() {
         videoPoster="/assets/hero-fallback.avif"
       >
         <Link href="/about">
-          <Button size="lg" className="bg-primary text-white hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold">
+          <Button size="lg" className="bg-primary text-white hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg font-semibold">
             Learn More
           </Button>
         </Link>
         <Link href="/admissions">
-          <Button size="lg" className="bg-accent text-primary hover:bg-[#E0A72F] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold">
+          <Button size="lg" className="bg-accent text-primary hover:bg-[#E0A72F] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 text-sm sm:text-base md:text-lg font-semibold">
             Enroll Now
           </Button>
         </Link>

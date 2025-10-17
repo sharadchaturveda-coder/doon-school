@@ -1,0 +1,46 @@
+{
+  "version": "2025.10.16",
+  "origin": "doon",
+  "branch": "cognitive-transplant",
+  "project": "Doon International School Website",
+  "methodology": "Specification-Driven Development (SDD)",
+  "entryPoints": {
+    "main": "app/page.tsx",
+    "api": "app/api/",
+    "styles": "app/globals.css",
+    "components": "components/"
+  },
+  "activeModules": [
+    "school-website-nextjs",
+    "static-content-management",
+    "component-library",
+    "responsive-design-system"
+  ],
+  "toolchain": {
+    "framework": "Next.js 14.2.3",
+    "language": "TypeScript",
+    "styling": "Tailwind CSS",
+    "testing": "Jest (planned)",
+    "linting": "ESLint",
+    "deployment": "Manual"
+  },
+  "currentPhase": "cognitive-transplant",
+  "constitutionVersion": "2025.10.16",
+  "documentationContext": [
+    "docs/_index.md",
+    "docs/constitution.md",
+    "docs/sdd.md",
+    "docs/workflow-final-report.md"
+  ],
+  "dataSources": "data/*.json",
+  "availableCommands": [
+    "/project.knowledge.export",
+    "/project.lessons.export",
+    "/project.transplant"
+  ],
+  "qualityGates": {
+    "typescript": "strict: true",
+    "coverage": ">= 90%",
+    "constitution": "all articles"
+  }
+}

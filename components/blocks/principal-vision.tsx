@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function PrincipalVision() {
   return (
     <section className="relative w-full bg-white py-16">
@@ -22,10 +24,12 @@ export default function PrincipalVision() {
 
         {/* Image column */}
         <div className="flex justify-center md:justify-end">
-          <img
+          <Image
             src="/assets/principal.webp"
             alt="Principal of Doon International School"
-            className="w-[450px] h-auto object-contain"
+            width={450}
+            height={600}
+            className="object-contain"
           />
         </div>
       </div>

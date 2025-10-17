@@ -13,7 +13,7 @@
         { "name": "Vision & Mission", "href": "/about#vision" }
       ]
     },
-    { "name": "MANDATORY DISCLOSURE", "href": "/mandatory-disclosure" },
+    { "name": "MANDATORY DISCLOSURE", "href": "/mandatory-disclosure", "shortName": "MANDATORY DISCLOSURES" },
     {
       "name": "ADMISSION",
       "href": "/admissions",

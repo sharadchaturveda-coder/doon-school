@@ -170,7 +170,12 @@ const PrincipalVisionSphere: React.FC<SphereProps> = ({
     setNeuralNodes(nodes);
 
     // Create neural connections
-    const connections = [];
+    const connections: Array<{
+      from: NeuralNode;
+      to: NeuralNode;
+      strength: number;
+      active: boolean;
+    }> = [];
     nodes.forEach((fromNode, fromIndex) => {
       if (fromNode.type === 'input') {
         // Connect input to hidden
@@ -656,7 +661,7 @@ const PrincipalVisionSphere: React.FC<SphereProps> = ({
 
                     {/* Word highlighting based on activation */}
                     <span style={{
-                      color: neuralNodes.find(n => n.type === 'output')?.activation > 0.7 ? '#f59e0b' : '#60a5fa'
+                      color: neuralNodes.find(n => n.type === 'output')!.activation > 0.7 ? '#f59e0b' : '#60a5fa'
                     }}>
                       {word}
                     </span>

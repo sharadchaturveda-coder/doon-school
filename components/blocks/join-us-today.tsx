@@ -1,6 +1,6 @@
 export default function JoinUsToday() {
   return (
-    <section className="relative w-full bg-cover bg-center text-center text-white py-32" style={{ backgroundImage: "url('/assets/main-entrance.avif')" }}>
+    <section className="relative w-full bg-cover bg-center text-center text-white py-32" style={{ backgroundImage: "url('/images/joinus.jpg')" }}>
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
 

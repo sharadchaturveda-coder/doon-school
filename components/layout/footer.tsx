@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer: React.FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -122,10 +123,12 @@ const Footer: React.FC = () => {
 
           {/* Left - Logo + School Name */}
           <div className="flex items-center gap-3">
-            <img
+            <Image
               src="/assets/logo.webp"
               alt="Doon International Logo"
-              className="h-10 w-10 md:h-12 md:w-12 object-contain scale-[2.25]"
+              width={40}
+              height={40}
+              className="object-contain scale-[2.25]"
             />
             <h5 className="text-white font-semibold text-sm md:text-base leading-tight">
               DOON INTERNATIONAL<br />
@@ -143,10 +146,12 @@ const Footer: React.FC = () => {
               className="relative ml-3 flex items-center justify-center cursor-pointer"
               onClick={() => window.location.href = '#'}
             >
-              <img
+              <Image
                 src="/images/company_logo.png"
                 alt="Edgenix Tech Logo"
-                className="h-[60px] md:h-[80px] w-auto object-contain scale-[2.75] md:scale-[2.0] origin-center hover:opacity-80 transition-transform duration-300"
+                width={100}
+                height={80}
+                className="object-contain scale-[2.75] md:scale-[2.0] origin-center hover:opacity-80 transition-transform duration-300"
                 style={{ transformOrigin: 'center center' }}
               />
             </div>

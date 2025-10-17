@@ -20,7 +20,7 @@ export default function CampusStats({ stats }: CampusStatsProps) {
 
   return (
     <section className="bg-muted">
-      <div className="max-w-7xl mx-auto px-6 py-6 md:py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10">
         {/* Mobile Layout - Stacked Vertical Cards */}
         <div className="block md:hidden flex flex-col space-y-3">
           {stats.map((stat, index) => {

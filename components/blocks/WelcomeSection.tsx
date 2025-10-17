@@ -7,7 +7,7 @@ export default function WelcomeSection() {
         id="welcome"
         className="relative z-[3] w-full bg-white pb-0 mb-12 pt-16 md:pt-20"
       >
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-[#001F48] text-center mb-4 relative inline-block">
             Welcome to Doon International School, Jabalpur
             <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-400"></span>
