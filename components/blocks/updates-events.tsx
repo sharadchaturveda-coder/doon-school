@@ -32,18 +32,18 @@ export default function UpdatesEvents({ latestUpdates, upcomingEvents }: Updates
           <div className="bg-white shadow-sm border border-gray-100 rounded-sm divide-y divide-gray-100">
             {/* Update 1 */}
             {latestUpdates.map((update, index) => (
-              <div key={index} className="flex gap-4 p-2 md:p-4">
+              <div key={index} className="flex gap-3 p-3 md:p-4 md:gap-4">
                 <Image
                   src={update.image}
                   alt={update.title}
                   width={320}
                   height={240}
-                  className="w-32 h-24 object-cover rounded-sm transition-transform duration-300 md:hover:scale-125"
+                  className="w-24 h-20 sm:w-32 sm:h-24 object-cover rounded-sm transition-transform duration-300 md:hover:scale-125 flex-shrink-0"
                 />
-                <div className="flex flex-col">
-                  <h3 className="text-primary font-semibold">{update.title}</h3>
+                <div className="flex flex-col min-w-0 flex-1">
+                  <h3 className="text-primary font-semibold text-base mobile-text">{update.title}</h3>
                   <p className="text-[#FFD300] text-sm italic">{update.date}</p>
-                  <p className="text-gray-700 text-sm mt-1">
+                  <p className="text-gray-700 text-sm mt-1 leading-relaxed">
                     {update.desc}
                   </p>
                 </div>
@@ -52,7 +52,7 @@ export default function UpdatesEvents({ latestUpdates, upcomingEvents }: Updates
           </div>
 
           <div className="flex justify-center mt-6">
-            <button className="bg-primary text-white uppercase text-sm font-semibold px-8 py-3 hover:scale-105 transition-all duration-200 cursor-pointer">
+            <button className="btn-mobile bg-primary text-white uppercase font-semibold hover:scale-105 transition-all duration-200 cursor-pointer">
               View All
             </button>
           </div>
@@ -69,18 +69,18 @@ export default function UpdatesEvents({ latestUpdates, upcomingEvents }: Updates
             const [month, dayWithComma, year] = event.date.split(' ');
             const day = dayWithComma.replace(',', '');
             return (
-              <div key={index} className="bg-white p-4 mb-4 shadow-sm border border-gray-100 flex gap-4">
-                <div className="w-20 text-center">
-                  <div className="bg-[#FFD300] text-primary font-bold text-2xl py-2">{day}</div>
-                  <div className="bg-[#FFD300] text-primary font-medium text-sm">{month}</div>
-                  <div className="bg-primary text-white text-sm py-1">{year}</div>
+              <div key={index} className="bg-white p-3 sm:p-4 mb-4 shadow-sm border border-gray-100 flex gap-3 sm:gap-4">
+                <div className="w-16 sm:w-20 text-center flex-shrink-0">
+                  <div className="bg-[#FFD300] text-primary font-bold text-lg sm:text-2xl py-2">{day}</div>
+                  <div className="bg-[#FFD300] text-primary font-medium text-xs sm:text-sm">{month}</div>
+                  <div className="bg-primary text-white text-xs sm:text-sm py-1">{year}</div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-primary font-semibold">{event.title}</h3>
-                  <p className="text-gray-700 text-sm mt-1">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-primary font-semibold text-sm sm:text-base leading-tight">{event.title}</h3>
+                  <p className="text-gray-700 text-xs sm:text-sm mt-1 leading-relaxed">
                     {event.desc}
                   </p>
-                  <p className="text-primary font-semibold text-sm mt-2">
+                  <p className="text-primary font-semibold text-xs sm:text-sm mt-2">
                     {event.time}
                   </p>
                 </div>

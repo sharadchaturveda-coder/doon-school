@@ -27,7 +27,9 @@ const Header: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const heroHeight = window.innerHeight; // Hero is full screen
-      setIsScrolled(window.scrollY > heroHeight * 0.8); // When scrolled past 80% of hero
+      const isMobile = window.innerWidth < 1024; // lg breakpoint
+      const scrollThreshold = isMobile ? 0 : heroHeight * 0.8; // Immediate on mobile, 80% on desktop
+      setIsScrolled(window.scrollY > scrollThreshold);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -45,7 +47,7 @@ const Header: React.FC = () => {
       {/* Main Navigation Bar */}
       <header className={`${pathname === '/' ? 'fixed' : 'sticky'} top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? `shadow-lg border-b bg-black/80 backdrop-blur-md border-white/30`
+          ? `shadow-lg border-b bg-black border-white/30 lg:bg-black/80 lg:backdrop-blur-md`
           : pathname === '/'
           ? 'bg-transparent border-transparent'
           : 'shadow-lg border-b bg-black/80 backdrop-blur-md border-white/30'
@@ -53,12 +55,12 @@ const Header: React.FC = () => {
         <div className="container mx-auto px-4 pt-0 pb-0 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="relative w-20 h-[9rem] flex-shrink-0">
+            <div className="relative w-10 h-16 md:w-20 md:h-[9rem] flex-shrink-0">
               <Image
                 src="/assets/logo.webp"
                 alt="Doon International School Logo"
                 fill
-                className="object-contain scale-[1.800]"
+                className="object-contain md:scale-[1.800]"
                 sizes="1000px"
               />
             </div>

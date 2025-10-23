@@ -57,13 +57,13 @@ export default function AdmissionsPage() {
             >
               <a
                 href="/contact"
-                className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-10 py-4 text-xl font-semibold inline-block"
+                className="btn-mobile bg-brand-primary text-white hover:bg-brand-primary/90 shadow-lg hover:shadow-xl w-full sm:w-auto inline-block"
               >
                 Start Application
               </a>
               <a
                 href="/contact"
-                className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-10 py-4 text-xl font-semibold border-0 inline-block"
+                className="btn-mobile bg-brand-primary text-white hover:bg-brand-primary/90 shadow-lg hover:shadow-xl w-full sm:w-auto inline-block"
               >
                 Schedule Visit
               </a>
