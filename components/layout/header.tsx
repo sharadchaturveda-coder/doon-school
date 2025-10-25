@@ -47,24 +47,24 @@ const Header: React.FC = () => {
       {/* Main Navigation Bar */}
       <header className={`${pathname === '/' ? 'fixed' : 'sticky'} top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? `shadow-lg border-b bg-black border-white/30 lg:bg-black/80 lg:backdrop-blur-md`
+          ? `shadow-lg border-b bg-white border-gray-300 lg:bg-white/90 lg:backdrop-blur-md`
           : pathname === '/'
           ? 'bg-transparent border-transparent'
-          : 'shadow-lg border-b bg-black/80 backdrop-blur-md border-white/30'
+          : 'shadow-lg border-b bg-white border-gray-300'
       }`}>
-        <div className="container mx-auto px-4 pt-0 pb-0 flex items-center justify-between">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between min-h-[3rem]">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="relative w-10 h-16 md:w-20 md:h-[9rem] flex-shrink-0">
-              <Image
-                src="/assets/logo.webp"
-                alt="Doon International School Logo"
-                fill
-                className="object-contain md:scale-[1.800]"
-                sizes="1000px"
-              />
-            </div>
-            <span className="text-white font-heading font-bold text-lg leading-tight">
+          <div className="relative w-14 h-16 md:w-20 md:h-[9rem] flex-shrink-0">
+            <Image
+              src="/assets/logo.webp"
+              alt="Doon International School Logo"
+              fill
+              className="object-contain scale-[2.0] md:scale-[2.2]"
+              sizes="1000px"
+            />
+          </div>
+            <span className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} font-heading font-bold text-lg leading-tight`}>
               {siteData.siteName}
             </span>
           </Link>
@@ -75,22 +75,22 @@ const Header: React.FC = () => {
               <div key={item.name} className="relative group">
                 <Link
                   href={item.href}
-                  className="text-white hover:text-[#FFD700] transition-colors font-medium flex items-center space-x-1"
+                  className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} hover:text-[#FFD700] transition-colors font-medium flex items-center space-x-1`}
                 >
                   <span>{item.name}</span>
                   {item.dropdown && <ChevronDown className="w-4 h-4" />}
                 </Link>
                 {item.dropdown && (
-                  <div className="absolute top-full left-0 mt-1 bg-black/70 backdrop-blur-md border border-white/30 py-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[200px]">
+                  <div className="absolute top-full left-0 mt-1 bg-white/70 backdrop-blur-md border border-gray-300 py-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[200px]">
                     {item.dropdown.map((submenu, index) => (
                       <div key={submenu.name}>
                         <Link
                           href={submenu.href}
-                          className="block px-4 py-2 text-white hover:bg-white/20 hover:text-[#FFD700] transition-colors text-15px"
+                          className="block px-4 py-2 text-black hover:bg-gray-100 hover:text-[#FFD700] transition-colors text-15px"
                         >
                           {submenu.name}
                         </Link>
-                        {index < item.dropdown.length - 1 && <div className="border-b border-white/30 mx-2"></div>}
+                        {index < item.dropdown.length - 1 && <div className="border-b border-gray-300 mx-2"></div>}
                       </div>
                     ))}
                   </div>

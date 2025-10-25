@@ -8,10 +8,12 @@ const galleryCategories = [
     title: 'Classroom Excellence',
     description: 'Modern learning environments fostering academic growth',
     images: [
-      '/images/classroom/classroom.avif',
-      '/images/Students & Class with teacher photo/gallery1.avif',
-      '/images/Students & Class with teacher photo/gallery2.avif',
-      '/images/Students & Class with teacher photo/gallery5.avif'
+      '/assets/facilities/classroom.avif',
+      '/assets/gallery/gallery1.avif',
+      '/assets/gallery/gallery2.avif',
+      '/assets/gallery/gallery3.avif',
+      '/assets/gallery/gallery4.avif',
+      '/assets/gallery/gallery5.avif'
     ]
   },
   {
@@ -19,10 +21,11 @@ const galleryCategories = [
     title: 'State-of-the-Art Facilities',
     description: 'Cutting-edge resources for holistic development',
     images: [
-      '/images/Computer lab/computer-lab.avif',
-      '/images/ROBOTIC CLASS/robotics.avif',
-      '/images/main hall/main-hall.avif',
-      '/images/TRANSPORT/transport.avif'
+      '/assets/facilities/computer-lab.avif',
+      '/assets/facilities/robotics.avif',
+      '/assets/gallery/gallery6.avif',
+      '/assets/main-hall.avif',
+      '/assets/facilities/transport.avif'
     ]
   },
   {
@@ -30,12 +33,20 @@ const galleryCategories = [
     title: 'Extracurricular Activities',
     description: 'Sports, arts, and adventure programs',
     images: [
-      '/images/HORSE RIDING 2/horses.avif',
-      '/images/Students & Class with teacher photo/arts.avif',
-      '/images/ROBOTIC CLASS/DSC05020.avif',
-      '/images/principal/principal.avif'
+      '/assets/facilities/horses.avif',
+      '/assets/facilities/arts.avif'
     ]
   }
+  /*
+  {
+    id: 'campus',
+    title: 'Campus & Infrastructure',
+    description: 'Beautiful campus facilities and modern infrastructure',
+    images: [
+      '/assets/main-entrance.avif'
+    ]
+  }
+  */
 ];
 
 export default function GalleryCategories() {

@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, useSpring, useTransform } from "framer-motion";
+import Link from "next/link";
 
 const slides = [
   {
@@ -11,13 +12,15 @@ const slides = [
     title: "Inspired by the words of celebrated J. Krishnamurti (1895–1986)",
     desc: "Thinker-philosopher-teacher, we set out to create an institution that unfettered young minds.",
     image: "/assets/facilities/classroom.webp",
+    slug: "inspired-by-j-krishnamurti",
   },
   {
     id: "s2",
     subtitle: "TOWARDS EXCELLENCE IN EDUCATION",
     title: "Doon International School is an acknowledged institution of excellence",
-    desc: "A co-educational, day and residential school operating out of three campuses – Dehradun City, Riverside and Mohali.",
+    desc: "A co-educational, day and residential school in Jabalpur, providing quality education with modern facilities and holistic development.",
     image: "/assets/main-entrance.webp",
+    slug: "doon-international-school",
   },
   {
     id: "s3",
@@ -25,6 +28,7 @@ const slides = [
     title: "Our educational institution has been conceptualized to educate young minds",
     desc: "In such a way as to make them stand tall even in the largest of crowds.",
     image: "/assets/main-hall.webp",
+    slug: "mission-statement",
   },
   {
     id: "s4",
@@ -32,6 +36,7 @@ const slides = [
     title: "We want our children to be equipped with...",
     desc: "Moral values, honesty, linguistic skills, curiosity, and tolerance.",
     image: "/assets/facilities/computer-lab.webp",
+    slug: "ideal-dis-student",
   },
   {
     id: "s5",
@@ -39,6 +44,7 @@ const slides = [
     title: "Doon International School Aims",
     desc: "To inspire curiosity, courage, and compassion through balanced education.",
     image: "/assets/facilities/robotics.webp",
+    slug: "school-philosophy",
   },
   {
     id: "s6",
@@ -46,6 +52,7 @@ const slides = [
     title: "At the time of its inception",
     desc: "The founders felt the need to create an institution truly international in spirit and standards.",
     image: "/assets/facilities/horses.webp",
+    slug: "truly-international",
   },
 ];
 
@@ -55,7 +62,9 @@ const VIRTUAL_CARDS = CARDS_AROUND_CENTER * 2 + 1;
 export default function TiltedCarousel() {
   const [centerIndex, setCenterIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const dragAccumRef = useRef(0);
 
   // Detect mobile
   useEffect(() => {
@@ -76,13 +85,15 @@ export default function TiltedCarousel() {
   }, []);
 
   const springCenterIndex = useSpring(centerIndex, {
-    stiffness: 70,
-    damping: 18,
+    stiffness: isMobile ? 120 : 200,
+    damping: isMobile ? 35 : 30,
     mass: 0.6,
   });
 
   const next = useCallback(() => setCenterIndex((i) => i + 1), []);
   const prev = useCallback(() => setCenterIndex((i) => i - 1), []);
+
+
 
   const translateX = useTransform(
     springCenterIndex,
@@ -102,9 +113,6 @@ export default function TiltedCarousel() {
     [centerIndex]
   );
 
-  const actualIndex =
-    ((centerIndex % slides.length) + slides.length) % slides.length;
-
   // Mobile version
   if (isMobile) {
     return (
@@ -117,7 +125,41 @@ export default function TiltedCarousel() {
         <div className="max-w-full mx-auto px-4">
           <motion.div
             className="carousel-perspective-mobile relative h-[460px] overflow-hidden"
-            style={{ perspective: "800px", x: translateX }}
+            style={{
+              perspective: "800px",
+              x: translateX,
+              touchAction: "none" // Prevent browser touch defaults
+            }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }} // Prevent infinite drag
+            dragElastic={0.1} // Small elasticity for bounds
+            onDragStart={() => {
+              dragAccumRef.current = 0;
+            }}
+            onDrag={(_, info) => {
+              // Accumulate drag distance for threshold-based snapping
+              dragAccumRef.current += info.delta.x;
+            }}
+            onDragEnd={(event, info) => {
+              // Snap to next/previous slide based on drag distance threshold
+              const dragDistance = Math.abs(dragAccumRef.current);
+              const cardWidth = 220; // Same as translateX calculation
+
+              if (dragDistance > cardWidth * 0.3) { // 30% threshold for slide change
+                if (dragAccumRef.current > 0) {
+                  // Dragged right, go to previous slide (infinite)
+                  setCenterIndex(centerIndex - 1);
+                } else {
+                  // Dragged left, go to next slide (infinite)
+                  setCenterIndex(centerIndex + 1);
+                }
+              } else {
+                // Not enough drag, stay on current slide
+                setCenterIndex(centerIndex);
+              }
+
+              dragAccumRef.current = 0;
+            }}
           >
             <div
               ref={containerRef}
@@ -130,7 +172,7 @@ export default function TiltedCarousel() {
                 const pos = data.positionOffset;
 
                 const rotateY = pos * -12;
-                const translateX = pos * 220;
+                const cardTranslateX = pos * 220;
                 const translateZ =
                   pos === 0 ? 80 : Math.max(-40, 40 - Math.abs(pos) * 40);
                 const scale =
@@ -141,17 +183,17 @@ export default function TiltedCarousel() {
                 return (
                   <motion.article
                     key={data.key}
-                    className="carousel-card-mobile absolute w-80 h-96 rounded-sm overflow-hidden shadow-lg cursor-pointer"
+                    className="carousel-card-mobile absolute w-80 h-96 rounded-sm overflow-hidden shadow-lg"
                     style={{
-                      transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
+                      willChange: "transform",
+                      backfaceVisibility: "hidden",
+                      transform: `translate3d(${cardTranslateX}px, 0, ${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
                       filter: "drop-shadow(0 8px 25px rgba(0,0,0,0.25))",
                       zIndex,
                       opacity,
                       transition:
-                        "transform 450ms cubic-bezier(.25,.46,.45,.94), opacity 300ms ease",
+                        "transform 250ms cubic-bezier(0.4,0.0,0.2,1), opacity 200ms ease",
                     }}
-                    onClick={() => setCenterIndex(centerIndex + positionOffset)}
-                    whileTap={{ scale: 0.98 }}
                   >
                     <div
                       className="absolute inset-0 bg-cover bg-center"
@@ -172,9 +214,11 @@ export default function TiltedCarousel() {
                           {data.desc}
                         </p>
                         <div className="mt-2">
-                          <span className="text-[#F6C75A] uppercase text-[10px] font-medium tracking-wide hover:underline">
-                            Read More →
-                          </span>
+                          <Link href={`/blog/${data.slug}`}>
+                            <span className="text-[#F6C75A] uppercase text-[10px] font-medium tracking-wide hover:underline cursor-pointer">
+                              Read More →
+                            </span>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -184,21 +228,25 @@ export default function TiltedCarousel() {
             </div>
           </motion.div>
 
-          {/* Mobile indicators */}
-          <div className="flex justify-center mt-6 space-x-3">
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCenterIndex(slides.length + i - Math.floor(slides.length / 2))}
-                className="carousel-indicator touch-target rounded-full border-0 ring-0 outline-none cursor-pointer focus:outline-none focus:ring-0 active:scale-95"
-                style={{
-                  width: i === actualIndex ? "10px" : "6px",
-                  height: i === actualIndex ? "10px" : "6px",
-                  backgroundColor: i === actualIndex ? "#FFC940" : "#ffffff55",
-                }}
-                aria-label={`Go to slide ${i + 1}`}
-              />
-            ))}
+          {/* Swipe Indicators */}
+          <div className="flex justify-center mt-8">
+            <div className="flex space-x-2">
+              {slides.map((_, index) => {
+                const isActive = index === Math.abs(centerIndex % slides.length);
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setCenterIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      isActive
+                        ? 'bg-[#FFC940] shadow-lg transform scale-110'
+                        : 'bg-white/40 hover:bg-white/60'
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -269,9 +317,11 @@ export default function TiltedCarousel() {
                     {data.desc}
                   </p>
                   <div className="mt-4">
-                    <span className="text-[#F6C75A] uppercase text-xs font-medium tracking-wide hover:underline">
-                      Read More →
-                    </span>
+                    <Link href={`/blog/${data.slug}`}>
+                      <span className="text-[#F6C75A] uppercase text-xs font-medium tracking-wide hover:underline cursor-pointer">
+                        Read More →
+                      </span>
+                    </Link>
                   </div>
                 </div>
               </motion.article>

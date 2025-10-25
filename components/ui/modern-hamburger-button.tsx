@@ -17,44 +17,51 @@ export const ModernHamburgerButton: React.FC<ModernHamburgerButtonProps> = ({
   return (
     <motion.button
       onClick={onClick}
-      className={`relative w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-primary/80 shadow-lg hover:shadow-xl transition-all duration-300 group ${className}`}
+      aria-expanded={isOpen}
+      className={`relative flex items-center justify-center ${className}`}
       whileTap={{ scale: 0.95 }}
     >
-      {/* Background glow effect */}
-      <div className="absolute inset-0 bg-primary/30 rounded-full blur-md scale-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      {/* Button background */}
+      <div className="relative w-11 h-11 sm:w-10 sm:h-10 bg-gradient-to-r from-primary to-primary/80 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group">
+        {/* Subtle hover glow */}
+        <div className="absolute inset-0 bg-primary/30 rounded-full blur-sm sm:blur-md scale-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-      {/* Hamburger lines */}
-      <div className="relative w-5 h-5 flex flex-col justify-center items-center">
-        <motion.span
-          className="absolute h-0.5 bg-white rounded-full"
-          style={{ width: '16px' }}
-          animate={{
-            top: isOpen ? '50%' : '25%',
-            rotate: isOpen ? 45 : 0,
-            transform: isOpen ? 'translateY(-50%)' : 'translateY(-50%)'
-          }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        />
-        <motion.span
-          className="absolute h-px bg-white rounded-full"
-          style={{ width: '16px' }}
-          animate={{
-            top: '50%',
-            opacity: isOpen ? 0 : 1,
-            transform: 'translateY(-50%)'
-          }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        />
-        <motion.span
-          className="absolute h-0.5 bg-white rounded-full"
-          style={{ width: '16px' }}
-          animate={{
-            top: isOpen ? '50%' : '75%',
-            rotate: isOpen ? -45 : 0,
-            transform: isOpen ? 'translateY(-50%)' : 'translateY(-50%)'
-          }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-        />
+        {/* Redesigned hamburger lines with absolute positioning */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative w-5 h-5">
+<div className="absolute inset-0 flex items-center justify-center">
+  <div className="relative flex flex-col items-center justify-center space-y-[6px]">
+                  {/* Top Bar */}
+                  <motion.div
+                    className="w-5 h-[2px] bg-white rounded-full"
+                    animate={{
+                      rotate: isOpen ? 45 : 0,
+                      y: isOpen ? 6 : 0,
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  />
+                  {/* Middle Bar */}
+                  <motion.div
+                    className="w-5 h-[2px] bg-white rounded-full"
+                    animate={{
+                      opacity: isOpen ? 0 : 1,
+                    }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                  />
+                  {/* Bottom Bar */}
+                  <motion.div
+                    className="w-5 h-[2px] bg-white rounded-full"
+                    animate={{
+                      rotate: isOpen ? -45 : 0,
+                      y: isOpen ? -6 : 0,
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  />
+                </div>
+              </div>
+
+          </div>
+        </div>
       </div>
 
       <span className="sr-only">Toggle mobile menu</span>

@@ -13,12 +13,12 @@ interface HeroProps {
   children?: React.ReactNode;
 }
 
-const Hero: React.FC<HeroProps> = ({ title, subtitle, videoSrc, videoPoster, children }) => {
+const Hero: React.FC<HeroProps> = ({ title, subtitle, imageUrl, imageAlt, videoSrc, videoPoster, children }) => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden"
              style={{ marginTop: '0px', paddingTop: '0px' }}>
-      {/* Background: Video or Fallback */}
+      {/* Background: Video or Image or Fallback */}
       {videoSrc ? (
         <>
           <video
@@ -34,6 +34,17 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, videoSrc, videoPoster, chi
           </video>
           {/* Semi-transparent overlay for text contrast */}
           <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 43, 107, 0.4)' }} />
+        </>
+      ) : imageUrl ? (
+        <>
+          <div
+            className="absolute inset-0 w-full h-full bg-cover bg-center"
+            style={{ backgroundImage: `url(${imageUrl})` }}
+            role={imageAlt ? "img" : undefined}
+            aria-label={imageAlt}
+          />
+          {/* Semi-transparent overlay for text contrast */}
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }} />
         </>
       ) : (
         /* Solid Brand Background */
@@ -51,15 +62,22 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, videoSrc, videoPoster, chi
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.2, delay: 0.03 }}
         >
-          <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white leading-tight" style={{
+          <h1 className="font-heading font-bold mb-6 text-white leading-tight text-center" style={{
             textShadow: `
               0 0 20px rgba(255, 255, 255, 0.3),
               0 4px 8px rgba(0, 0, 0, 0.3),
               0 8px 16px rgba(0, 0, 0, 0.2)
-            `
+            `,
+            fontSize: 'clamp(2.5rem, 8vw, 5rem)' // Responsive font size from 40px to 80px
           }}>
-            <span className="block">{title.split(' ').slice(0, 2).join(' ')}</span>
-            <span className="block text-white text-6xl md:text-8xl lg:text-9xl">
+            <span className="block" style={{
+              fontSize: 'clamp(2rem, 6vw, 3.5rem)' // From 32px to 56px - proportionally smaller
+            }}>
+              {title.split(' ').slice(0, 2).join(' ')}
+            </span>
+            <span className="block" style={{
+              fontSize: 'clamp(3rem, 9vw, 6rem)' // From 48px to 96px - proportionally larger
+            }}>
               {title.split(' ').slice(2).join(' ')}
             </span>
           </h1>

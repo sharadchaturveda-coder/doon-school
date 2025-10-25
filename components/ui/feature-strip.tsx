@@ -8,7 +8,7 @@ export default function FeatureStrip() {
 
       {/* Mobile First Responsive Layout */}
       <div className="relative py-4 px-4 md:py-10 md:px-0">
-        <div className="grid gap-3 lg:hidden">
+        <div className="grid gap-3 md:hidden">
           {/* Mobile Cards */}
           <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 shadow-lg">
             <div className="text-center space-y-2">

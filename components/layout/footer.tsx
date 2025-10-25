@@ -118,43 +118,29 @@ const Footer: React.FC = () => {
       </div>
 
       {/* BOTTOM FOOTER STRIP */}
-      <div className="bg-[#072C5C] py-4 relative overflow-hidden">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4 px-6">
+      <div className="hidden md:block bg-[#001F48] py-0 relative">
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between gap-0 px-1">
 
-          {/* Left - Logo + School Name */}
-          <div className="flex items-center gap-3">
-            <Image
-              src="/assets/logo.webp"
-              alt="Doon International Logo"
-              width={40}
-              height={40}
-              className="object-contain scale-[2.25]"
-            />
-            <h5 className="text-white font-semibold text-sm md:text-base leading-tight">
-              DOON INTERNATIONAL<br />
-              <span className="text-[#B8C4D8]">SCHOOL, JABALPUR</span>
-            </h5>
+          {/* Section 1 - Copyright */}
+          <div className="flex-shrink-0">
+            <span className="text-[#B8C4D8] text-xs leading-none text-center">
+              © Copyright 2025, All rights reserved
+            </span>
           </div>
 
-          {/* Right - Copyright + Company Logo */}
-          <div className="text-[#B8C4D8] text-sm flex flex-col md:flex-row md:justify-end md:items-center relative overflow-visible">
-            <span className="text-center md:text-left z-10">
-              © Copyright 2025, All rights reserved. Developed by
+          {/* Section 2 - Developed by + Company Logo */}
+          <div className="hidden md:flex items-center gap-0 flex-shrink-0">
+            <span className="text-[#B8C4D8] text-xs leading-none">
+              Developed by
             </span>
 
-            <div
-              className="relative ml-3 flex items-center justify-center cursor-pointer"
-              onClick={() => window.location.href = '#'}
-            >
-              <Image
-                src="/images/company_logo.png"
-                alt="Edgenix Tech Logo"
-                width={100}
-                height={80}
-                className="object-contain scale-[2.75] md:scale-[2.0] origin-center hover:opacity-80 transition-transform duration-300"
-                style={{ transformOrigin: 'center center' }}
-              />
-            </div>
+            <Image
+              src="/images/company_logo.png"
+              alt="Edgenix Tech Logo"
+              width={120}
+              height={96}
+              className="object-contain flex-shrink-0"
+            />
           </div>
         </div>
 

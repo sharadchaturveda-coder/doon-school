@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Home, Building, Users, Phone } from 'lucide-react';
+import { X, Home, Building, FileText, Users, ImageIcon, Newspaper, Phone } from 'lucide-react';
 import siteData from '../../data/site.json';
 
 interface ModernMobileMenuProps {
@@ -11,42 +11,108 @@ interface ModernMobileMenuProps {
   onClose: () => void;
 }
 
-const socialIcons: Record<string, string> = {
-  Facebook: `<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>`,
-  Instagram: `<defs><linearGradient id="a" x1="0%" y1="100%"><stop offset="0%" stop-color="#FFC107"/><stop offset="100%" stop-color="#F44336"/><stop offset="100%" stop-color="#9C27B0"/></linearGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="url(#a)"/>`,
-  Twitter: `<path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>`,
+// Custom Social Media Icon Components
+const FacebookIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+  </svg>
+);
+
+const TwitterIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+);
+
+const InstagramIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path fill="none" d="M0 0h24v24H0z"/>
+    <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.048 1.79.217 2.428.465a4.9 4.9 0 011.77 1.153 4.9 4.9 0 011.153 1.77c.247.637.416 1.363.465 2.427.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.048 1.065-.217 1.79-.465 2.428a4.9 4.9 0 01-1.153 1.77 4.9 4.9 0 01-1.77 1.153c-.637.247-1.363.416-2.427.465C15.056 21.99 14.717 22 12 22s-3.056-.01-4.122-.06c-1.065-.048-1.79-.217-2.428-.465a4.9 4.9 0 01-1.77-1.153 4.9 4.9 0 01-1.153-1.77c-.247-.637-.416-1.363-.465-2.427C2.01 15.056 2 14.717 2 12s.01-3.056.06-4.122c.048-1.065.217-1.79.465-2.428a4.9 4.9 0 011.153-1.77A4.9 4.9 0 015.23 2.525c.637-.247 1.363-.416 2.427-.465C8.944 2.01 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm6.5-.25a1.25 1.25 0 10-2.5 0 1.25 1.25 0 002.5 0zM16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z"/>
+  </svg>
+);
+
+const socialIconComponents: Record<string, React.ComponentType<any>> = {
+  Facebook: FacebookIcon,
+  Twitter: TwitterIcon,
+  Instagram: InstagramIcon,
 };
 
-const navigationItems = [
-  {
-    name: 'About',
-    href: '/about',
-    icon: Building,
-    color: '#1f4f8b',
-    description: 'Learn more about our school'
-  },
-  {
-    name: 'Facilities',
-    href: '/facilities',
-    icon: Building,
-    color: '#2563eb',
-    description: 'Explore our world-class facilities'
-  },
-  {
-    name: 'Admissions',
-    href: '/admissions',
-    icon: Users,
-    color: '#3b82f6',
-    description: 'Join our community'
-  },
-  {
-    name: 'Contact',
-    href: '/contact',
-    icon: Phone,
-    color: '#60a5fa',
-    description: 'Get in touch with us'
-  }
-];
+
+
+const getNavigationItems = () => {
+  const items = [];
+
+  // Add Home first
+  items.push({
+    name: 'Home',
+    href: '/',
+    icon: Home,
+    color: '#10b981',
+    description: 'Welcome to our school'
+  });
+
+  siteData.navigation.forEach((navItem) => {
+    if (navItem.name !== 'HOME') {
+      let displayName, icon, color, description;
+
+      switch (navItem.name) {
+        case 'ABOUT':
+          displayName = 'About';
+          icon = Building;
+          color = '#1f4f8b';
+          description = 'Learn more about our school';
+          break;
+        case 'MANDATORY DISCLOSURE':
+        case 'MANDATORY DISCLOSURES':
+          displayName = 'Mandatory Disclosure';
+          icon = FileText;
+          color = '#6b7280';
+          description = 'Official school disclosure information';
+          break;
+        case 'ADMISSION':
+        case 'ADMISSIONS':
+          displayName = 'Admissions';
+          icon = Users;
+          color = '#3b82f6';
+          description = 'Join our community';
+          break;
+        case 'GALLERY':
+          displayName = 'Gallery';
+          icon = ImageIcon;
+          color = '#f59e0b';
+          description = 'View our photo gallery';
+          break;
+        case 'UPDATES':
+          displayName = 'Updates';
+          icon = Newspaper;
+          color = '#8b5cf6';
+          description = 'Latest news and updates';
+          break;
+        case 'CONTACT':
+          displayName = 'Contact';
+          icon = Phone;
+          color = '#60a5fa';
+          description = 'Get in touch with us';
+          break;
+        default:
+          displayName = navItem.name;
+          icon = Building;
+          color = '#1f4f8b';
+          description = `Visit our ${displayName.toLowerCase()}`;
+      }
+
+      items.push({
+        name: displayName,
+        href: navItem.href,
+        icon,
+        color,
+        description
+      });
+    }
+  });
+
+  return items;
+};
 
 export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onClose }) => {
   const [mounted, setMounted] = useState(false);
@@ -86,7 +152,7 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed inset-x-4 inset-y-8 z-50 flex items-start justify-center pt-8"
+            className="fixed inset-x-3 inset-y-6 z-50 flex items-start justify-center pt-6"
             style={{ filter: 'blur(0px)' }}
           >
             <motion.div
@@ -94,7 +160,7 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
               animate={{ y: 0 }}
               exit={{ y: 20 }}
               transition={{ duration: 0.2 }}
-              className="bg-white rounded-3xl p-8 w-full max-w-md mx-auto shadow-2xl border border-white/20"
+              className="bg-white rounded-3xl p-6 w-full max-w-sm mx-auto shadow-2xl border border-white/20"
               style={{ filter: 'blur(0px)' }}
             >
               {/* Header */}
@@ -119,8 +185,8 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
               </div>
 
               {/* Navigation Cards */}
-              <div className="space-y-4 flex-1">
-                {navigationItems.map((item, index) => {
+              <div className="space-y-3 flex-1 overflow-y-auto max-h-[calc(100vh-16rem)]">
+                {getNavigationItems().map((item, index) => {
                   const IconComponent = item.icon;
                   return (
                     <motion.div
@@ -132,7 +198,7 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
                       <Link
                         href={item.href}
                         onClick={onClose}
-                        className="group block relative overflow-hidden rounded-2xl bg-gradient-to-r from-white to-slate-50 p-6 border border-slate-200/60 hover:border-slate-300 shadow-sm hover:shadow-lg transition-all duration-300"
+                        className="group block relative overflow-hidden rounded-xl bg-gradient-to-r from-white to-slate-50 p-4 border border-slate-200/60 hover:border-slate-300 shadow-sm hover:shadow-lg transition-all duration-300"
                       >
                         <motion.div
                           className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -141,31 +207,31 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
                           }}
                         />
 
-                        <div className="relative flex items-center space-x-4">
+                        <div className="relative flex items-center space-x-3">
                           <motion.div
-                            className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
+                            className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center"
                             style={{ backgroundColor: `${item.color}15` }}
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.2 }}
                           >
                             <IconComponent
-                              className="h-6 w-6"
+                              className="h-5 w-5"
                               style={{ color: item.color }}
                             />
                           </motion.div>
 
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-heading font-semibold text-foreground group-hover:text-primary transition-colors">
+                            <h3 className="font-heading font-semibold text-foreground group-hover:text-primary transition-colors text-base">
                               {item.name}
                             </h3>
-                            <p className="text-sm text-muted-foreground group-hover:text-slate-600 transition-colors">
+                            <p className="text-xs text-muted-foreground group-hover:text-slate-600 transition-colors">
                               {item.description}
                             </p>
                           </div>
                         </div>
 
                         <motion.div
-                          className="absolute top-4 right-4 w-2 h-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          className="absolute top-3 right-3 w-2 h-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                           style={{ backgroundColor: item.color }}
                         />
                       </Link>
@@ -183,16 +249,36 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
               >
                 <div className="flex items-center justify-between text-sm text-muted-foreground">
                   <div className="flex space-x-3">
-                    {siteData.socialMedia.map((social) => (
-                      <Link
-                        key={social.name}
-                        href={social.href}
-                        onClick={onClose}
-                        className="w-8 h-8 rounded-full bg-slate-100 hover:bg-primary hover:text-white transition-all duration-200 flex items-center justify-center text-slate-600 hover:text-white"
-                      >
-                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" dangerouslySetInnerHTML={{ __html: socialIcons[social.name] || '' }}></svg>
-                      </Link>
-                    ))}
+                    {siteData.socialMedia.map((social) => {
+                      const IconComponent = socialIconComponents[social.name];
+                      // Define brand colors for each social media
+                      const getBrandColor = () => {
+                        switch (social.name) {
+                          case 'Facebook': return '#1877F2'; // Facebook blue
+                          case 'Twitter': return '#000000'; // X (Twitter) black
+                          case 'Instagram': return 'transparent'; // Instagram uses gradient background
+                          default: return '#1877F2';
+                        }
+                      };
+
+                      const getBgClass = () => {
+                        if (social.name === 'Instagram') {
+                          return 'bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] via-[#FCB045] to-[#FFDC80]'; // Instagram gradient
+                        }
+                        return 'bg-gray-100 hover:bg-gray-200';
+                      };
+
+                      return (
+                        <Link
+                          key={social.name}
+                          href={social.href}
+                          onClick={onClose}
+                          className="w-11 h-11 rounded-full bg-white hover:bg-gray-50 transition-all duration-200 flex items-center justify-center border border-gray-200"
+                        >
+                          {IconComponent && <IconComponent className="h-8 w-8 flex-shrink-0 text-black" />}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </motion.div>
