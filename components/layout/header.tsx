@@ -55,12 +55,12 @@ const Header: React.FC = () => {
         <div className="container mx-auto px-4 py-3 flex items-center justify-between min-h-[3rem]">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-          <div className="relative w-14 h-16 md:w-20 md:h-[9rem] flex-shrink-0">
+          <div className="relative w-14 h-16 md:w-16 md:h-20 flex-shrink-0">
             <Image
               src="/assets/logo.webp"
               alt="Doon International School Logo"
               fill
-              className="object-contain scale-[2.0] md:scale-[2.2]"
+              className="object-contain scale-[2.0] md:scale-[1.8]"
               sizes="1000px"
             />
           </div>

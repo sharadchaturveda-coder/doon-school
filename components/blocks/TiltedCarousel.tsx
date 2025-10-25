@@ -56,7 +56,7 @@ const slides = [
   },
 ];
 
-const CARDS_AROUND_CENTER = 8;
+const CARDS_AROUND_CENTER = 4;
 const VIRTUAL_CARDS = CARDS_AROUND_CENTER * 2 + 1;
 
 export default function TiltedCarousel() {
@@ -65,6 +65,7 @@ export default function TiltedCarousel() {
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const dragAccumRef = useRef(0);
+  const lastChangeTimeRef = useRef(0);
 
   // Detect mobile
   useEffect(() => {
@@ -90,8 +91,21 @@ export default function TiltedCarousel() {
     mass: 0.6,
   });
 
-  const next = useCallback(() => setCenterIndex((i) => i + 1), []);
-  const prev = useCallback(() => setCenterIndex((i) => i - 1), []);
+  const next = useCallback(() => {
+    const now = Date.now();
+    if (now - lastChangeTimeRef.current > 300) { // Throttle to 300ms between changes
+      setCenterIndex((i) => i + 1);
+      lastChangeTimeRef.current = now;
+    }
+  }, []);
+
+  const prev = useCallback(() => {
+    const now = Date.now();
+    if (now - lastChangeTimeRef.current > 300) { // Throttle to 300ms between changes
+      setCenterIndex((i) => i - 1);
+      lastChangeTimeRef.current = now;
+    }
+  }, []);
 
 
 
@@ -141,6 +155,12 @@ export default function TiltedCarousel() {
               dragAccumRef.current += info.delta.x;
             }}
             onDragEnd={(event, info) => {
+              const now = Date.now();
+              if (now - lastChangeTimeRef.current < 300) {
+                dragAccumRef.current = 0;
+                return;
+              }
+
               // Snap to next/previous slide based on drag distance threshold
               const dragDistance = Math.abs(dragAccumRef.current);
               const cardWidth = 220; // Same as translateX calculation
@@ -153,6 +173,7 @@ export default function TiltedCarousel() {
                   // Dragged left, go to next slide (infinite)
                   setCenterIndex(centerIndex + 1);
                 }
+                lastChangeTimeRef.current = now;
               } else {
                 // Not enough drag, stay on current slide
                 setCenterIndex(centerIndex);
@@ -198,6 +219,12 @@ export default function TiltedCarousel() {
                     <div
                       className="absolute inset-0 bg-cover bg-center"
                       style={{ backgroundImage: `url(${data.image})` }}
+                    />
+                    <img
+                      src={data.image}
+                      alt=""
+                      loading="lazy"
+                      className="absolute opacity-0 pointer-events-none"
                     />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
@@ -295,15 +322,27 @@ export default function TiltedCarousel() {
                   transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
                   filter: "drop-shadow(0 10px 35px rgba(0,0,0,0.45))",
                   transition:
-                    "transform 450ms cubic-bezier(0.25,0.46,0.45,0.94), opacity 200ms ease",
+                    "transform 300ms cubic-bezier(0.4,0.0,0.2,1), opacity 150ms ease",
                   opacity,
                   zIndex,
                 }}
-                onClick={() => setCenterIndex(centerIndex + positionOffset)}
+                onClick={() => {
+                  const now = Date.now();
+                  if (now - lastChangeTimeRef.current > 300) {
+                    setCenterIndex(centerIndex + positionOffset);
+                    lastChangeTimeRef.current = now;
+                  }
+                }}
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center"
                   style={{ backgroundImage: `url(${data.image})` }}
+                />
+                <img
+                  src={data.image}
+                  alt=""
+                  loading="lazy"
+                  className="absolute opacity-0 pointer-events-none"
                 />
 
                 <div className="relative z-20 p-6 h-full flex flex-col justify-end text-white bg-gradient-to-t from-black/70 via-black/30 to-transparent">
