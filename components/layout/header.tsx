@@ -82,12 +82,12 @@ const Header: React.FC = () => {
           </div>
 
           {/* RIGHT SIDE: NAV - Hidden on smaller screens */}
-          <div className="hidden md:flex items-start justify-end flex-1 ml-8 gap-4">
+          <div className="hidden md:flex items-center justify-end flex-1 ml-8 gap-4">
             {siteData.navigation.map((item) => (
-              <div key={item.name} className="relative group flex items-start flex-shrink-0">
+              <div key={item.name} className="relative group flex items-center flex-shrink-0">
                 <Link
                   href={item.href}
-                  className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} hover:text-[#FFD700] transition-colors font-medium flex items-start space-x-1 leading-tight`}
+                  className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} hover:text-[#FFD700] transition-colors font-medium flex items-center space-x-1 leading-tight`}
                 >
                   <span className="whitespace-nowrap">{item.shortName || item.name}</span>
                   {item.dropdown && <ChevronDown className="w-4 h-4 flex-shrink-0 mt-0.5" />}
