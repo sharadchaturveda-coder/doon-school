@@ -62,7 +62,7 @@ const getNavigationItems = (): NavigationItem[] => {
   });
 
   siteData.navigation.forEach((navItem) => {
-    if (navItem.name !== 'HOME') {
+    if (navItem.name !== 'HOME' && navItem.name !== 'ENQUIRY') {
       let displayName, icon, color, description;
 
       switch (navItem.name) {
@@ -205,6 +205,22 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
                   <X className="h-5 w-5 group-hover:rotate-90 transition-transform duration-200" />
                 </motion.button>
               </div>
+
+              {/* Enquiry Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2 }}
+                className="mb-4"
+              >
+                <Link
+                  href="/enquiry"
+                  onClick={onClose}
+                  className="group block w-full bg-[#F2B33D] text-[#002B6B] px-6 py-3 rounded-xl font-medium hover:bg-[#F2B33D]/90 transition-colors text-center shadow-sm hover:shadow-md"
+                >
+                  Enquiry
+                </Link>
+              </motion.div>
 
               {/* Navigation Cards */}
               <div className="space-y-3 flex-1 overflow-y-auto max-h-[calc(100vh-16rem)]">

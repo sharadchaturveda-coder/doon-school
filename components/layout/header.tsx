@@ -63,14 +63,14 @@ const Header: React.FC = () => {
             ? `bg-transparent shadow-none`
             : `shadow-lg border-b bg-white border-gray-300`
       }`}>
-        <div className="container px-1 pr-3 py-2 md:px-4 md:py-3 lg:py-3 flex items-center min-h-[4rem] md:min-h-[5rem] lg:min-h-[3rem]">
+        <div className="container px-0.5 pr-2 py-2 md:px-4 md:py-3 lg:py-3 flex items-center min-h-[4rem] md:min-h-[5rem] lg:min-h-[3rem]">
           {/* LEFT SIDE: LOGO + NAME */}
-          <div className="flex items-center flex-shrink-0 space-x-0.5 md:space-x-2 lg:space-x-3 min-w-0">
+          <div className="flex items-center flex-shrink-0 space-x-0 md:space-x-2 lg:space-x-3 min-w-0">
             <div className="flex-shrink-0">
               <img
                 src="/assets/logo.webp"
                 alt="Doon International School Logo"
-                className="w-10 h-10 md:w-16 md:h-16 lg:w-36 lg:h-36 object-contain"
+                className="w-13 h-13 md:w-16 md:h-16 lg:w-36 lg:h-36 object-contain"
               />
             </div>
             <Link
@@ -86,35 +86,38 @@ const Header: React.FC = () => {
           <div className="hidden md:flex items-center justify-end flex-1 ml-4 md:ml-4 lg:ml-8 gap-2 md:gap-2 lg:gap-4">
             {siteData.navigation.map((item) => (
               <div key={item.name} className="relative group flex items-center flex-shrink-0">
-                <Link
-                  href={item.href}
-                  className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} hover:text-[#FFD700] transition-colors font-medium flex items-center space-x-1 leading-tight text-sm lg:text-base`}
-                >
-                  <span className="whitespace-nowrap">{item.shortName || item.name}</span>
-                  {item.dropdown && <ChevronDown className="w-3 h-3 lg:w-4 lg:h-4 flex-shrink-0 mt-0.5" />}
-                </Link>
-                {item.dropdown && (
-                  <div className="absolute top-full left-0 mt-1 bg-white/70 backdrop-blur-md border border-gray-300 py-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[180px] lg:min-w-[200px] z-50">
-                    {item.dropdown.map((submenu, index) => (
-                      <div key={submenu.name}>
-                        <Link
-                          href={submenu.href}
-                          className="block px-3 lg:px-4 py-2 text-black hover:bg-gray-100 hover:text-[#FFD700] transition-colors text-sm lg:text-base"
-                        >
-                          {submenu.name}
-                        </Link>
-                        {index < item.dropdown.length - 1 && <div className="border-b border-gray-300 mx-2"></div>}
+                {item.name === "ENQUIRY" ? (
+                  <Link href={item.href} className="bg-[#F2B33D] text-[#002B6B] px-4 md:px-5 lg:px-6 py-1.5 md:py-2 lg:py-2 rounded-full font-medium hover:bg-[#F2B33D]/90 transition-colors flex-shrink-0 whitespace-nowrap text-sm lg:text-base">
+                    Enquiry
+                  </Link>
+                ) : (
+                  <>
+                    <Link
+                      href={item.href}
+                      className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} hover:text-[#FFD700] transition-colors font-medium flex items-center space-x-1 leading-tight text-sm lg:text-base`}
+                    >
+                      <span className="whitespace-nowrap">{item.shortName || item.name}</span>
+                      {item.dropdown && <ChevronDown className="w-3 h-3 lg:w-4 lg:h-4 flex-shrink-0 mt-0.5" />}
+                    </Link>
+                    {item.dropdown && (
+                      <div className="absolute top-full left-0 mt-1 bg-white/70 backdrop-blur-md border border-gray-300 py-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[180px] lg:min-w-[200px] z-50">
+                        {item.dropdown.map((submenu, index) => (
+                          <div key={submenu.name}>
+                            <Link
+                              href={submenu.href}
+                              className="block px-3 lg:px-4 py-2 text-black hover:bg-gray-100 hover:text-[#FFD700] transition-colors text-sm lg:text-base"
+                            >
+                              {submenu.name}
+                            </Link>
+                            {index < item.dropdown.length - 1 && <div className="border-b border-gray-300 mx-2"></div>}
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                    )}
+                  </>
                 )}
               </div>
             ))}
-
-            {/* Enquiry Button - Smaller on tablet */}
-            <Link href="/enquiry" className="bg-[#F2B33D] text-[#002B6B] px-4 md:px-5 lg:px-6 py-1.5 md:py-2 lg:py-2 rounded-full font-medium hover:bg-[#F2B33D]/90 transition-colors flex-shrink-0 whitespace-nowrap text-sm lg:text-base">
-              Enquiry
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
