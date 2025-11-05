@@ -48,7 +48,7 @@
   ],
   "gallery": [ "/assets/gallery/1.avif", "/assets/gallery/2.avif", "/assets/gallery/3.avif" ],
   "campusExperience": {
-    "backgroundImage": "/images/entrance/main-entrance.webp",
+    "backgroundImage": "/assets/discoverdoon.jpg",
     "heading": "Doon Campus Experience",
     "subheading": "Discover the vibrant life at Doon International School through our world-class facilities, diverse extracurricular activities, and a nurturing environment that fosters growth and excellence",
     "cta": {

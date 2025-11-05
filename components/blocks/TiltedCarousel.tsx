@@ -264,7 +264,7 @@ export default function TiltedCarousel() {
                   <button
                     key={index}
                     onClick={() => setCenterIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`w-3 h-3 rounded-full transition-all duration-200 hover:scale-105 ${
                       isActive
                         ? 'bg-[#FFC940] shadow-lg transform scale-110'
                         : 'bg-white/40 hover:bg-white/60'
@@ -372,13 +372,13 @@ export default function TiltedCarousel() {
         <div className="absolute right-12 bottom-10 flex gap-3 opacity-60 hover:opacity-100 transition-opacity">
           <button
             onClick={prev}
-            className="w-9 h-9 border border-white/70 rounded-full flex items-center justify-center hover:bg-white/10 transition"
+            className="w-9 h-9 border border-white/70 rounded-full flex items-center justify-center hover:bg-white/10 hover:scale-105 transition-all duration-200"
           >
             <ChevronLeft className="w-4 h-4 text-white" />
           </button>
           <button
             onClick={next}
-            className="w-9 h-9 border border-white/70 rounded-full flex items-center justify-center hover:bg-white/10 transition"
+            className="w-9 h-9 border border-white/70 rounded-full flex items-center justify-center hover:bg-white/10 hover:scale-105 transition-all duration-200"
           >
             <ChevronRight className="w-4 h-4 text-white" />
           </button>

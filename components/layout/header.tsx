@@ -59,33 +59,36 @@ const Header: React.FC = () => {
       <header className={`${pathname === '/' ? 'fixed' : 'sticky'} top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? `shadow-lg border-b bg-white border-gray-300 lg:bg-white/90 lg:backdrop-blur-md`
-          : `shadow-lg border-b bg-white border-gray-300`
+          : pathname === '/'
+            ? `bg-transparent shadow-none`
+            : `shadow-lg border-b bg-white border-gray-300`
       }`}>
-        <div className="container mx-auto px-1 pr-3 py-2 md:px-4 md:py-3 lg:py-3 flex items-center min-h-[4rem] md:min-h-[5rem] lg:min-h-[3rem]">
+        <div className="container px-1 pr-3 py-2 md:px-4 md:py-3 lg:py-3 flex items-center min-h-[4rem] md:min-h-[5rem] lg:min-h-[3rem]">
           {/* LEFT SIDE: LOGO + NAME */}
-          <div className="flex items-center flex-shrink-0 space-x-0.5 md:space-x-3 lg:space-x-3 min-w-0">
+          <div className="flex items-center flex-shrink-0 space-x-0.5 md:space-x-2 lg:space-x-3 min-w-0">
             <div className="flex-shrink-0">
               <img
                 src="/assets/logo.webp"
                 alt="Doon International School Logo"
-                className="w-10 h-10 md:w-24 md:h-24 lg:w-36 lg:h-36 object-contain"
+                className="w-10 h-10 md:w-16 md:h-16 lg:w-36 lg:h-36 object-contain"
               />
             </div>
             <Link
               href="/"
-              className={`text-black whitespace-nowrap font-heading font-bold text-xs md:text-sm lg:text-lg leading-tight truncate min-w-0 hover:text-[#FFD700] transition-colors`}
+              className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} whitespace-nowrap font-heading font-bold text-xs md:text-sm lg:text-lg leading-tight truncate min-w-0 hover:text-[#FFD700] transition-colors`}
             >
-              {siteData.siteName}
+              <span className="hidden lg:inline">{siteData.siteName}</span>
+              <span className="md:inline lg:hidden">DOON INTERNATIONAL SCHOOL</span>
             </Link>
           </div>
 
           {/* RIGHT SIDE: NAV - Hidden on mobile, tablet optimized */}
-          <div className="hidden md:flex items-center justify-end flex-1 ml-4 md:ml-6 lg:ml-8 gap-2 md:gap-3 lg:gap-4">
+          <div className="hidden md:flex items-center justify-end flex-1 ml-4 md:ml-4 lg:ml-8 gap-2 md:gap-2 lg:gap-4">
             {siteData.navigation.map((item) => (
               <div key={item.name} className="relative group flex items-center flex-shrink-0">
                 <Link
                   href={item.href}
-                  className={`text-black hover:text-[#FFD700] transition-colors font-medium flex items-center space-x-1 leading-tight text-sm lg:text-base`}
+                  className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} hover:text-[#FFD700] transition-colors font-medium flex items-center space-x-1 leading-tight text-sm lg:text-base`}
                 >
                   <span className="whitespace-nowrap">{item.shortName || item.name}</span>
                   {item.dropdown && <ChevronDown className="w-3 h-3 lg:w-4 lg:h-4 flex-shrink-0 mt-0.5" />}
