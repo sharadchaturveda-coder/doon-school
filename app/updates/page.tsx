@@ -61,8 +61,6 @@ export default function Updates() {
 
       <EventsSection />
 
-      <NewsletterSignup />
-
       <UpdatesCTA />
     </>
   );

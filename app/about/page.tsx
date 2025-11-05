@@ -111,20 +111,39 @@ export default function About() {
                 description: "Comprehensive sports infrastructure for physical education and athletics.",
                 icon: "⚽"
               }
-            ].map((facility, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="text-4xl mb-4">{facility.icon}</div>
-                <h3 className="text-xl font-heading font-bold mb-3 text-primary">{facility.title}</h3>
-                <p className="text-primary text-[15px] leading-relaxed">{facility.description}</p>
-              </motion.div>
-            ))}
+            ].map((facility, index) => {
+              const backgroundImages = [
+                '/images/classroom/classroom.webp',
+                '/images/library/classroom.avif',
+                '/images/computer-lab/computer-lab.webp',
+                '/images/auditorium/main-hall.webp',
+                '/images/science-park/robotics.webp',
+                '/images/sports/horses.webp'
+              ];
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+                  className="relative p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden min-h-[280px]"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${backgroundImages[index]})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat'
+                  }}
+                >
+                  <div className="relative z-10">
+                    <div className="text-4xl mb-4 drop-shadow-lg">{facility.icon}</div>
+                    <h3 className="text-xl font-heading font-bold mb-3 text-white drop-shadow-lg">{facility.title}</h3>
+                    <p className="text-white text-[15px] leading-relaxed drop-shadow-md">{facility.description}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

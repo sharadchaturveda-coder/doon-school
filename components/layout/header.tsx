@@ -63,27 +63,38 @@ const Header: React.FC = () => {
             ? `bg-transparent shadow-none`
             : `shadow-lg border-b bg-white border-gray-300`
       }`}>
-        <div className="container px-0.5 pr-2 py-2 md:px-4 md:py-3 lg:py-3 flex items-center min-h-[4rem] md:min-h-[5rem] lg:min-h-[3rem]">
-          {/* LEFT SIDE: LOGO + NAME */}
-          <div className="flex items-center flex-shrink-0 space-x-0 md:space-x-2 lg:space-x-3 min-w-0">
-            <div className="flex-shrink-0">
-              <img
-                src="/assets/logo.webp"
-                alt="Doon International School Logo"
-                className="w-13 h-13 md:w-16 md:h-16 lg:w-36 lg:h-36 object-contain"
-              />
-            </div>
+        <div className="container px-0.5 pr-2 py-2 md:px-4 md:py-3 lg:py-3 flex items-center min-h-[5rem] md:min-h-[5rem] lg:min-h-[3rem] relative">
+          {/* LEFT SIDE: LOGO */}
+          <div className="flex items-center flex-shrink-0">
+            <img
+              src="/assets/logo.webp"
+              alt="Doon International School Logo"
+              className="w-24 h-24 md:w-16 md:h-16 lg:w-36 lg:h-36 object-contain"
+            />
+          </div>
+
+          {/* CENTER: SCHOOL NAME TEXT - Tablet and Desktop */}
+          <div className="hidden md:flex absolute left-1/4 transform -translate-x-1/2">
             <Link
               href="/"
-              className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} whitespace-nowrap font-heading font-bold text-xs md:text-sm lg:text-lg leading-tight truncate min-w-0 hover:text-[#FFD700] transition-colors`}
+              className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} whitespace-nowrap font-heading font-bold text-sm hover:text-[#FFD700] transition-colors`}
             >
-              <span className="hidden lg:inline">{siteData.siteName}</span>
-              <span className="md:inline lg:hidden">DOON INTERNATIONAL SCHOOL</span>
+              DOON INTERNATIONAL SCHOOL, JABALPUR
+            </Link>
+          </div>
+
+          {/* CENTER: MOBILE TEXT - Absolutely positioned */}
+          <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
+            <Link
+              href="/"
+              className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} whitespace-nowrap font-heading font-bold text-xs hover:text-[#FFD700] transition-colors`}
+            >
+              DOON
             </Link>
           </div>
 
           {/* RIGHT SIDE: NAV - Hidden on mobile, tablet optimized */}
-          <div className="hidden md:flex items-center justify-end flex-1 ml-4 md:ml-4 lg:ml-8 gap-2 md:gap-2 lg:gap-4">
+          <div className="hidden md:flex items-center justify-end flex-1 ml-4 md:ml-4 lg:ml-4 gap-2 md:gap-2 lg:gap-4">
             {siteData.navigation.map((item) => (
               <div key={item.name} className="relative group flex items-center flex-shrink-0">
                 {item.name === "ENQUIRY" ? (
@@ -121,7 +132,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex-shrink-0">
+          <div className="md:hidden flex-shrink-0 ml-auto">
             <ModernHamburgerButton
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
