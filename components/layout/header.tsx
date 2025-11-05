@@ -112,9 +112,9 @@ const Header: React.FC = () => {
             ))}
 
             {/* Enquiry Button - Smaller on tablet */}
-            <button className="bg-[#F2B33D] text-[#002B6B] px-4 md:px-5 lg:px-6 py-1.5 md:py-2 lg:py-2 rounded-full font-medium hover:bg-[#F2B33D]/90 transition-colors flex-shrink-0 whitespace-nowrap text-sm lg:text-base">
+            <Link href="/enquiry" className="bg-[#F2B33D] text-[#002B6B] px-4 md:px-5 lg:px-6 py-1.5 md:py-2 lg:py-2 rounded-full font-medium hover:bg-[#F2B33D]/90 transition-colors flex-shrink-0 whitespace-nowrap text-sm lg:text-base">
               Enquiry
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
