@@ -21,8 +21,8 @@ export const ModernHamburgerButton: React.FC<ModernHamburgerButtonProps> = ({
       className={`relative flex items-center justify-center ${className}`}
       whileTap={{ scale: 0.95 }}
     >
-      {/* Button background */}
-      <div className="relative w-11 h-11 sm:w-10 sm:h-10 bg-gradient-to-r from-primary to-primary/80 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group">
+      {/* Button background - Larger touch target */}
+      <div className="relative w-12 h-12 sm:w-11 sm:h-11 bg-gradient-to-r from-primary to-primary/80 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group touch-manipulation">
         {/* Subtle hover glow */}
         <div className="absolute inset-0 bg-primary/30 rounded-full blur-sm sm:blur-md scale-75 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 

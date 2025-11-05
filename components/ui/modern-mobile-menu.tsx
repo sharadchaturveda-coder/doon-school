@@ -3,12 +3,21 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Home, Building, FileText, Users, ImageIcon, Newspaper, Phone } from 'lucide-react';
+import { X, Home, Building, FileText, Users, ImageIcon, Newspaper, Phone, ChevronDown, ChevronRight } from 'lucide-react';
 import siteData from '../../data/site.json';
 
 interface ModernMobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+}
+
+interface NavigationItem {
+  name: string;
+  href: string;
+  icon: any;
+  color: string;
+  description: string;
+  dropdown: any[] | null;
 }
 
 // Custom Social Media Icon Components
@@ -39,8 +48,8 @@ const socialIconComponents: Record<string, React.ComponentType<any>> = {
 
 
 
-const getNavigationItems = () => {
-  const items = [];
+const getNavigationItems = (): NavigationItem[] => {
+  const items: NavigationItem[] = [];
 
   // Add Home first
   items.push({
@@ -48,7 +57,8 @@ const getNavigationItems = () => {
     href: '/',
     icon: Home,
     color: '#10b981',
-    description: 'Welcome to our school'
+    description: 'Welcome to our school',
+    dropdown: null
   });
 
   siteData.navigation.forEach((navItem) => {
@@ -106,7 +116,8 @@ const getNavigationItems = () => {
         href: navItem.href,
         icon,
         color,
-        description
+        description,
+        dropdown: navItem.dropdown || null
       });
     }
   });
@@ -116,6 +127,7 @@ const getNavigationItems = () => {
 
 export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onClose }) => {
   const [mounted, setMounted] = useState(false);
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     setMounted(true);
@@ -130,6 +142,16 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
     };
   }, [isOpen]);
 
+  const toggleSection = (sectionName: string) => {
+    const newExpanded = new Set(expandedSections);
+    if (newExpanded.has(sectionName)) {
+      newExpanded.delete(sectionName);
+    } else {
+      newExpanded.add(sectionName);
+    }
+    setExpandedSections(newExpanded);
+  };
+
   if (!mounted) return null;
 
   return (
@@ -142,7 +164,7 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="fixed inset-0 z-50 bg-black/5 backdrop-blur-xl"
+            className="fixed inset-0 z-[60] bg-black/5 backdrop-blur-xl"
             onClick={onClose}
           />
 
@@ -152,7 +174,7 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed inset-x-3 inset-y-6 z-50 flex items-start justify-center pt-6"
+            className="fixed inset-x-3 inset-y-6 z-[60] flex items-start justify-center pt-6"
             style={{ filter: 'blur(0px)' }}
           >
             <motion.div
@@ -188,6 +210,9 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
               <div className="space-y-3 flex-1 overflow-y-auto max-h-[calc(100vh-16rem)]">
                 {getNavigationItems().map((item, index) => {
                   const IconComponent = item.icon;
+                  const isExpanded = expandedSections.has(item.name);
+                  const hasDropdown = item.dropdown && Array.isArray(item.dropdown) && item.dropdown.length > 0;
+
                   return (
                     <motion.div
                       key={item.name}
@@ -195,10 +220,11 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.2 }}
                     >
+                      {/* Main Navigation Item */}
                       <Link
                         href={item.href}
-                        onClick={onClose}
-                        className="group block relative overflow-hidden rounded-xl bg-gradient-to-r from-white to-slate-50 p-4 border border-slate-200/60 hover:border-slate-300 shadow-sm hover:shadow-lg transition-all duration-300"
+                        onClick={hasDropdown ? () => toggleSection(item.name) : onClose}
+                        className={`group block relative overflow-hidden rounded-xl bg-gradient-to-r from-white to-slate-50 p-4 border border-slate-200/60 hover:border-slate-300 shadow-sm hover:shadow-lg transition-all duration-300 ${hasDropdown ? 'cursor-pointer' : ''}`}
                       >
                         <motion.div
                           className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -228,6 +254,17 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
                               {item.description}
                             </p>
                           </div>
+
+                          {/* Expand/Collapse Icon */}
+                          {hasDropdown && (
+                            <motion.div
+                              animate={{ rotate: isExpanded ? 180 : 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="flex-shrink-0"
+                            >
+                              <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                            </motion.div>
+                          )}
                         </div>
 
                         <motion.div
@@ -235,6 +272,43 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
                           style={{ backgroundColor: item.color }}
                         />
                       </Link>
+
+                      {/* Dropdown Items */}
+                      {hasDropdown && (
+                        <AnimatePresence>
+                          {isExpanded && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.3, ease: "easeInOut" }}
+                              className="overflow-hidden"
+                            >
+                              <div className="ml-8 mt-2 space-y-2">
+                                {item.dropdown!.map((submenu, subIndex) => (
+                                  <motion.div
+                                    key={submenu.name}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.2, delay: subIndex * 0.05 }}
+                                  >
+                                    <Link
+                                      href={submenu.href}
+                                      onClick={onClose}
+                                      className="group flex items-center space-x-3 p-3 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200/40 hover:border-slate-300 transition-all duration-200"
+                                    >
+                                      <div className="w-2 h-2 rounded-full bg-slate-400 group-hover:bg-slate-600 transition-colors" />
+                                      <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors">
+                                        {submenu.name}
+                                      </span>
+                                    </Link>
+                                  </motion.div>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      )}
                     </motion.div>
                   );
                 })}

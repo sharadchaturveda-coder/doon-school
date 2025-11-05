@@ -59,46 +59,44 @@ const Header: React.FC = () => {
       <header className={`${pathname === '/' ? 'fixed' : 'sticky'} top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? `shadow-lg border-b bg-white border-gray-300 lg:bg-white/90 lg:backdrop-blur-md`
-          : pathname === '/'
-          ? 'bg-transparent border-transparent'
-          : 'shadow-lg border-b bg-white border-gray-300'
+          : `shadow-lg border-b bg-white border-gray-300`
       }`}>
-        <div className="container mx-auto px-4 py-0 md:py-3 flex items-center min-h-[3rem]">
+        <div className="container mx-auto px-1 pr-3 py-2 md:px-4 md:py-3 lg:py-3 flex items-center min-h-[4rem] md:min-h-[5rem] lg:min-h-[3rem]">
           {/* LEFT SIDE: LOGO + NAME */}
-          <div className="flex flex-col md:flex-row items-center md:items-center flex-shrink-0 space-y-0 space-x-0 md:space-x-3 md:space-y-0 min-w-0">
+          <div className="flex items-center flex-shrink-0 space-x-0.5 md:space-x-3 lg:space-x-3 min-w-0">
             <div className="flex-shrink-0">
               <img
                 src="/assets/logo.webp"
                 alt="Doon International School Logo"
-                className="w-48 h-48 md:w-36 md:h-36 object-contain md:scale-[120%]"
+                className="w-10 h-10 md:w-24 md:h-24 lg:w-36 lg:h-36 object-contain"
               />
             </div>
             <Link
               href="/"
-              className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} whitespace-nowrap font-heading font-bold text-xs md:text-lg leading-tight truncate min-w-0 hover:text-[#FFD700] transition-colors`}
+              className={`text-black whitespace-nowrap font-heading font-bold text-xs md:text-sm lg:text-lg leading-tight truncate min-w-0 hover:text-[#FFD700] transition-colors`}
             >
               {siteData.siteName}
             </Link>
           </div>
 
-          {/* RIGHT SIDE: NAV - Hidden on smaller screens */}
-          <div className="hidden md:flex items-center justify-end flex-1 ml-8 gap-4">
+          {/* RIGHT SIDE: NAV - Hidden on mobile, tablet optimized */}
+          <div className="hidden md:flex items-center justify-end flex-1 ml-4 md:ml-6 lg:ml-8 gap-2 md:gap-3 lg:gap-4">
             {siteData.navigation.map((item) => (
               <div key={item.name} className="relative group flex items-center flex-shrink-0">
                 <Link
                   href={item.href}
-                  className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} hover:text-[#FFD700] transition-colors font-medium flex items-center space-x-1 leading-tight`}
+                  className={`text-black hover:text-[#FFD700] transition-colors font-medium flex items-center space-x-1 leading-tight text-sm lg:text-base`}
                 >
                   <span className="whitespace-nowrap">{item.shortName || item.name}</span>
-                  {item.dropdown && <ChevronDown className="w-4 h-4 flex-shrink-0 mt-0.5" />}
+                  {item.dropdown && <ChevronDown className="w-3 h-3 lg:w-4 lg:h-4 flex-shrink-0 mt-0.5" />}
                 </Link>
                 {item.dropdown && (
-                  <div className="absolute top-full left-0 mt-1 bg-white/70 backdrop-blur-md border border-gray-300 py-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[200px] z-50">
+                  <div className="absolute top-full left-0 mt-1 bg-white/70 backdrop-blur-md border border-gray-300 py-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[180px] lg:min-w-[200px] z-50">
                     {item.dropdown.map((submenu, index) => (
                       <div key={submenu.name}>
                         <Link
                           href={submenu.href}
-                          className="block px-4 py-2 text-black hover:bg-gray-100 hover:text-[#FFD700] transition-colors"
+                          className="block px-3 lg:px-4 py-2 text-black hover:bg-gray-100 hover:text-[#FFD700] transition-colors text-sm lg:text-base"
                         >
                           {submenu.name}
                         </Link>
@@ -110,14 +108,14 @@ const Header: React.FC = () => {
               </div>
             ))}
 
-            {/* Enquiry Button */}
-            <button className="bg-[#F2B33D] text-[#002B6B] px-6 py-2 rounded-full font-medium hover:bg-[#F2B33D]/90 transition-colors flex-shrink-0 whitespace-nowrap">
+            {/* Enquiry Button - Smaller on tablet */}
+            <button className="bg-[#F2B33D] text-[#002B6B] px-4 md:px-5 lg:px-6 py-1.5 md:py-2 lg:py-2 rounded-full font-medium hover:bg-[#F2B33D]/90 transition-colors flex-shrink-0 whitespace-nowrap text-sm lg:text-base">
               Enquiry
             </button>
           </div>
 
-          {/* Mobile Menu */}
-          <div className="md:hidden">
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex-shrink-0">
             <ModernHamburgerButton
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
