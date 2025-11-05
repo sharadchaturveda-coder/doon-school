@@ -2,11 +2,11 @@ import { motion } from 'framer-motion';
 import Card from '../../ui/card';
 
 const documents = [
-  { icon: "📄", title: "Birth Certificate", bgColor: "bg-gradient-to-r from-blue-500 to-cyan-500" },
-  { icon: "📊", title: "Academic Records", bgColor: "bg-gradient-to-r from-slate-500 to-blue-600" },
-  { icon: "📜", title: "Transfer Certificate", bgColor: "bg-gradient-to-r from-purple-500 to-indigo-500" },
-  { icon: "🖼️", title: "Photographs", bgColor: "bg-gradient-to-r from-green-500 to-blue-500" },
-  { icon: "🎫", title: "Identity Documents", bgColor: "bg-gradient-to-r from-pink-500 to-red-500" },
+  { icon: "📄", title: "Birth Certificate" },
+  { icon: "📊", title: "Academic Records" },
+  { icon: "📜", title: "Transfer Certificate" },
+  { icon: "🖼️", title: "Photographs" },
+  { icon: "🎫", title: "Identity Documents" },
 ];
 
 export default function RequiredDocumentsSection() {
@@ -39,7 +39,7 @@ export default function RequiredDocumentsSection() {
                   transition: { duration: 0.15 }
                 }}
               >
-                <Card className={`p-6 ${doc.bgColor} text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300`}>
+                <Card className="p-6 bg-brand-primary text-white border-0 shadow-lg hover:shadow-xl hover:bg-brand-primary/90 transition-all duration-300 cursor-pointer">
                   <div className="flex items-center">
                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mr-4 backdrop-blur-sm">
                       <span className="text-2xl">{doc.icon}</span>

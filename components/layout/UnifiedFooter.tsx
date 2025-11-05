@@ -5,14 +5,14 @@ const UnifiedFooter: React.FC = () => {
     <footer className="bg-[#0A2A5C] text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-white/10">
         <div>
-          <h4 className="font-semibold text-lg mb-3">Doon International School, Jabalpur</h4>
+          <h4 className="font-semibold text-lg mb-3 text-white">Doon International School, Jabalpur</h4>
           <p className="text-sm opacity-80 leading-relaxed">
             Affiliated with CBSE, providing quality education and holistic development for academic excellence.
           </p>
         </div>
 
         <div>
-          <h4 className="font-semibold text-lg mb-3">Contact</h4>
+          <h4 className="font-semibold text-lg mb-3 text-white">Contact</h4>
           <ul className="text-sm space-y-2 opacity-80">
             <li>Suman Devi Shikshan Sansthan, Anand Enclaves, Jabalpur, MP 482002</li>
             <li>📞 +91 9669530482</li>
@@ -21,7 +21,7 @@ const UnifiedFooter: React.FC = () => {
         </div>
 
         <div>
-          <h4 className="font-semibold text-lg mb-3">Quick Links</h4>
+          <h4 className="font-semibold text-lg mb-3 text-white">Quick Links</h4>
           <ul className="text-sm space-y-2 opacity-80">
             <li><a href="/about" className="hover:underline">About Us</a></li>
             <li><a href="/admission" className="hover:underline">Admissions</a></li>

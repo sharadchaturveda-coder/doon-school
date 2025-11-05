@@ -81,24 +81,24 @@ const Header: React.FC = () => {
             </Link>
           </div>
 
-          {/* RIGHT SIDE: NAV */}
-          <div className="flex items-start justify-end flex-1 ml-8 space-x-4">
+          {/* RIGHT SIDE: NAV - Hidden on smaller screens */}
+          <div className="hidden md:flex items-start justify-end flex-1 ml-8 gap-4">
             {siteData.navigation.map((item) => (
-              <div key={item.name} className="relative group flex items-start">
+              <div key={item.name} className="relative group flex items-start flex-shrink-0">
                 <Link
                   href={item.href}
                   className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} hover:text-[#FFD700] transition-colors font-medium flex items-start space-x-1 leading-tight`}
                 >
-                  <span>{item.shortName || item.name}</span>
+                  <span className="whitespace-nowrap">{item.shortName || item.name}</span>
                   {item.dropdown && <ChevronDown className="w-4 h-4 flex-shrink-0 mt-0.5" />}
                 </Link>
                 {item.dropdown && (
-                  <div className="absolute top-full left-0 mt-1 bg-white/70 backdrop-blur-md border border-gray-300 py-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[200px]">
+                  <div className="absolute top-full left-0 mt-1 bg-white/70 backdrop-blur-md border border-gray-300 py-2 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[200px] z-50">
                     {item.dropdown.map((submenu, index) => (
                       <div key={submenu.name}>
                         <Link
                           href={submenu.href}
-                          className="block px-4 py-2 text-black hover:bg-gray-100 hover:text-[#FFD700] transition-colors text-15px"
+                          className="block px-4 py-2 text-black hover:bg-gray-100 hover:text-[#FFD700] transition-colors"
                         >
                           {submenu.name}
                         </Link>
@@ -111,13 +111,13 @@ const Header: React.FC = () => {
             ))}
 
             {/* Enquiry Button */}
-            <button className="bg-[#F2B33D] text-[#002B6B] px-6 py-2 rounded-full font-medium hover:bg-[#F2B33D]/90 transition-colors">
+            <button className="bg-[#F2B33D] text-[#002B6B] px-6 py-2 rounded-full font-medium hover:bg-[#F2B33D]/90 transition-colors flex-shrink-0 whitespace-nowrap">
               Enquiry
             </button>
           </div>
 
           {/* Mobile Menu */}
-          <div className="lg:hidden">
+          <div className="md:hidden">
             <ModernHamburgerButton
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

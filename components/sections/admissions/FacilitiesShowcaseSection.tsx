@@ -2,12 +2,12 @@ import { motion } from 'framer-motion';
 import Card from '../../ui/card';
 
 const facilities = [
-  { icon: "🏃", title: "Sports & Athletics", desc: "Extensive sports facilities including modern gymnasium and outdoor courts", gradient: "from-green-500 to-blue-500" },
-  { icon: "🎨", title: "Arts & Creativity", desc: "Dedicated visual and performing arts studios with professional equipment", gradient: "from-purple-500 to-pink-500" },
-  { icon: "🏠", title: "Infrastructure", desc: "Modern classrooms, science labs, and technology-integrated learning spaces", gradient: "from-blue-500 to-indigo-500" },
-  { icon: "🏆", title: "House System", desc: "Engaging house activities that foster teamwork and school spirit", gradient: "from-orange-500 to-red-500" },
-  { icon: "🚐", title: "Transportation", desc: "Safe and efficient bus service covering designated routes", gradient: "from-teal-500 to-cyan-500" },
-  { icon: "🌱", title: "Experiential Learning", desc: "Educational excursions and immersion programs for real-world learning", gradient: "from-lime-500 to-green-500" }
+  { icon: "🏃", title: "Sports & Athletics", desc: "Extensive sports facilities including modern gymnasium and outdoor courts", image: "/assets/facilities/horses.webp" },
+  { icon: "🎨", title: "Arts & Creativity", desc: "Dedicated visual and performing arts studios with professional equipment", image: "/assets/facilities/arts.webp" },
+  { icon: "🏠", title: "Infrastructure", desc: "Modern classrooms, science labs, and technology-integrated learning spaces", image: "/assets/facilities/computer-lab.webp" },
+  { icon: "🏆", title: "House System", desc: "Engaging house activities that foster teamwork and school spirit", image: "/assets/gallery/gallery1.webp" },
+  { icon: "🚐", title: "Transportation", desc: "Safe and efficient bus service covering designated routes", image: "/assets/facilities/transport.webp" },
+  { icon: "🌱", title: "Experiential Learning", desc: "Educational excursions and immersion programs for real-world learning", image: "/assets/facilities/robotics.webp" }
 ];
 
 export default function FacilitiesShowcaseSection() {
@@ -39,12 +39,17 @@ export default function FacilitiesShowcaseSection() {
                 transition: { duration: 0.15 }
               }}
             >
-              <Card className={`p-6 h-full bg-gradient-to-br ${facility.gradient} text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300`}>
-                <div className="text-center">
+              <Card className="p-6 h-full text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden relative">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${facility.image})` }}
+                />
+                <div className="absolute inset-0 bg-black/40" />
+                <div className="relative z-10 text-center">
                   <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
                     <span className="text-3xl">{facility.icon}</span>
                   </div>
-                  <h3 className="text-xl font-heading font-bold mb-3">{facility.title}</h3>
+                  <h3 className="text-xl font-heading font-bold mb-3 text-white drop-shadow-lg">{facility.title}</h3>
                   <p className="text-sm leading-relaxed opacity-90">{facility.desc}</p>
                 </div>
               </Card>

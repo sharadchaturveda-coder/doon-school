@@ -6,42 +6,42 @@ const steps = [
     step: "01",
     title: "Inquiry",
     desc: "Submit an online inquiry form or contact our admissions office",
-    bgColor: "bg-gradient-to-br from-blue-500 to-indigo-600",
+    image: "/assets/home_visual_highlights/visual-highlight-1.jpg",
     icon: "📇"
   },
   {
     step: "02",
     title: "Campus Visit",
     desc: "Schedule a visit to experience our facilities and meet our staff",
-    bgColor: "bg-gradient-to-br from-purple-500 to-pink-500",
+    image: "/assets/main-entrance.webp",
     icon: "🏠"
   },
   {
     step: "03",
     title: "Application",
     desc: "Complete and submit the application form with required documents",
-    bgColor: "bg-gradient-to-br from-green-500 to-teal-500",
+    image: "/assets/home_visual_highlights/visual-highlight-2.jpg",
     icon: "📝"
   },
   {
     step: "04",
     title: "Assessment",
     desc: "Students undergo assessment or interview based on grade level",
-    bgColor: "bg-gradient-to-br from-orange-500 to-red-500",
+    image: "/assets/facilities/classroom.webp",
     icon: "🎤"
   },
   {
     step: "05",
     title: "Admission Offer",
     desc: "Successful applicants receive an admission offer",
-    bgColor: "bg-gradient-to-br from-cyan-500 to-blue-500",
+    image: "/assets/gallery/gallery2.webp",
     icon: "🎉"
   },
   {
     step: "06",
     title: "Enrollment",
     desc: "Complete enrollment formalities and secure your child's place",
-    bgColor: "bg-gradient-to-br from-emerald-500 to-green-500",
+    image: "/assets/gallery/gallery3.webp",
     icon: "🎓"
   }
 ];
@@ -75,15 +75,22 @@ export default function AdmissionProcessSection() {
                 transition: { duration: 0.15 }
               }}
             >
-              <Card className={`p-8 h-full ${step.bgColor} text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300`}>
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm">
-                    <span className="text-2xl">{step.icon}</span>
+              <Card className="p-8 h-full text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden relative">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${step.image})` }}
+                />
+                <div className="absolute inset-0 bg-black/40" />
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm">
+                      <span className="text-2xl">{step.icon}</span>
+                    </div>
+                    <div className="text-3xl font-heading font-black opacity-60">{step.step}</div>
                   </div>
-                  <div className="text-3xl font-heading font-black opacity-60">{step.step}</div>
+                  <h3 className="text-2xl font-heading font-bold mb-4 text-white drop-shadow-lg">{step.title}</h3>
+                  <p className="leading-relaxed opacity-90">{step.desc}</p>
                 </div>
-                <h3 className="text-2xl font-heading font-bold mb-4">{step.title}</h3>
-                <p className="leading-relaxed opacity-90">{step.desc}</p>
               </Card>
             </motion.div>
           ))}
