@@ -26,16 +26,7 @@
         { "name": "Withdrawal Form", "href": "/admissions#withdrawal" }
       ]
     },
-    {
-      "name": "GALLERY",
-      "href": "/gallery",
-      "dropdown": [
-        { "name": "Photo Gallery", "href": "/gallery#photos" },
-
-        { "name": "News Gallery", "href": "/gallery#news" },
-        { "name": "Events", "href": "/gallery#events" }
-      ]
-    },
+    { "name": "DISCOVER DOON", "href": "/discover" },
     { "name": "UPDATES", "href": "/updates" },
     { "name": "CONTACT", "href": "/contact" }
   ],

@@ -8,7 +8,8 @@ import NewsTickerSection from '../components/blocks/news-ticker-section';
 import WelcomeSection from '../components/blocks/WelcomeSection';
 import CampusStatsSection from '../components/blocks/campus-stats-section';
 
-import JoinUsToday from '../components/blocks/join-us-today';
+import CampusExperienceSection from '../components/sections/home/CampusExperienceSection';
+import AcademicsSection from '../components/sections/home/AcademicsSection';
 import UpdatesEvents from '../components/blocks/updates-events';
 import TiltedCarousel from '../components/blocks/TiltedCarousel';
 import siteData from '../data/site.json';
@@ -47,14 +48,11 @@ export default function Home() {
 
       <CampusStatsSection />
 
-      {/* Join Us Today */}
-      <JoinUsToday />
+      {/* Campus Experience */}
+      <CampusExperienceSection campusExperience={homeData.campusExperience} />
 
-      {/* Latest Updates + Upcoming Events */}
-      <UpdatesEvents
-        latestUpdates={homeData.latestUpdates}
-        upcomingEvents={homeData.upcomingEvents}
-      />
+      {/* Academic Life at Doon */}
+      <AcademicsSection academics={homeData.academics} />
 
       <TiltedCarousel />
     </>

@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '../components/layout/header';
-import Footer from '../components/layout/footer';
+import UnifiedFooter from '../components/layout/UnifiedFooter';
+import BottomSignature from '../components/BottomSignature';
 import siteData from '../data/site.json';
-import { GlobalDownloadTab } from '../components/layout/global-download-tab';
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600'] });
 
@@ -25,8 +25,8 @@ export default function RootLayout({
         <main className="flex-grow">
           {children}
         </main>
-        <Footer />
-        <GlobalDownloadTab />
+        <UnifiedFooter />
+        <BottomSignature />
       </body>
     </html>
   );
