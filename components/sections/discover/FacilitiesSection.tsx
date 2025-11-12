@@ -1,66 +1,93 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-interface Facility {
+interface FacilityItem {
   title: string;
   description: string;
-  image: string;
+  image?: string;
 }
 
-interface FacilitiesSectionProps {
-  facilities: Facility[];
+interface FacilityNavItem {
+  anchor: string;
+  color: string;
+  label: string;
+  icon: string;
 }
 
-export default function FacilitiesSection({ facilities }: FacilitiesSectionProps) {
+interface InfrastructureFacilitiesSectionProps {
+  facilities: FacilityItem[];
+  facilityNav: FacilityNavItem[];
+}
+
+export default function InfrastructureFacilitiesSection({ facilities, facilityNav }: InfrastructureFacilitiesSectionProps) {
+  const slugify = (text: string) =>
+    text
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .trim();
+
   return (
-    <section className="py-24 px-4 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="text-black">
+      <div className="py-24 px-4">
+        <h2 className="text-3xl font-bold mb-16 text-center">Infrastructure Facilities</h2>
+
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.2 } },
+          }}
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-black mb-6 text-primary">
-            Our World-Class Facilities
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover the exceptional infrastructure designed to nurture excellence in education and holistic development.
-          </p>
+          {facilities.map((facility, index) => {
+            const anchorId = slugify(facility.title);
+            const navItem = facilityNav.find(item => item.anchor === anchorId);
+            const borderColor = navItem?.color || '#60A5FA';
+
+            return (
+              <motion.section
+                key={index}
+                id={anchorId}
+                variants={{
+                  hidden: { opacity: 0, y: 60 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } },
+                }}
+              >
+                <div
+                  className={`${
+                    index % 2 === 0 ? 'bg-white' : 'bg-[#FAF4E9]'
+                  } border-l-4`}
+                  style={{ borderLeftColor: borderColor }}
+                >
+                  <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 px-6 md:px-16 py-12">
+                    {facility.image && (
+                      <div className="w-full md:w-1/2 flex justify-center">
+                        <div className="relative w-full max-w-[480px] aspect-[4/3] overflow-hidden rounded-lg">
+                          <Image
+                            src={facility.image}
+                            alt={facility.title}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 480px"
+                          />
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="flex-1 max-w-prose">
+                      <h3 className="text-2xl font-semibold mb-3">{facility.title}</h3>
+                      <p className="text-base opacity-80 leading-relaxed">{facility.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.section>
+            );
+          })}
         </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {facilities.map((facility, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={facility.image}
-                  alt={facility.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl font-heading font-bold mb-3 text-primary group-hover:text-accent transition-colors">
-                  {facility.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-[15px]">
-                  {facility.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );

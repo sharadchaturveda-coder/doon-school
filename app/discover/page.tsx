@@ -1,7 +1,7 @@
 import { getData } from '../../lib/getData';
 import NewsHighlightsSection from '../../components/sections/discover/NewsHighlightsSection';
 import FacilityIconGrid from '../../components/sections/discover/FacilityIconGrid';
-import FacilitiesSection from '../../components/sections/discover/FacilitiesSection';
+import InfrastructureFacilitiesSection from '../../components/sections/discover/FacilitiesSection';
 
 export default async function Discover() {
   const discoverData = await getData();
@@ -10,7 +10,7 @@ export default async function Discover() {
     <main>
       <FacilityIconGrid items={discoverData.facilityNav} />
 
-      <FacilitiesSection facilities={discoverData.facilities} />
+      <InfrastructureFacilitiesSection facilities={discoverData.facilities} facilityNav={discoverData.facilityNav} />
 
       <NewsHighlightsSection updates={discoverData.updates} />
     </main>
