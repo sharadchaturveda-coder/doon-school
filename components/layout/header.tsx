@@ -1,3 +1,9 @@
+/**
+ * @fileoverview Main navigation header component for Doon International School
+ * @description Responsive navigation header with dynamic styling, mobile menu, and scroll effects
+ * @author Doon International School Development Team
+ */
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -18,7 +24,27 @@ import ModernHamburgerButton from '../ui/modern-hamburger-button';
 import siteData from '../../data/site.json';
 import { ChevronDown, Facebook, Instagram, Twitter, Phone, Mail } from 'lucide-react';
 
-const Header: React.FC = () => {
+/**
+ * Main Header Component
+ *
+ * Features:
+ * - Dynamic styling based on scroll position and current page
+ * - Responsive design with mobile-first approach
+ * - Dropdown navigation menus for complex sections
+ * - Mobile hamburger menu with slide-out navigation
+ * - Logo and school name display
+ * - Enquiry button with distinct styling
+ * - Smooth transitions and hover effects
+ *
+ * Scroll Behavior:
+ * - Transparent on homepage hero section
+ * - Solid background after scrolling past hero (desktop)
+ * - Immediate solid background on mobile
+ * - Backdrop blur effect on larger screens
+ *
+ * @returns {JSX.Element} The responsive navigation header
+ */
+const Header: React.FC = (): JSX.Element => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -73,8 +99,8 @@ const Header: React.FC = () => {
             />
           </div>
 
-          {/* CENTER: SCHOOL NAME TEXT - Tablet and Desktop */}
-          <div className="hidden md:flex absolute left-1/4 transform -translate-x-1/2">
+          {/* CENTER: SCHOOL NAME TEXT - Extra Large Desktop Only */}
+          <div className="hidden xl:flex absolute left-1/4 transform -translate-x-1/2">
             <Link
               href="/"
               className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} whitespace-nowrap font-heading font-bold text-sm hover:text-[#FFD700] transition-colors`}
