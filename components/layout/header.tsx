@@ -99,18 +99,18 @@ const Header: React.FC = (): JSX.Element => {
             />
           </div>
 
-          {/* CENTER: SCHOOL NAME - Only on larger screens with safe spacing */}
+          {/* CENTER: SCHOOL NAME - On mobile in smaller font */}
           <div className="flex justify-center items-center col-start-2">
             <Link
               href="/"
-              className={`hidden xl:block ${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} whitespace-nowrap font-heading font-bold text-xs hover:text-[#FFD700] transition-colors`}
+              className={`block md:hidden xl:block ${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} whitespace-nowrap font-heading font-bold text-sm xl:text-base hover:text-[#FFD700] transition-colors`}
             >
               DOON INTERNATIONAL SCHOOL, JABALPUR
             </Link>
           </div>
 
           {/* RIGHT SIDE: NAV - Hidden on mobile, tablet optimized */}
-          <div className="flex items-center justify-end gap-2 md:gap-2 lg:gap-4 col-start-3">
+          <div className="hidden md:flex items-center justify-end gap-2 md:gap-2 lg:gap-4 col-start-3">
             {siteData.navigation.map((item) => (
               <div key={item.name} className="relative group flex items-center flex-shrink-0">
                 {item.name === "ENQUIRY" ? (
