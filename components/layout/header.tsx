@@ -89,7 +89,7 @@ const Header: React.FC = (): JSX.Element => {
             ? `bg-transparent shadow-none`
             : `shadow-lg border-b bg-white border-gray-300`
       }`}>
-        <div className="container px-0.5 pr-2 py-2 md:px-4 md:py-3 lg:py-3 flex items-center min-h-[5rem] md:min-h-[5rem] lg:min-h-[3rem] relative">
+        <div className="container px-0.5 pr-2 py-2 md:px-4 md:py-3 lg:py-3 min-h-[5rem] md:min-h-[5rem] lg:min-h-[3rem] grid grid-cols-[auto_1fr_auto] items-center relative gap-4 lg:gap-8">
           {/* LEFT SIDE: LOGO */}
           <div className="flex items-center flex-shrink-0">
             <img
@@ -99,28 +99,18 @@ const Header: React.FC = (): JSX.Element => {
             />
           </div>
 
-          {/* CENTER: SCHOOL NAME TEXT - Extra Large Desktop Only */}
-          <div className="hidden xl:flex absolute left-1/4 transform -translate-x-1/2">
+          {/* CENTER: SCHOOL NAME - Only on larger screens with safe spacing */}
+          <div className="flex justify-center items-center col-start-2">
             <Link
               href="/"
-              className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} whitespace-nowrap font-heading font-bold text-sm hover:text-[#FFD700] transition-colors`}
+              className={`hidden xl:block ${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} whitespace-nowrap font-heading font-bold text-xs hover:text-[#FFD700] transition-colors`}
             >
               DOON INTERNATIONAL SCHOOL, JABALPUR
             </Link>
           </div>
 
-          {/* CENTER: MOBILE TEXT - Absolutely positioned */}
-          <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
-            <Link
-              href="/"
-              className={`${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} whitespace-nowrap font-heading font-bold text-xs hover:text-[#FFD700] transition-colors`}
-            >
-              DOON
-            </Link>
-          </div>
-
           {/* RIGHT SIDE: NAV - Hidden on mobile, tablet optimized */}
-          <div className="hidden md:flex items-center justify-end flex-1 ml-4 md:ml-4 lg:ml-4 gap-2 md:gap-2 lg:gap-4">
+          <div className="flex items-center justify-end gap-2 md:gap-2 lg:gap-4 col-start-3">
             {siteData.navigation.map((item) => (
               <div key={item.name} className="relative group flex items-center flex-shrink-0">
                 {item.name === "ENQUIRY" ? (

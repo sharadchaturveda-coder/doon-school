@@ -18,7 +18,7 @@ export default function AboutCTA() {
               Admissions
             </Button>
           </Link>
-          <Link href="/facilities">
+          <Link href="/about#facilities">
             <Button size="lg" className="bg-brand-primary text-white hover:bg-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
               Our Facilities
             </Button>

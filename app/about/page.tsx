@@ -1,3 +1,9 @@
+/**
+ * @fileoverview About page component for Doon International School
+ * @description Displays comprehensive information about the school's mission, values, and facilities
+ * @author Doon International School Development Team
+ */
+
 'use client';
 
 import { motion } from 'framer-motion';
@@ -5,7 +11,22 @@ import AboutCTA from '../../components/sections/about/AboutCTA';
 import MissionVisionSection from '../../components/sections/about/MissionVisionSection';
 import CoreValuesSection from '../../components/sections/about/CoreValuesSection';
 
-export default function About() {
+/**
+ * About page component that showcases Doon International School's identity and offerings
+ *
+ * Features displayed:
+ * - Hero section with animated background and school introduction
+ * - Mission and vision statements
+ * - Core values that guide the institution
+ * - Comprehensive facilities showcase with images and descriptions
+ * - Call-to-action section for engagement
+ *
+ * The page uses Framer Motion for smooth animations and responsive design
+ * to ensure optimal viewing experience across all devices.
+ *
+ * @returns {JSX.Element} The complete about page layout
+ */
+export default function About(): JSX.Element {
   return (
     <>
       {/* Hero Section */}

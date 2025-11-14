@@ -1,3 +1,9 @@
+/**
+ * @fileoverview Main homepage component for Doon International School
+ * @description Displays the primary landing page with hero section, features, news, and academic information
+ * @author Doon International School Development Team
+ */
+
 'use client';
 
 import Hero from '../components/ui/hero';
@@ -7,15 +13,26 @@ import FeatureStripSection from '../components/blocks/feature-strip-section';
 import NewsTickerSection from '../components/blocks/news-ticker-section';
 import WelcomeSection from '../components/blocks/WelcomeSection';
 import CampusStatsSection from '../components/blocks/campus-stats-section';
-
-import CampusExperienceSection from '../components/sections/home/CampusExperienceSection';
 import AcademicsSection from '../components/sections/home/AcademicsSection';
-import UpdatesEvents from '../components/blocks/updates-events';
 import TiltedCarousel from '../components/blocks/TiltedCarousel';
 import siteData from '../data/site.json';
 import homeData from '../data/doon/home.json';
 
-export default function Home() {
+/**
+ * Home page component that renders the main landing page for Doon International School
+ *
+ * Features displayed:
+ * - Hero section with video background and call-to-action buttons
+ * - Feature strip showcasing school highlights
+ * - News ticker with latest updates
+ * - Welcome section introducing the school
+ * - Campus statistics and achievements
+ * - Academic programs overview
+ * - Interactive tilted carousel with additional content
+ *
+ * @returns {JSX.Element} The complete homepage layout
+ */
+export default function Home(): JSX.Element {
   return (
     <>
 
@@ -47,9 +64,6 @@ export default function Home() {
       <WelcomeSection />
 
       <CampusStatsSection />
-
-      {/* Campus Experience */}
-      <CampusExperienceSection campusExperience={homeData.campusExperience} />
 
       {/* Academic Life at Doon */}
       <AcademicsSection academics={homeData.academics} />

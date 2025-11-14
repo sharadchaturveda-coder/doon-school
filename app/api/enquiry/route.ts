@@ -1,10 +1,50 @@
+/**
+ * @fileoverview Enquiry API route handler for Doon International School
+ * @description Handles enquiry form submissions and sends formatted emails to school administration
+ * @author Doon International School Development Team
+ */
+
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-export async function POST(request: NextRequest) {
+/**
+ * POST /api/enquiry
+ *
+ * Handles enquiry form submissions from the website contact/enquiry forms.
+ * Processes parent/guardian information, student details, and enquiry content,
+ * then sends a formatted HTML email to school administration.
+ *
+ * Process Flow:
+ * 1. Parse and validate incoming JSON request body
+ * 2. Check for required fields (parentName, email, phone, interestedGrade, enquiryType, preferredContact, message)
+ * 3. Configure Gmail SMTP transporter using environment variables
+ * 4. Generate responsive HTML email with enquiry details
+ * 5. Send email to school administration
+ * 6. Return success/error response to client
+ *
+ * Email Features:
+ * - Responsive HTML design with school branding
+ * - Structured sections for parent, student, and enquiry information
+ * - Direct reply-to functionality
+ * - Quick action links for phone and email
+ * - Submission timestamp in IST timezone
+ * - Professional formatting with school colors
+ *
+ * Environment Variables Required:
+ * - GMAIL_USER: Gmail address for sending emails
+ * - GMAIL_APP_PASSWORD: Gmail app password for authentication
+ *
+ * @param {NextRequest} request - Next.js request object containing form data
+ * @returns {Promise<NextResponse>} JSON response with success message or error details
+ *
+ * @throws {Error} When email sending fails or validation errors occur
+ */
+export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
+    // Parse JSON request body containing form data
     const body = await request.json();
 
+    // Destructure form fields from request body
     const {
       parentName,
       email,
@@ -17,7 +57,8 @@ export async function POST(request: NextRequest) {
       message,
     } = body;
 
-    // Validate required fields
+    // Validate that all required fields are present
+    // This prevents incomplete enquiries from being processed
     if (!parentName || !email || !phone || !interestedGrade || !enquiryType || !preferredContact || !message) {
       return NextResponse.json(
         { error: 'Missing required fields' },
@@ -25,7 +66,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create transporter
+    // Configure nodemailer transporter with Gmail SMTP settings
+    // Uses environment variables for security (not hardcoded credentials)
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {

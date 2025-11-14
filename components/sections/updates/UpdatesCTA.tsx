@@ -24,7 +24,7 @@ export default function UpdatesCTA() {
                 Apply Now
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/enquiry">
               <Button size="lg" className="bg-white text-[#002B6B] hover:bg-slate-100 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
                 Contact Us
               </Button>

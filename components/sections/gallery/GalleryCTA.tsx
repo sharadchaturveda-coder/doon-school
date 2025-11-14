@@ -17,7 +17,7 @@ export default function GalleryCTA() {
               About Us
             </Button>
           </Link>
-          <Link href="/facilities">
+          <Link href="/about#facilities">
             <Button size="lg" className="bg-[#F2B33D] text-[#002B6B] hover:bg-[#F2B33D]/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
               Facilities
             </Button>

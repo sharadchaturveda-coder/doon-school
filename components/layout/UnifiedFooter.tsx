@@ -24,9 +24,8 @@ const UnifiedFooter: React.FC = () => {
           <h4 className="font-semibold text-lg mb-3 text-white">Quick Links</h4>
           <ul className="text-sm space-y-2 opacity-80">
             <li><a href="/about" className="hover:underline">About Us</a></li>
-            <li><a href="/admission" className="hover:underline">Admissions</a></li>
+            <li><a href="/admissions" className="hover:underline">Admissions</a></li>
             <li><a href="/updates" className="hover:underline">Updates</a></li>
-            <li><a href="/gallery" className="hover:underline">Gallery</a></li>
           </ul>
         </div>
 

@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import AdmissionProcessSection from '../../components/sections/admissions/AdmissionProcessSection';
 import RequiredDocumentsSection from '../../components/sections/admissions/RequiredDocumentsSection';
-import FacilitiesShowcaseSection from '../../components/sections/admissions/FacilitiesShowcaseSection';
 import AdmissionsCTA from '../../components/sections/admissions/AdmissionsCTA';
 
 export default function AdmissionsPage() {
@@ -56,13 +55,13 @@ export default function AdmissionsPage() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <a
-                href="/contact"
+                href="/enquiry"
                 className="btn-mobile bg-brand-primary text-white hover:bg-brand-primary/90 shadow-lg hover:shadow-xl w-full sm:w-auto inline-block"
               >
                 Start Application
               </a>
               <a
-                href="/contact"
+                href="/enquiry"
                 className="btn-mobile bg-brand-primary text-white hover:bg-brand-primary/90 shadow-lg hover:shadow-xl w-full sm:w-auto inline-block"
               >
                 Schedule Visit
@@ -75,8 +74,6 @@ export default function AdmissionsPage() {
       <AdmissionProcessSection />
 
       <RequiredDocumentsSection />
-
-      <FacilitiesShowcaseSection />
 
       <AdmissionsCTA />
     </>

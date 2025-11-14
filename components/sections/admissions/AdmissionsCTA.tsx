@@ -19,14 +19,14 @@ export default function AdmissionsCTA() {
             Take the first step towards an exceptional education. Our admissions team is here to guide you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
+            <Link href="/enquiry">
               <Button size="lg" className="bg-white text-brand-primary hover:bg-gray-100 hover:text-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
-                Contact Admissions
+                Contact Us
               </Button>
             </Link>
-            <Link href="/contact">
+            <Link href="/enquiry">
               <Button size="lg" className="bg-white text-brand-primary hover:bg-gray-100 hover:text-brand-primary/90 transform hover:scale-105 shadow-lg hover:shadow-xl px-8 py-4 text-lg font-semibold">
-                Request Information
+                Schedule Visit
               </Button>
             </Link>
           </div>
