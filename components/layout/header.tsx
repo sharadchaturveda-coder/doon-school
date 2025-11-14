@@ -103,7 +103,7 @@ const Header: React.FC = (): JSX.Element => {
           <div className="flex justify-center items-center col-start-2">
             <Link
               href="/"
-              className={`block md:hidden xl:block ${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} whitespace-nowrap font-heading font-bold text-sm xl:text-base hover:text-[#FFD700] transition-colors`}
+              className={`block md:hidden xl:block ${pathname === '/' && !isScrolled ? 'text-white' : 'text-black'} font-heading font-bold text-xs sm:text-sm xl:text-base hover:text-[#FFD700] transition-colors`}
             >
               DOON INTERNATIONAL SCHOOL, JABALPUR
             </Link>
