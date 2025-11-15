@@ -2,7 +2,7 @@ import React from 'react';
 
 const UnifiedFooter: React.FC = () => {
   return (
-    <footer className="bg-[#0A2A5C] text-white">
+    <footer className="bg-[#0A2A5C] text-white" style={{ WebkitTransform: 'translateZ(0)', transform: 'translateZ(0)' }}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-white/10">
         <div>
           <h4 className="font-semibold text-lg mb-3 text-white">Doon International School, Jabalpur</h4>
