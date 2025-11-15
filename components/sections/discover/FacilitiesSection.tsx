@@ -34,28 +34,25 @@ export default function InfrastructureFacilitiesSection({ facilities, facilityNa
       <div className="py-24 px-4">
         <h2 className="text-3xl font-bold mb-16 text-center">Infrastructure Facilities</h2>
 
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={{
-            hidden: {},
-            show: { transition: { staggerChildren: 0.2 } },
-          }}
-        >
+        <div className="space-y-4">
           {facilities.map((facility, index) => {
             const anchorId = slugify(facility.title);
             const navItem = facilityNav.find(item => item.anchor === anchorId);
             const borderColor = navItem?.color || '#60A5FA';
 
             return (
-              <motion.section
+              <motion.div
                 key={index}
                 id={anchorId}
-                variants={{
-                  hidden: { opacity: 0, y: 60 },
-                  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } },
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ margin: "-250px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.08,
+                  ease: [0.23, 1, 0.32, 1]
                 }}
+                style={{ opacity: 1, transform: 'translateY(0px)' }}
               >
                 <div
                   className={`${
@@ -84,10 +81,10 @@ export default function InfrastructureFacilitiesSection({ facilities, facilityNa
                     </div>
                   </div>
                 </div>
-              </motion.section>
+              </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
