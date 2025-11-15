@@ -303,12 +303,12 @@ export default function TiltedCarousel() {
             const data = getVirtualCardAtPosition(positionOffset);
             const pos = data.positionOffset;
 
-            const rotateY = pos * -16;
+            const rotateY = pos === 0 ? 0 : pos * -16;
             const translateX = pos * 380;
             const translateZ =
-              pos === 0 ? 110 : Math.max(-60, 40 - Math.abs(pos) * 40);
+              pos === 0 ? 0 : Math.max(-60, 40 - Math.abs(pos) * 40);
             const scale =
-              pos === 0 ? 1.03 : pos === 1 || pos === -1 ? 0.98 : 0.92;
+              pos === 0 ? 1.0 : pos === 1 || pos === -1 ? 0.98 : 0.92;
             const opacity = Math.abs(pos) > 3 ? 0 : 1;
             const zIndex = 50 - Math.abs(pos);
 
@@ -345,7 +345,15 @@ export default function TiltedCarousel() {
                   className="absolute opacity-0 pointer-events-none"
                 />
 
-                <div className="relative z-20 p-6 h-full flex flex-col justify-end text-white bg-gradient-to-t from-black/70 via-black/30 to-transparent">
+                <div
+                  className="relative z-20 p-6 h-full flex flex-col justify-end text-white bg-gradient-to-t from-black/70 via-black/30 to-transparent"
+                  style={{
+                    WebkitFontSmoothing: "antialiased",
+                    MozOsxFontSmoothing: "grayscale",
+                    textRendering: "optimizeLegibility",
+                    transform: "translateZ(0)"
+                  }}
+                >
                   <span className="inline-block bg-[#0E1C30]/90 text-[#FFC940] px-2 py-[3px] text-[11px] uppercase tracking-wider rounded-sm shadow-sm">
                     {data.subtitle}
                   </span>
