@@ -55,21 +55,19 @@ export default function InfrastructureFacilitiesSection({ facilities, facilityNa
                 style={{ opacity: 1, transform: 'translateY(0px)' }}
               >
                 <div
-                  className={`${
-                    index % 2 === 0 ? 'bg-white' : 'bg-[#FAF4E9]'
-                  } border-l-4`}
+                  className="bg-[#FAF4E9] border-l-4"
                   style={{ borderLeftColor: borderColor }}
                 >
                   <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 px-6 md:px-16 py-12">
                     {facility.image && (
                       <div className="w-full md:w-1/2 flex justify-center">
-                        <div className="relative w-full max-w-[480px] aspect-[4/3] overflow-hidden rounded-lg">
+                        <div className="relative w-full max-w-[640px] aspect-[16/10] overflow-hidden rounded-lg">
                           <Image
                             src={facility.image}
                             alt={facility.title}
                             fill
                             className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 480px"
+                            sizes="(max-width: 768px) 100vw, 640px"
                           />
                         </div>
                       </div>
