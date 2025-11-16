@@ -182,7 +182,7 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
               animate={{ y: 0 }}
               exit={{ y: 20 }}
               transition={{ duration: 0.2 }}
-              className="bg-white rounded-3xl p-6 w-full max-w-sm mx-auto shadow-2xl border border-white/20"
+              className="bg-[#0A2A5C] text-white rounded-3xl p-6 w-full max-w-sm mx-auto shadow-2xl border border-white/10"
               style={{ filter: 'blur(0px)' }}
             >
               {/* Header */}
@@ -200,7 +200,7 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.2 }}
                   onClick={onClose}
-                  className="group p-3 rounded-full bg-slate-100 hover:bg-red-50 hover:text-red-600 transition-all duration-200"
+                  className="group p-3 rounded-full bg-white/20 hover:bg-red-500 hover:text-white text-white transition-all duration-200"
                 >
                   <X className="h-5 w-5 group-hover:rotate-90 transition-transform duration-200" />
                 </motion.button>
@@ -240,7 +240,7 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
                       <Link
                         href={item.href}
                         onClick={hasDropdown ? () => toggleSection(item.name) : onClose}
-                        className={`group block relative overflow-hidden rounded-xl bg-gradient-to-r from-white to-slate-50 p-4 border border-slate-200/60 hover:border-slate-300 shadow-sm hover:shadow-lg transition-all duration-300 ${hasDropdown ? 'cursor-pointer' : ''}`}
+                        className={`group block relative overflow-hidden rounded-xl bg-white/10 p-4 border border-white/20 hover:border-white/30 shadow-sm hover:shadow-lg transition-all duration-300 ${hasDropdown ? 'cursor-pointer' : ''}`}
                       >
                         <motion.div
                           className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -263,10 +263,10 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
                           </motion.div>
 
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-heading font-semibold text-foreground group-hover:text-primary transition-colors text-base">
+                            <h3 className="font-heading font-semibold text-white group-hover:text-white transition-colors text-base">
                               {item.name}
                             </h3>
-                            <p className="text-xs text-muted-foreground group-hover:text-slate-600 transition-colors">
+                            <p className="text-xs text-white/70 group-hover:text-white/90 transition-colors">
                               {item.description}
                             </p>
                           </div>
@@ -278,7 +278,7 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
                               transition={{ duration: 0.2 }}
                               className="flex-shrink-0"
                             >
-                              <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                              <ChevronDown className="h-4 w-4 text-white/70" />
                             </motion.div>
                           )}
                         </div>
@@ -311,10 +311,10 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
                                     <Link
                                       href={submenu.href}
                                       onClick={onClose}
-                                      className="group flex items-center space-x-3 p-3 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200/40 hover:border-slate-300 transition-all duration-200"
+                                      className="group flex items-center space-x-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-200"
                                     >
-                                      <div className="w-2 h-2 rounded-full bg-slate-400 group-hover:bg-slate-600 transition-colors" />
-                                      <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors">
+                                      <div className="w-2 h-2 rounded-full bg-white/50 group-hover:bg-white/70 transition-colors" />
+                                      <span className="text-sm font-medium text-white/80 group-hover:text-white transition-colors">
                                         {submenu.name}
                                       </span>
                                     </Link>
@@ -335,9 +335,9 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.2 }}
-                className="mt-8 pt-6 border-t border-slate-200/60"
+                className="mt-8 pt-6 border-t border-white/20"
               >
-                <div className="flex items-center justify-between text-sm text-muted-foreground">
+                <div className="flex items-center justify-between text-sm text-white/70">
                   <div className="flex space-x-3">
                     {siteData.socialMedia.map((social) => {
                       const IconComponent = socialIconComponents[social.name];
@@ -363,9 +363,9 @@ export const ModernMobileMenu: React.FC<ModernMobileMenuProps> = ({ isOpen, onCl
                           key={social.name}
                           href={social.href}
                           onClick={onClose}
-                          className="w-11 h-11 rounded-full bg-white hover:bg-gray-50 transition-all duration-200 flex items-center justify-center border border-gray-200"
+                          className="w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200 flex items-center justify-center border border-white/20"
                         >
-                          {IconComponent && <IconComponent className="h-8 w-8 flex-shrink-0 text-black" />}
+                          {IconComponent && <IconComponent className="h-8 w-8 flex-shrink-0 text-white" />}
                         </Link>
                       );
                     })}

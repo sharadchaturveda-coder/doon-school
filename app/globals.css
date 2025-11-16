@@ -324,3 +324,31 @@
   user-select: none;
   pointer-events: auto !important;
 }
+
+/* iOS Safari iframe fixes for footer map */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific */
+  iframe[src*="google.com/maps"] {
+    background-color: #0A2A5C !important;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  /* Additional iOS iframe force transparent */
+  iframe[allowtransparency="true"] {
+    background: transparent !important;
+    border: none !important;
+  }
+}
+
+/* iOS Safari mobile specific iframe handling */
+@media screen and (max-width: 768px) {
+  @supports (-webkit-touch-callout: none) {
+    iframe {
+      min-height: 150px;
+      background-color: #0A2A5C !important;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+  }
+}
