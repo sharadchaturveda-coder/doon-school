@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
@@ -303,14 +304,14 @@ export default function EnquiryForm() {
             </div>
           )}
 
-          <Button
-            type="submit"
-            size="lg"
-            className="w-full bg-[#002B6B] text-white hover:bg-[#002B6B]/90 transition-colors"
-            disabled={isSubmitting}
+          <Link
+            href="https://disjabalpur.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full bg-[#002B6B] text-white hover:bg-[#002B6B]/90 transition-colors px-6 py-3 rounded-md font-medium text-center block"
           >
-            {isSubmitting ? 'Sending Enquiry...' : 'Submit Enquiry'}
-          </Button>
+            Submit Enquiry
+          </Link>
         </form>
       </Form>
     </div>

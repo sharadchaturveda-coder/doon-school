@@ -239,8 +239,8 @@ export default function TiltedCarousel() {
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
 
-                    <div className={`relative z-20 h-full flex flex-col justify-end text-white ${isVeryNarrow ? 'pb-1' : 'pb-2'}`}>
-                      <div className={`bg-gradient-to-t from-black/70 via-black/40 to-black/20 rounded-b-sm ${isVeryNarrow ? 'px-2 pb-3' : 'px-3 pb-4'}`} style={{ WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale", textRendering: "optimizeLegibility", transform: "translateZ(0)" }}>
+                    <div className={`relative z-20 h-full flex flex-col justify-end text-white ${isVeryNarrow ? 'pb-1' : 'pb-2'}`} style={{transform: "translateZ(20px)", isolation: "isolate"}}>
+                      <div className={`bg-gradient-to-t from-black/70 via-black/40 to-black/20 rounded-b-sm ${isVeryNarrow ? 'px-2 pb-3' : 'px-3 pb-4'}`} style={{ WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale", textRendering: "optimizeLegibility", transform: "translateZ(0)", transformStyle: "preserve-3d" }}>
                         <span className={`inline-block bg-[#0E1C30]/80 text-[#FFC940] px-2 py-[1px] text-[9px] uppercase tracking-wider rounded-sm shadow-sm block ${isVeryNarrow ? 'mb-2' : 'mb-3'}`}>
                           {data.subtitle}
                         </span>
