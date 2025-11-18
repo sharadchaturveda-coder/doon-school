@@ -96,13 +96,13 @@ export default function ContactForm() {
                 control={form.control}
                 name="phone"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Phone Number *</FormLabel>
-                    <FormControl>
-                      <Input type="tel" placeholder="+91 9201591900" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+              <FormItem>
+                <FormLabel>Phone Number *</FormLabel>
+                <FormControl>
+                  <Input type="tel" placeholder="+91 9201591900 / +91 9201591892" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
                 )}
               />
             </FormItem>

@@ -15,7 +15,7 @@ const UnifiedFooter: React.FC = () => {
           <h4 className="font-semibold text-lg mb-3 text-white">Contact</h4>
           <ul className="text-sm space-y-2 opacity-80">
             <li>Suman Devi Shikshan Sansthan, Anand Enclaves, Jabalpur, MP 482002</li>
-            <li>📞 +91 9201591900</li>
+            <li>📞 +91 9201591900 / +91 9201591892</li>
             <li>✉️ info@dooninternationaljabalpur.com</li>
           </ul>
         </div>

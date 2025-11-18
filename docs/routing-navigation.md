@@ -415,7 +415,7 @@ export function SchoolSchema() {
       "addressLocality": "Jabalpur",
       "addressCountry": "IN"
     },
-    "telephone": "+91 9201591900",
+    "telephone": "+91 9201591900 / +91 9201591892",
     "email": "info@doonschool.com"
   };
 

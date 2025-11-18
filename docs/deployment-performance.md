@@ -321,7 +321,7 @@ export function SchoolStructuredData() {
       "postalCode": "482001",
       "addressCountry": "IN"
     },
-    "telephone": "+91 9201591900",
+    "telephone": "+91 9201591900 / +91 9201591892",
     "email": "info@doonschool.com",
     "curriculum": ["CBSE"],
     "gradeRange": "Nursery to Grade 12"
