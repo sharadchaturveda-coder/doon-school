@@ -229,18 +229,18 @@ export default function TiltedCarousel() {
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
 
-                    <div className="relative z-20 h-full flex flex-col justify-end text-white">
-                      <div className="p-3 bg-gradient-to-t from-black/70 via-black/40 to-transparent" style={{ WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale", textRendering: "optimizeLegibility", transform: "translateZ(0)" }}>
-                        <span className="inline-block bg-[#0E1C30]/80 text-[#FFC940] px-2 py-[1px] text-[9px] uppercase tracking-wider rounded-sm shadow-sm mb-2 block">
+                    <div className="relative z-20 h-full flex flex-col justify-end text-white pb-2">
+                      <div className="px-3 pb-4 bg-gradient-to-t from-black/70 via-black/40 to-black/20 rounded-b-sm" style={{ WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale", textRendering: "optimizeLegibility", transform: "translateZ(0)" }}>
+                        <span className="inline-block bg-[#0E1C30]/80 text-[#FFC940] px-2 py-[1px] text-[9px] uppercase tracking-wider rounded-sm shadow-sm mb-3 block">
                           {data.subtitle}
                         </span>
-                        <h3 className="font-semibold text-base leading-tight text-white mb-2">
+                        <h3 className="font-semibold text-base leading-tight text-white mb-3">
                           {data.title}
                         </h3>
-                        <p className="text-xs text-gray-200/90 leading-snug line-clamp-2">
+                        <p className="text-xs text-gray-200/90 leading-snug">
                           {data.desc}
                         </p>
-                        <div className="mt-2">
+                        <div className="mt-3">
                           <Link href={`/blog/${data.slug}`}>
                             <span className="text-[#F6C75A] uppercase text-[10px] font-medium tracking-wide hover:underline cursor-pointer">
                               Read More →
