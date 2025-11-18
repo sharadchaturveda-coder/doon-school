@@ -55,7 +55,7 @@ export default function AdmissionsPage() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <a
-                href="/enquiry"
+                href="https://disjabalpur.schoolpad.in/enquiryManager/onlineAdmission/8"
                 className="btn-mobile bg-brand-primary text-white hover:bg-brand-primary/90 shadow-lg hover:shadow-xl w-full sm:w-auto inline-block"
               >
                 Start Application

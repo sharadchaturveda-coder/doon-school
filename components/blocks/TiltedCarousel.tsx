@@ -62,14 +62,19 @@ const VIRTUAL_CARDS = CARDS_AROUND_CENTER * 2 + 1;
 export default function TiltedCarousel() {
   const [centerIndex, setCenterIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isVeryNarrow, setIsVeryNarrow] = useState(false);
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const dragAccumRef = useRef(0);
   const lastChangeTimeRef = useRef(0);
 
-  // Detect mobile
+  // Detect mobile and very narrow screens
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    const checkMobile = () => {
+      const width = window.innerWidth;
+      setIsMobile(width <= 768);
+      setIsVeryNarrow(width <= 360); // iPhone 5 and similar narrow devices
+    };
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
@@ -111,7 +116,7 @@ export default function TiltedCarousel() {
 
   const translateX = useTransform(
     springCenterIndex,
-    (v) => -v * (isMobile ? 220 : 380)
+    (v) => -v * (isVeryNarrow ? 120 : isMobile ? 220 : 380)
   );
 
   const getVirtualCardAtPosition = useCallback(
@@ -136,12 +141,13 @@ export default function TiltedCarousel() {
           <span className="block h-[2px] w-12 bg-[#FFC940] mx-auto mt-2"></span>
         </h2>
 
-        <div className="max-w-full mx-auto px-8">
+        <div className="max-w-full mx-auto px-4">
           <motion.div
-            className="carousel-perspective-mobile relative h-[460px] overflow-hidden"
+            className="carousel-perspective-mobile relative overflow-hidden"
             style={{
-              perspective: "800px",
+              perspective: isVeryNarrow ? "600px" : "800px",
               x: translateX,
+              height: isVeryNarrow ? "360px" : "460px", // Shorter container for narrow screens
               touchAction: "none" // Prevent browser touch defaults
             }}
             drag="x"
@@ -163,7 +169,7 @@ export default function TiltedCarousel() {
 
               // Snap to next/previous slide based on drag distance threshold
               const dragDistance = Math.abs(dragAccumRef.current);
-              const cardWidth = 220; // Same as translateX calculation
+              const cardWidth = isVeryNarrow ? 120 : 220; // Same as translateX calculation
 
               if (dragDistance > cardWidth * 0.3) { // 30% threshold for slide change
                 if (dragAccumRef.current > 0) {
@@ -192,19 +198,23 @@ export default function TiltedCarousel() {
                 const data = getVirtualCardAtPosition(positionOffset);
                 const pos = data.positionOffset;
 
-                const rotateY = pos * -6;
-                const cardTranslateX = pos * 220;
-                const translateZ =
-                  pos === 0 ? 0 : Math.max(-40, 40 - Math.abs(pos) * 40);
-                const scale =
-                  pos === 0 ? 1.0 : pos === 1 || pos === -1 ? 0.95 : 0.88;
+                // Reduce 3D effects for very narrow screens
+                const rotateY = isVeryNarrow ? pos * -3 : pos * -6;
+                const cardTranslateX = pos * (isVeryNarrow ? 120 : 220);
+                const translateZ = isVeryNarrow
+                  ? (pos === 0 ? 0 : Math.max(-20, 20 - Math.abs(pos) * 20))
+                  : (pos === 0 ? 0 : Math.max(-40, 40 - Math.abs(pos) * 40));
+                const scale = isVeryNarrow
+                  ? (pos === 0 ? 1.0 : pos === 1 || pos === -1 ? 0.97 : 0.92)
+                  : (pos === 0 ? 1.0 : pos === 1 || pos === -1 ? 0.95 : 0.88);
                 const opacity = Math.abs(pos) > 4 ? 0 : 1;
                 const zIndex = 50 - Math.abs(pos);
+                const cardHeight = isVeryNarrow ? "h-72" : "h-96"; // 288px vs 384px
 
                 return (
                   <motion.article
                     key={data.key}
-                    className="carousel-card-mobile absolute w-80 h-96 rounded-sm overflow-hidden shadow-lg"
+                    className={`carousel-card-mobile absolute w-80 ${cardHeight} rounded-sm overflow-hidden shadow-lg`}
                     style={{
                       willChange: "transform",
                       backfaceVisibility: "hidden",
@@ -229,20 +239,20 @@ export default function TiltedCarousel() {
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
 
-                    <div className="relative z-20 h-full flex flex-col justify-end text-white pb-2">
-                      <div className="px-3 pb-4 bg-gradient-to-t from-black/70 via-black/40 to-black/20 rounded-b-sm" style={{ WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale", textRendering: "optimizeLegibility", transform: "translateZ(0)" }}>
-                        <span className="inline-block bg-[#0E1C30]/80 text-[#FFC940] px-2 py-[1px] text-[9px] uppercase tracking-wider rounded-sm shadow-sm mb-3 block">
+                    <div className={`relative z-20 h-full flex flex-col justify-end text-white ${isVeryNarrow ? 'pb-1' : 'pb-2'}`}>
+                      <div className={`bg-gradient-to-t from-black/70 via-black/40 to-black/20 rounded-b-sm ${isVeryNarrow ? 'px-2 pb-3' : 'px-3 pb-4'}`} style={{ WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale", textRendering: "optimizeLegibility", transform: "translateZ(0)" }}>
+                        <span className={`inline-block bg-[#0E1C30]/80 text-[#FFC940] px-2 py-[1px] text-[9px] uppercase tracking-wider rounded-sm shadow-sm block ${isVeryNarrow ? 'mb-2' : 'mb-3'}`}>
                           {data.subtitle}
                         </span>
-                        <h3 className="font-semibold text-base leading-tight text-white mb-3">
+                        <h3 className={`font-semibold leading-tight text-white ${isVeryNarrow ? 'text-sm mb-2' : 'text-base mb-3'}`}>
                           {data.title}
                         </h3>
-                        <p className="text-xs text-gray-200/90 leading-snug">
+                        <p className={`text-gray-200/90 leading-snug ${isVeryNarrow ? 'text-[11px]' : 'text-xs'}`}>
                           {data.desc}
                         </p>
-                        <div className="mt-3">
+                        <div className={`${isVeryNarrow ? 'mt-2' : 'mt-3'}`}>
                           <Link href={`/blog/${data.slug}`}>
-                            <span className="text-[#F6C75A] uppercase text-[10px] font-medium tracking-wide hover:underline cursor-pointer">
+                            <span className={`text-[#F6C75A] uppercase font-medium tracking-wide hover:underline cursor-pointer ${isVeryNarrow ? 'text-[9px]' : 'text-[10px]'}`}>
                               Read More →
                             </span>
                           </Link>

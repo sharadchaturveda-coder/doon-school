@@ -99,7 +99,7 @@ export default function EnquiryPage() {
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <div className="text-3xl mb-4">📞</div>
                 <h4 className="font-semibold text-gray-800 mb-2">Phone</h4>
-                <p className="text-gray-600">096625 03482</p>
+                <p className="text-gray-600">+91 9201591900</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-sm">
                 <div className="text-3xl mb-4">✉️</div>

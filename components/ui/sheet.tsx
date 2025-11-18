@@ -94,7 +94,7 @@ const SheetContent = React.forwardRef<HTMLDivElement, SheetContentProps>(
         <div className="p-6 pt-4 border-t border-slate-200/60 space-y-3">
           <div className="text-xs text-muted-foreground">
             <div className="font-medium">Contact Us</div>
-            <div className="mt-1">📞 096625 03482</div>
+            <div className="mt-1">📞 +91 9201591900</div>
             <div>✉️ info@dooninternationalschool.com</div>
           </div>
         </div>

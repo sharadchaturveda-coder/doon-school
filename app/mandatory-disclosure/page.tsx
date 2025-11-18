@@ -88,7 +88,7 @@ export default function MandatoryDisclosurePage() {
                   CONTACT DETAILS (LANDLINE/MOBILE)
                 </td>
                 <td className="px-2 md:px-4 py-2 border border-gray-300 bg-[#FFF3E0]">
-                  096625 03482
+                  +91 9201591900
                 </td>
               </tr>
             </tbody>
