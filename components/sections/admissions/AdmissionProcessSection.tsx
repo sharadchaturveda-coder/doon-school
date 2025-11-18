@@ -6,7 +6,7 @@ const steps = [
     step: "01",
     title: "Inquiry",
     desc: "Submit an online inquiry form or contact our admissions office",
-    image: "/assets/home_visual_highlights/visual-highlight-1.jpg",
+    image: "/assets/facilities/classroom.webp",
     icon: "📇"
   },
   {
@@ -27,7 +27,7 @@ const steps = [
     step: "04",
     title: "Assessment",
     desc: "Students undergo assessment or interview based on grade level",
-    image: "/assets/facilities/classroom.webp",
+    image: "/assets/home_visual_highlights/visual-highlight-1.jpg",
     icon: "🎤"
   },
   {
