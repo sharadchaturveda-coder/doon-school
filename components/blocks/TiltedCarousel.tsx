@@ -136,7 +136,7 @@ export default function TiltedCarousel() {
           <span className="block h-[2px] w-12 bg-[#FFC940] mx-auto mt-2"></span>
         </h2>
 
-        <div className="max-w-full mx-auto px-4">
+        <div className="max-w-full mx-auto px-8">
           <motion.div
             className="carousel-perspective-mobile relative h-[460px] overflow-hidden"
             style={{
@@ -192,12 +192,12 @@ export default function TiltedCarousel() {
                 const data = getVirtualCardAtPosition(positionOffset);
                 const pos = data.positionOffset;
 
-                const rotateY = pos * -12;
+                const rotateY = pos * -6;
                 const cardTranslateX = pos * 220;
                 const translateZ =
-                  pos === 0 ? 80 : Math.max(-40, 40 - Math.abs(pos) * 40);
+                  pos === 0 ? 0 : Math.max(-40, 40 - Math.abs(pos) * 40);
                 const scale =
-                  pos === 0 ? 1.02 : pos === 1 || pos === -1 ? 0.95 : 0.88;
+                  pos === 0 ? 1.0 : pos === 1 || pos === -1 ? 0.95 : 0.88;
                 const opacity = Math.abs(pos) > 4 ? 0 : 1;
                 const zIndex = 50 - Math.abs(pos);
 
@@ -230,7 +230,7 @@ export default function TiltedCarousel() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
 
                     <div className="relative z-20 h-full flex flex-col justify-end text-white">
-                      <div className="p-3 bg-gradient-to-t from-black/70 via-black/40 to-transparent">
+                      <div className="p-3 bg-gradient-to-t from-black/70 via-black/40 to-transparent" style={{ WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale", textRendering: "optimizeLegibility", transform: "translateZ(0)" }}>
                         <span className="inline-block bg-[#0E1C30]/80 text-[#FFC940] px-2 py-[1px] text-[9px] uppercase tracking-wider rounded-sm shadow-sm mb-2 block">
                           {data.subtitle}
                         </span>

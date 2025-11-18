@@ -15,7 +15,7 @@ const UnifiedFooter: React.FC = () => {
           <h4 className="font-semibold text-lg mb-3 text-white">Contact</h4>
           <ul className="text-sm space-y-2 opacity-80">
             <li>Suman Devi Shikshan Sansthan, Anand Enclaves, Jabalpur, MP 482002</li>
-            <li>📞 +91 9669530482</li>
+            <li>📞 +91 9201591900</li>
             <li>✉️ info@dooninternationaljabalpur.com</li>
           </ul>
         </div>
@@ -38,7 +38,6 @@ const UnifiedFooter: React.FC = () => {
               className="rounded-lg border-0 bg-[#0A2A5C]"
               loading="lazy"
               title="Doon International School Map"
-              allowTransparency={true}
               frameBorder="0"
               scrolling="no"
               style={{ WebkitTransform: 'translateZ(0)', transform: 'translateZ(0)', backgroundColor: 'transparent !important' }}

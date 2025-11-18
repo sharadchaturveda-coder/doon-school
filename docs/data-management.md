@@ -55,7 +55,7 @@ data/
   ],
   "contact": {
     "address": "123 School Road, Jabalpur, India",
-    "phone": "+91 12345 67890",
+    "phone": "+91 9201591900",
     "email": "info@doonschool.com"
   },
   "socialMedia": [

@@ -258,6 +258,30 @@ async function optimizeLargeImages() {
   console.log('Optimization complete.');
 }
 
-deleteOriginals();
+function deleteBakFiles(dir = 'images') {
+  let count = 0;
+
+  function walk(dir) {
+    const files = fs.readdirSync(dir);
+    for (const file of files) {
+      const fullPath = path.join(dir, file);
+      const stat = fs.statSync(fullPath);
+      if (stat.isDirectory()) {
+        walk(fullPath);
+      } else if (file.endsWith('.bak')) {
+        fs.unlinkSync(fullPath);
+        console.log(`Deleted ${fullPath}`);
+        count++;
+      }
+    }
+  }
+
+  walk(dir);
+  console.log(`Deleted ${count} .bak files.`);
+}
+
+deleteBakFiles();
+
+// deleteOriginals();
 
 module.exports = { convertImages, convertAllImages, convertSelectedFolders, removeLargeOriginals, optimizeLargeImages };
