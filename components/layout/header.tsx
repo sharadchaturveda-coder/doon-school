@@ -52,19 +52,39 @@ const Header: React.FC = (): JSX.Element => {
   const pathname = usePathname();
 
   useEffect(() => {
+    let scrollTicking = false;
+    let resizeTicking = false;
+
     const handleScroll = () => {
-      const heroHeight = window.innerHeight; // Hero is full screen
-      const mobile = window.innerWidth < 1024; // lg breakpoint
-      const scrollThreshold = mobile ? 100 : heroHeight * 0.8; // Small threshold on mobile, 80% on desktop
-      setIsScrolled(window.scrollY > scrollThreshold);
+      if (!scrollTicking) {
+        window.requestAnimationFrame(() => {
+          const heroHeight = window.innerHeight; // Hero is full screen
+          const mobile = window.innerWidth < 1024; // lg breakpoint
+          const scrollThreshold = mobile ? 100 : heroHeight * 0.8; // Small threshold on mobile, 80% on desktop
+          const shouldBeScrolled = window.scrollY > scrollThreshold;
+
+          // Only update state if the value actually changed
+          setIsScrolled(prev => prev !== shouldBeScrolled ? shouldBeScrolled : prev);
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
     };
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024);
+      if (!resizeTicking) {
+        window.requestAnimationFrame(() => {
+          const mobile = window.innerWidth < 1024;
+          setIsMobile(prev => prev !== mobile ? mobile : prev);
+          resizeTicking = false;
+        });
+        resizeTicking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleResize);
+    // Use passive listeners for better scroll performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
     handleResize(); // initial
 
     return () => {

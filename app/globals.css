@@ -5,14 +5,21 @@
 @tailwind utilities;
 
 @layer base {
-  html, body {
+
+  html,
+  body {
     font-family: 'Futura', 'Futura PT', sans-serif;
     font-size: 16px;
     line-height: 1.6;
     color: #1a1a1a;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 700;
     line-height: 1.2;
@@ -20,29 +27,66 @@
     margin-bottom: 1.25rem;
   }
 
-  p, li, span, a {
+  p,
+  li,
+  span,
+  a {
     font-family: 'Futura', 'Futura PT', sans-serif;
     font-weight: 400;
   }
 
   /* Mobile optimizations */
   @media (max-width: 768px) {
+
     /* Improve touch targets */
-    button, a, [role="button"], input[type="submit"], input[type="button"] {
+    button,
+    a,
+    [role="button"],
+    input[type="submit"],
+    input[type="button"] {
       min-height: 44px;
       min-width: 44px;
       padding: 0.75rem 1.25rem;
     }
 
     /* Better mobile typography */
-    h1 { font-size: 2.4rem; }
-    h2 { font-size: 1.8rem; }
-    h3 { font-size: 1.4rem; }
-    h4 { font-size: 1rem; }
-    h5 { font-size: 0.9rem; }
-    h6 { font-size: 0.8rem; }
-    p, li, span, a { font-size: 1rem; line-height: 1.6; }
-    button, input, textarea { font-size: 1rem; }
+    h1 {
+      font-size: 2.4rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+    }
+
+    h4 {
+      font-size: 1rem;
+    }
+
+    h5 {
+      font-size: 0.9rem;
+    }
+
+    h6 {
+      font-size: 0.8rem;
+    }
+
+    p,
+    li,
+    span,
+    a {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    button,
+    input,
+    textarea {
+      font-size: 1rem;
+    }
 
     /* Improved spacing for mobile */
     * {
@@ -52,39 +96,56 @@
     /* Prevent horizontal scrolling but allow carousel overflow for tilted cards */
     body {
       overflow-x: hidden;
-      -webkit-overflow-scrolling: touch;
+      /* Removed deprecated -webkit-overflow-scrolling: touch */
       -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
     }
 
     /* Better input handling */
-    input, textarea, select {
-      font-size: 16px; /* Prevent zoom on iOS */
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+      /* Prevent zoom on iOS */
       border: 2px solid #e5e7eb;
       border-radius: 8px;
       padding: 0.75rem;
       transition: border-color 0.2s ease;
     }
 
-    input:focus, textarea:focus, select:focus {
+    input:focus,
+    textarea:focus,
+    select:focus {
       border-color: #ffd300;
       outline: none;
     }
 
     /* Icon sizing */
-    i.fas, i.far, i.fab {
+    i.fas,
+    i.far,
+    i.fab {
       font-size: 1.2em;
     }
   }
 
   /* Very small screens (phones) */
   @media (max-width: 480px) {
-    h1 { font-size: 2.1rem; }
-    h2 { font-size: 1.6rem; }
-    h3 { font-size: 1.3rem; }
+    h1 {
+      font-size: 2.1rem;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+    }
 
     /* Compact buttons on small phones */
-    button, a[role="link"], input[type="submit"] {
+    button,
+    a[role="link"],
+    input[type="submit"] {
       padding: 0.625rem 1rem;
       font-size: 0.95rem;
     }
@@ -96,24 +157,25 @@
     font-family: 'Futura', 'Futura PT', sans-serif;
     font-size: 16px;
   }
+
   .font-heading {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 700;
   }
-  
+
   /* Glassmorphism utilities */
   .glass {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
   }
-  
+
   .glass-dark {
     background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
-  
+
   /* Brand colors */
   .bg-brand-primary {
     background-color: #0C2340;
@@ -157,25 +219,32 @@
     .mobile-touch {
       @apply p-2 text-base;
     }
+
     .mobile-text {
       @apply text-sm leading-normal;
     }
+
     .mobile-spacing {
       @apply px-3 py-2;
     }
+
     .mobile-grid {
       @apply grid-cols-1 gap-6;
     }
   }
 
-  /* Disable hover on touch devices */
+  /* Prevent unwanted tap highlights on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Disable hover effects on touch devices for non-interactive elements */
   @media (hover: none) and (pointer: coarse) {
-    *:hover {
+
+    /* Only disable background color changes on hover for touch devices */
+    /* This prevents issues with buttons and interactive elements */
+    *:not(button):not(a):not([role="button"]):hover {
       background-color: inherit !important;
-      color: inherit !important;
-      transform: none !important;
-      box-shadow: none !important;
-      scale: none !important;
     }
   }
 
@@ -190,14 +259,25 @@
   body {
     @apply text-foreground bg-background;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply text-foreground;
   }
 }
 
 @keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -231,7 +311,7 @@
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  will-change: transform, opacity;
+  /* Removed will-change - let browser decide compositing */
 }
 
 /* arrow look (optional) */
@@ -239,11 +319,11 @@
   width: 48px;
   height: 48px;
   border-radius: 9999px;
-  border: 2px solid rgba(255,255,255,0.95);
-  background: rgba(0,0,0,0.35);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Mobile carousel styles - 3D horizontal carousel */
@@ -265,7 +345,9 @@
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  will-change: transform, opacity;
+  /* Removed will-change - causing scroll jank on mobile */
+  /* Use CSS containment for better layer management */
+  contain: layout style paint;
 }
 
 /* Hide scrollbars on mobile carousel */
@@ -273,16 +355,26 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 
 /* smooth transform */
-.carousel-card, .carousel-inner { transition: transform 450ms cubic-bezier(.22,.9,.31,1), box-shadow 300ms ease, opacity 300ms ease; }
+.carousel-card,
+.carousel-inner {
+  transition: transform 450ms cubic-bezier(.22, .9, .31, 1), box-shadow 300ms ease, opacity 300ms ease;
+}
 
 /* no scrollbar */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 /* Enhanced carousel indicators */
 .carousel-indicator {
@@ -313,7 +405,8 @@
 
 /* Mobile drag enhancements */
 .carousel-mobile-drag {
-  touch-action: pan-y; /* Allow vertical scrolling when dragging horizontally */
+  touch-action: pan-y;
+  /* Allow vertical scrolling when dragging horizontally */
   user-select: none;
   -webkit-user-select: none;
 }
@@ -327,6 +420,7 @@
 
 /* iOS Safari iframe fixes for footer map */
 @supports (-webkit-touch-callout: none) {
+
   /* iOS Safari specific */
   iframe[src*="google.com/maps"] {
     background-color: #0A2A5C !important;

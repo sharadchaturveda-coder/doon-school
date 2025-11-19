@@ -273,11 +273,17 @@ export default function TiltedCarousel() {
                 return (
                   <button
                     key={index}
+                    type="button"
                     onClick={() => setCenterIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-200 hover:scale-105 ${isActive
-                        ? 'bg-[#FFC940] shadow-lg transform scale-110'
-                        : 'bg-white/40 hover:bg-white/60'
+                    className={`w-3 h-3 rounded-full transition-all duration-200 ${isActive
+                      ? 'bg-[#FFC940] shadow-lg transform scale-110'
+                      : 'bg-white/40'
                       }`}
+                    style={{
+                      WebkitTapHighlightColor: 'transparent',
+                      touchAction: 'manipulation',
+                      userSelect: 'none'
+                    }}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 );
