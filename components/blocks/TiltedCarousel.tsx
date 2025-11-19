@@ -141,7 +141,7 @@ export default function TiltedCarousel() {
           <span className="block h-[2px] w-12 bg-[#FFC940] mx-auto mt-2"></span>
         </h2>
 
-        <div className="max-w-full mx-auto px-4">
+        <div className="max-w-full mx-auto px-2">
           <motion.div
             className="carousel-perspective-mobile relative overflow-hidden"
             style={{
@@ -214,7 +214,7 @@ export default function TiltedCarousel() {
                 return (
                   <motion.article
                     key={data.key}
-                    className={`carousel-card-mobile absolute w-80 ${cardHeight} rounded-sm overflow-hidden shadow-lg`}
+                    className={`carousel-card-mobile absolute ${isVeryNarrow ? 'w-72' : 'w-80'} ${cardHeight} rounded-sm overflow-hidden shadow-lg`}
                     style={{
                       willChange: "transform",
                       backfaceVisibility: "hidden",
@@ -239,8 +239,8 @@ export default function TiltedCarousel() {
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
 
-                    <div className={`relative z-20 h-full flex flex-col justify-end text-white ${isVeryNarrow ? 'pb-1' : 'pb-2'}`} style={{transform: "translateZ(20px)", isolation: "isolate"}}>
-                      <div className={`bg-gradient-to-t from-black/70 via-black/40 to-black/20 rounded-b-sm ${isVeryNarrow ? 'px-2 pb-3' : 'px-3 pb-4'}`} style={{ WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale", textRendering: "optimizeLegibility", transform: "translateZ(0)", transformStyle: "preserve-3d" }}>
+                    <div className={`relative z-20 h-full flex flex-col justify-end text-white ${isVeryNarrow ? 'pb-1' : 'pb-2'}`} style={{ transform: "translateZ(20px)", isolation: "isolate" }}>
+                      <div className={`bg-gradient-to-t from-black/70 via-black/40 to-black/20 rounded-b-sm ${isVeryNarrow ? 'px-4 pb-3' : 'px-5 pb-4'}`} style={{ WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale", textRendering: "optimizeLegibility", transform: "translateZ(0)", transformStyle: "preserve-3d" }}>
                         <span className={`inline-block bg-[#0E1C30]/80 text-[#FFC940] px-2 py-[1px] text-[9px] uppercase tracking-wider rounded-sm shadow-sm block ${isVeryNarrow ? 'mb-2' : 'mb-3'}`}>
                           {data.subtitle}
                         </span>
@@ -274,11 +274,10 @@ export default function TiltedCarousel() {
                   <button
                     key={index}
                     onClick={() => setCenterIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-200 hover:scale-105 ${
-                      isActive
+                    className={`w-3 h-3 rounded-full transition-all duration-200 hover:scale-105 ${isActive
                         ? 'bg-[#FFC940] shadow-lg transform scale-110'
                         : 'bg-white/40 hover:bg-white/60'
-                    }`}
+                      }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 );

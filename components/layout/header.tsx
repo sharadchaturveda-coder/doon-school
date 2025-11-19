@@ -55,7 +55,7 @@ const Header: React.FC = (): JSX.Element => {
     const handleScroll = () => {
       const heroHeight = window.innerHeight; // Hero is full screen
       const mobile = window.innerWidth < 1024; // lg breakpoint
-      const scrollThreshold = mobile ? 0 : heroHeight * 0.8; // Immediate on mobile, 80% on desktop
+      const scrollThreshold = mobile ? 100 : heroHeight * 0.8; // Small threshold on mobile, 80% on desktop
       setIsScrolled(window.scrollY > scrollThreshold);
     };
 
@@ -82,13 +82,12 @@ const Header: React.FC = (): JSX.Element => {
   return (
     <>
       {/* Main Navigation Bar */}
-      <header className={`${pathname === '/' ? 'fixed' : 'sticky'} top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? `shadow-lg border-b bg-white border-gray-300 lg:bg-white/90 lg:backdrop-blur-md`
-          : pathname === '/'
-            ? `bg-transparent shadow-none`
-            : `shadow-lg border-b bg-white border-gray-300`
-      }`}>
+      <header className={`${pathname === '/' ? 'fixed' : 'sticky'} top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? `shadow-lg border-b bg-white border-gray-300 lg:bg-white/90 lg:backdrop-blur-md`
+        : pathname === '/'
+          ? `bg-transparent shadow-none`
+          : `shadow-lg border-b bg-white border-gray-300`
+        }`}>
         <div className="container px-0.5 pr-2 py-2 md:px-4 md:py-3 lg:py-3 min-h-[5rem] md:min-h-[5rem] lg:min-h-[3rem] grid grid-cols-[auto_1fr_auto] items-center relative gap-4 lg:gap-8">
           {/* LEFT SIDE: LOGO */}
           <div className="flex items-center flex-shrink-0">
@@ -103,7 +102,7 @@ const Header: React.FC = (): JSX.Element => {
           <div className="flex justify-center items-center col-start-2">
             <Link
               href="/"
-              className={`block md:hidden xl:block ${(pathname === '/' && !isScrolled) || isMobileMenuOpen ? 'text-white' : 'text-black'} font-heading font-bold text-xs sm:text-sm xl:text-base hover:text-[#FFD700] transition-colors`}
+              className={`block md:hidden xl:block ${(pathname === '/' && !isScrolled) || isMobileMenuOpen ? 'text-white' : 'text-black'} ${pathname === '/' && !isScrolled && !isMobileMenuOpen ? 'md:opacity-100 opacity-0' : 'opacity-100'} font-heading font-bold text-xs sm:text-sm xl:text-base hover:text-[#FFD700] transition-all duration-300`}
             >
               DOON INTERNATIONAL SCHOOL, JABALPUR
             </Link>
@@ -113,11 +112,11 @@ const Header: React.FC = (): JSX.Element => {
           <div className="hidden md:flex items-center justify-end gap-2 md:gap-2 lg:gap-4 col-start-3">
             {siteData.navigation.map((item) => (
               <div key={item.name} className="relative group flex items-center flex-shrink-0">
-              {item.name === "ENQUIRY" ? (
-                <Link href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noopener noreferrer" : undefined} className="bg-[#F2B33D] text-[#002B6B] px-4 md:px-5 lg:px-6 py-1.5 md:py-2 lg:py-2 rounded-full font-medium hover:bg-[#F2B33D]/90 transition-colors flex-shrink-0 whitespace-nowrap text-sm lg:text-base">
-                  Enquiry
-                </Link>
-              ) : (
+                {item.name === "ENQUIRY" ? (
+                  <Link href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noopener noreferrer" : undefined} className="bg-[#F2B33D] text-[#002B6B] px-4 md:px-5 lg:px-6 py-1.5 md:py-2 lg:py-2 rounded-full font-medium hover:bg-[#F2B33D]/90 transition-colors flex-shrink-0 whitespace-nowrap text-sm lg:text-base">
+                    Enquiry
+                  </Link>
+                ) : (
                   <>
                     <Link
                       href={item.href}
