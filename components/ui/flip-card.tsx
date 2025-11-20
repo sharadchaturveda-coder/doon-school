@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -49,7 +49,15 @@ const iconMap = {
 
 export default function FlipCard({ card, onFlip }: FlipCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleFlip = useCallback(() => {
     // If card has a link, navigate instead of flipping
@@ -58,10 +66,13 @@ export default function FlipCard({ card, onFlip }: FlipCardProps) {
       return;
     }
 
+    // Disable flip on mobile - content is always visible
+    if (isMobile) return;
+
     const newFlippedState = !isFlipped;
     setIsFlipped(newFlippedState);
     onFlip?.(newFlippedState);
-  }, [isFlipped, onFlip, card.link, router]);
+  }, [isFlipped, onFlip, card.link, router, isMobile]);
 
   const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
     if (event.key === 'Enter' || event.key === ' ') {
@@ -99,7 +110,7 @@ export default function FlipCard({ card, onFlip }: FlipCardProps) {
       tabIndex={0}
       role="button"
       aria-label={`View details for ${card.title}`}
-      aria-expanded={isFlipped}
+      aria-expanded={isMobile || isFlipped}
     >
       <div
         className="relative w-full h-full transition-transform duration-700"
@@ -130,6 +141,9 @@ export default function FlipCard({ card, onFlip }: FlipCardProps) {
               <h3 className="text-white text-lg font-bold leading-tight">
                 {card.title}
               </h3>
+              {isMobile && <p className="text-white/70 text-sm leading-relaxed mt-1">
+                {card.subtitle}
+              </p>}
             </div>
           </div>
         </div>
