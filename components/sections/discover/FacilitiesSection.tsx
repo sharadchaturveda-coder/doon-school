@@ -19,9 +19,10 @@ interface FacilityNavItem {
 interface InfrastructureFacilitiesSectionProps {
   facilities: FacilityItem[];
   facilityNav: FacilityNavItem[];
+  title?: string;
 }
 
-export default function InfrastructureFacilitiesSection({ facilities, facilityNav }: InfrastructureFacilitiesSectionProps) {
+export default function InfrastructureFacilitiesSection({ facilities, facilityNav, title = "Infrastructure Facilities" }: InfrastructureFacilitiesSectionProps) {
   const slugify = (text: string) =>
     text
       .toLowerCase()
@@ -32,7 +33,7 @@ export default function InfrastructureFacilitiesSection({ facilities, facilityNa
   return (
     <section className="text-black">
       <div className="py-24 px-4">
-        <h2 className="text-3xl font-bold mb-16 text-center">Infrastructure Facilities</h2>
+        <h2 className="text-3xl font-bold mb-16 text-center">{title}</h2>
 
         <div className="space-y-4">
           {facilities.map((facility, index) => {
@@ -46,13 +47,12 @@ export default function InfrastructureFacilitiesSection({ facilities, facilityNa
                 id={anchorId}
                 initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ margin: "-250px" }}
+                viewport={{ once: true, margin: "0px" }}
                 transition={{
                   duration: 0.6,
-                  delay: index * 0.08,
+                  delay: Math.min(index * 0.08, 2.0),
                   ease: [0.23, 1, 0.32, 1]
                 }}
-                style={{ opacity: 1, transform: 'translateY(0px)' }}
               >
                 <div
                   className="bg-[#FAF4E9] border-l-4"

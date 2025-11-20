@@ -12,11 +12,12 @@ import Link from 'next/link';
 import FeatureStripSection from '../components/blocks/feature-strip-section';
 import NewsTickerSection from '../components/blocks/news-ticker-section';
 import WelcomeSection from '../components/blocks/WelcomeSection';
-import CampusStatsSection from '../components/blocks/campus-stats-section';
+import DiscoverDoon from '../components/blocks/discover-doon';
 import AcademicsSection from '../components/sections/home/AcademicsSection';
 import TiltedCarousel from '../components/blocks/TiltedCarousel';
 import siteData from '../data/site.json';
 import homeData from '../data/doon/home.json';
+import discoverData from '../data/doon/discover.json';
 
 /**
  * Home page component that renders the main landing page for Doon International School
@@ -63,10 +64,10 @@ export default function Home(): JSX.Element {
 
       <WelcomeSection />
 
-      <CampusStatsSection />
+      <DiscoverDoon cards={discoverData.cards as any[]} />
 
-      {/* Academic Life at Doon */}
-      <AcademicsSection academics={homeData.academics} />
+      {/* Academic Life at Doon - Commented out */}
+      {/* <AcademicsSection academics={homeData.academics} /> */}
 
       <TiltedCarousel />
     </>

@@ -1,0 +1,72 @@
+{
+  "facilities": [
+    {
+      "title": "CBSE Curriculum Excellence",
+      "description": "Following the Central Board of Secondary Education curriculum with integrated global perspectives, ensuring students excel in both Indian and international examinations.",
+      "image": "/images/academics/cbse-curriculum.avif"
+    },
+    {
+      "title": "STEM Education Program",
+      "description": "Comprehensive Science, Technology, Engineering, and Mathematics program with hands-on learning in robotics, coding, and scientific exploration.",
+      "image": "/images/academics/stem-program.avif"
+    },
+    {
+      "title": "Language Arts & Literature",
+      "description": "Rich program combining classical literature with contemporary writing, emphasizing communication skills, critical thinking, and literary appreciation.",
+      "image": "/images/academics/language-arts.avif"
+    },
+    {
+      "title": "Performing Arts Integration",
+      "description": "Integration of music, drama, and dance into the curriculum, fostering creativity, confidence, and emotional expression through artistic endeavors.",
+      "image": "/images/academics/performing-arts.avif"
+    },
+    {
+      "title": "Sports & Physical Education",
+      "description": "Comprehensive physical education program emphasizing health, fitness, teamwork, and character development through various sports and activities.",
+      "image": "/images/academics/sports-education.avif"
+    },
+    {
+      "title": "Global Exchange & Cultural Studies",
+      "description": "International programs promoting cultural awareness, exchange partnerships, and global citizenship through multicultural education initiatives.",
+      "image": "/images/academics/global-exchange.avif"
+    }
+  ],
+  "facilityNav": [
+    {
+      "label": "CBSE Curriculum Excellence",
+      "icon": "📚",
+      "anchor": "cbse-curriculum-excellence",
+      "color": "#EAF4FF"
+    },
+    {
+      "label": "STEM Education Program",
+      "icon": "🔬",
+      "anchor": "stem-education-program",
+      "color": "#FFF0E5"
+    },
+    {
+      "label": "Language Arts & Literature",
+      "icon": "📖",
+      "anchor": "language-arts-literature",
+      "color": "#E8F5E8"
+    },
+    {
+      "label": "Performing Arts Integration",
+      "icon": "🎭",
+      "anchor": "performing-arts-integration",
+      "color": "#F3E8FF"
+    },
+    {
+      "label": "Sports & Physical Education",
+      "icon": "⚽",
+      "anchor": "sports-physical-education",
+      "color": "#FFF3E0"
+    },
+    {
+      "label": "Global Exchange & Cultural Studies",
+      "icon": "🌍",
+      "anchor": "global-exchange-cultural-studies",
+      "color": "#FFE8E8"
+    }
+  ]
+}

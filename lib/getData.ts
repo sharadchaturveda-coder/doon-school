@@ -5,6 +5,8 @@
  */
 
 import discoverData from '../data/discover.json';
+import academicsData from '../data/academics.json';
+import sportsData from '../data/sports.json';
 
 /**
  * Fetches discover page data from static JSON file
@@ -29,4 +31,40 @@ import discoverData from '../data/discover.json';
  */
 export async function getData(): Promise<any> {
   return discoverData;
+}
+
+/**
+ * Fetches academics page data from static JSON file
+ *
+ * This function provides academics-specific facility information,
+ * including academic programs, courses, and educational initiatives.
+ *
+ * @returns {Promise<PageData>} Promise resolving to academics page data
+ *
+ * @example
+ * ```typescript
+ * const data = await getAcademicsData();
+ * console.log(data.facilities); // Array of academic programs
+ * ```
+ */
+export async function getAcademicsData(): Promise<any> {
+  return academicsData;
+}
+
+/**
+ * Fetches sports page data from static JSON file
+ *
+ * This function provides sports-specific facility information,
+ * including athletic facilities, sports programs, and equestrian activities.
+ *
+ * @returns {Promise<PageData>} Promise resolving to sports page data
+ *
+ * @example
+ * ```typescript
+ * const data = await getSportsData();
+ * console.log(data.facilities); // Array of sports facilities
+ * ```
+ */
+export async function getSportsData(): Promise<any> {
+  return sportsData;
 }
