@@ -33,8 +33,8 @@ const UnifiedFooter: React.FC = () => {
           <div className="bg-[#0A2A5C] rounded-lg p-1">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.719629944034!2d79.91134377531525!3d23.070738279140134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981b3a02a7cdb21%3A0x58771697fa8990ee!2sDoon%20International%20School!5e0!3m2!1sen!2sin!4v1761893512458!5m2!1sen!2sin"
-              width="250"
-              height="150"
+              width="300"
+              height="180"
               className="rounded-lg border-0 bg-[#0A2A5C]"
               loading="lazy"
               title="Doon International School Map"

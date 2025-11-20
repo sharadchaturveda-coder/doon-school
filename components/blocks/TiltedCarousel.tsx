@@ -269,12 +269,12 @@ export default function TiltedCarousel() {
           <div className="flex justify-center mt-8">
             <div className="flex space-x-2">
               {slides.map((_, index) => {
-                const isActive = index === Math.abs(centerIndex % slides.length);
+                const isActive = index === (((centerIndex % slides.length) + slides.length) % slides.length);
                 return (
                   <button
                     key={index}
                     type="button"
-                    onClick={() => setCenterIndex(index)}
+                    onClick={() => { const currentIndex = ((centerIndex % slides.length) + slides.length) % slides.length; let delta = index - currentIndex; if (Math.abs(delta) > slides.length / 2) { delta = delta > 0 ? delta - slides.length : delta + slides.length; } setCenterIndex(centerIndex + delta); }}
                     className={`w-3 h-3 rounded-full transition-all duration-200 ${isActive
                       ? 'bg-[#FFC940] shadow-lg transform scale-110'
                       : 'bg-white/40'
