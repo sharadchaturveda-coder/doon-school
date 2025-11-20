@@ -32,7 +32,12 @@ const iconMap = {
   ),
   building: (
     <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M19 9h-6V3H9v6H3c-.5 0-1 .5-1 1v6c0 .5.5 1 1 1h6v6h2v-6h6c.5 0 1-.5 1-1V10c0-.5-.5-1-1-1z"/>
+      <path d="M12 2l8 4v16h-16v-16l8-4z"/>
+      <rect x="8" y="10" width="2" height="2" fill="currentColor"/>
+      <rect x="12" y="10" width="2" height="2" fill="currentColor"/>
+      <rect x="10" y="14" width="2" height="2" fill="currentColor"/>
+      <rect x="14" y="14" width="2" height="2" fill="currentColor"/>
+      <path d="M9 18h6v2h-6v-2z"/>
     </svg>
   ),
   map: (
