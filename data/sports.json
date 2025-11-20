@@ -8,22 +8,22 @@
     {
       "title": "Sports Complex & Athletic Facilities",
       "description": "Comprehensive sports complex featuring basketball courts, tennis facilities, badminton halls, swimming pool, and dedicated athletic tracks. Professional coaching available for various sports disciplines.",
-      "image": "/assets/discover/sports-facilities.avif"
+      "image": "/images/sports complex/sports_complex.avif"
     },
     {
       "title": "Team Sports & Competitive Leagues",
       "description": "Organized competitive leagues in football, soccer, basketball, and volleyball. Emphasis on teamwork, sportsmanship, and physical fitness through structured training and inter-school competitions.",
-      "image": "/images/sports/horses.webp"
+      "image": "/images/team sports/team_sports.avif"
     },
     {
       "title": "Individual Sports Excellence Program",
       "description": "Specialized training in tennis, badminton, swimming, and track & field athletics. Individual coaching to develop personal sports excellence alongside academic commitments.",
-      "image": "/assets/discover/sports-facilities.avif"
+      "image": "/images/individual sports/individual_sports.avif"
     },
     {
       "title": "Outdoor Adventure Activities",
       "description": "Comprehensive outdoor education program including hiking, environmental education, and group adventure activities that build resilience, leadership, and environmental awareness.",
-      "image": "/images/sports/horses.webp"
+      "image": "/images/outdoor adventurees/outdoor_adventures.avif"
     }
   ],
   "facilityNav": [
