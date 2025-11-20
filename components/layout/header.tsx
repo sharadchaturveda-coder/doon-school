@@ -105,7 +105,7 @@ const Header: React.FC = (): JSX.Element => {
         window.requestAnimationFrame(() => {
           const heroHeight = window.innerHeight; // Hero is full screen
           const mobile = isMobileDevice(); // Use improved mobile detection
-          const scrollThreshold = mobile ? 100 : heroHeight * 0.8; // Small threshold on mobile, 80% on desktop
+          const scrollThreshold = mobile ? 100 : 0; // Small threshold on mobile, immediate on desktop
           const shouldBeScrolled = window.scrollY > scrollThreshold;
 
           // Force update for mobile devices to ensure immediate background change
