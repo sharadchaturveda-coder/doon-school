@@ -33,7 +33,7 @@ import { ChevronDown, Facebook, Instagram, Twitter, Phone, Mail } from 'lucide-r
  * - Dropdown navigation menus for complex sections
  * - Mobile hamburger menu with slide-out navigation
  * - Logo and school name display
- * - Enquiry button with distinct styling
+ * - Enquiry and Parent Portal buttons with distinct styling
  * - Smooth transitions and hover effects
  *
  * Scroll Behavior:
@@ -193,6 +193,10 @@ const Header: React.FC = (): JSX.Element => {
                   {item.name === "ENQUIRY" ? (
                     <Link href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noopener noreferrer" : undefined} className="bg-[#F2B33D] text-[#002B6B] px-4 md:px-5 lg:px-6 py-1.5 md:py-2 lg:py-2 rounded-full font-medium hover:bg-[#F2B33D]/90 transition-colors flex-shrink-0 whitespace-nowrap text-sm lg:text-base">
                       Enquiry
+                    </Link>
+                  ) : item.name === "PARENT PORTAL" ? (
+                    <Link href={item.href} className="bg-[#002B6B] text-white px-4 md:px-5 lg:px-6 py-1.5 md:py-2 lg:py-2 rounded-full font-medium hover:bg-[#002B6B]/90 transition-colors flex-shrink-0 whitespace-nowrap text-sm lg:text-base">
+                      Parent Portal
                     </Link>
                   ) : (
                     <>

@@ -104,6 +104,18 @@ const getNavigationItems = (): NavigationItem[] => {
           color = '#60a5fa';
           description = 'Get in touch with us';
           break;
+        case 'DISCOVER DOON':
+          displayName = 'Discover Doon';
+          icon = Building;
+          color = '#10b981';
+          description = 'Explore our facilities';
+          break;
+        case 'PARENT PORTAL':
+          displayName = 'Parent Portal';
+          icon = Users;
+          color = '#1f4f8b';
+          description = 'Access parent resources';
+          break;
         default:
           displayName = navItem.name;
           icon = Building;

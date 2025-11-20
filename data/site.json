@@ -27,7 +27,8 @@
       ]
     },
     { "name": "DISCOVER DOON", "href": "/discover" },
-    { "name": "ENQUIRY", "href": "https://disjabalpur.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/8", "external": true }
+    { "name": "ENQUIRY", "href": "https://disjabalpur.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/8", "external": true },
+    { "name": "PARENT PORTAL", "href": "https://disjabalpur.schoolpad.in/", "external": true }
   ],
   "contact": {
     "phone": "+91 9201591900 / +91 9201591892",
