@@ -392,20 +392,18 @@ export default function TiltedCarousel() {
         </motion.div>
 
         {/* Navigation Arrows */}
-        <div className="absolute right-12 bottom-10 flex gap-3 opacity-60 hover:opacity-100 transition-opacity">
-          <button
-            onClick={prev}
-            className="w-9 h-9 border border-white/70 rounded-full flex items-center justify-center hover:bg-white/10 hover:scale-105 transition-all duration-200"
-          >
-            <ChevronLeft className="w-4 h-4 text-white" />
-          </button>
-          <button
-            onClick={next}
-            className="w-9 h-9 border border-white/70 rounded-full flex items-center justify-center hover:bg-white/10 hover:scale-105 transition-all duration-200"
-          >
-            <ChevronRight className="w-4 h-4 text-white" />
-          </button>
-        </div>
+        <button
+          onClick={prev}
+          className="absolute left-12 bottom-10 w-9 h-9 border border-white/70 rounded-full flex items-center justify-center opacity-60 hover:opacity-100 hover:bg-white/10 hover:scale-105 transition-all duration-200"
+        >
+          <ChevronLeft className="w-4 h-4 text-white" />
+        </button>
+        <button
+          onClick={next}
+          className="absolute right-12 bottom-10 w-9 h-9 border border-white/70 rounded-full flex items-center justify-center opacity-60 hover:opacity-100 hover:bg-white/10 hover:scale-105 transition-all duration-200"
+        >
+          <ChevronRight className="w-4 h-4 text-white" />
+        </button>
       </div>
     </section>
   );
