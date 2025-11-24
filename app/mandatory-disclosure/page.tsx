@@ -65,14 +65,15 @@ export default function MandatoryDisclosurePage() {
                 <td className="px-2 md:px-4 py-2 border border-gray-300 whitespace-nowrap text-center">05</td>
                 <td className="px-2 md:px-4 py-2 border border-gray-300">PRINCIPAL NAME</td>
                 <td className="px-2 md:px-4 py-2 border border-gray-300 bg-[#FFF3E0]">
-                  MRS. DEEPTI SATSANGI
+                  Dr Rajiv Kumar Singh
                 </td>
               </tr>
               <tr>
                 <td className="px-2 md:px-4 py-2 border border-gray-300 whitespace-nowrap text-center">06</td>
                 <td className="px-2 md:px-4 py-2 border border-gray-300">QUALIFICATION</td>
                 <td className="px-2 md:px-4 py-2 border border-gray-300 bg-[#FFF3E0]">
-                  M.ED, B.ED, M.SC (PHYSICS), MBA
+                  PHD(Maths), MSc, BEd.
+MDP(IIM), HGSE
                 </td>
               </tr>
               <tr>
@@ -122,6 +123,7 @@ export default function MandatoryDisclosurePage() {
                 { text: "COPIES OF VALID SAFE DRINKING WATER & SANITATION CERTIFICATES", pdf: "SAFE DRINKING WATER & SANITATION (1).pdf" },
                 { text: "WATER TESTING LAB CERTIFICATE", pdf: "WATER TESTING LAB CERTIFICATE (1).pdf" },
                 { text: "COPIES OF SELF AFFIDAVIT", pdf: null },
+                { text: "COPIES OF SCHOOL MANAGEMENT COMMITTEE", pdf: "SCHOOL MANAGEMENT COMMITTEE.pdf" },
               ].map((item, i) => (
                 <tr key={i}>
                   <td className="px-2 md:px-4 py-2 border border-gray-300 text-center whitespace-nowrap">
