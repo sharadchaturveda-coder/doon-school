@@ -112,26 +112,36 @@ export default function MandatoryDisclosurePage() {
             </thead>
             <tbody>
               {[
-                "COPIES OF AFFILIATION/UPGRADATION LETTER AND RECENT EXTENSION OF AFFILIATION, IF ANY",
-                "COPIES OF SOCIETIES/TRUST/COMPANY REGISTRATION/RENEWAL CERTIFICATE, AS APPLICABLE",
-                "COPY OF NO OBJECTION CERTIFICATE (NOC) ISSUED, IF APPLICABLE BY THE STATE GOVT/UT",
-                "COPIES OF RECOGNITION CERTIFICATE UNDER RTE ACT, 2009 AND ITS RENEWAL, IF APPLICABLE",
-                "COPY OF VALID BUILDING SAFETY CERTIFICATE AS PER THE NATIONAL BUILDING CODE",
-                "COPY OF VALID FIRE SAFETY CERTIFICATE ISSUED BY THE COMPETENT AUTHORITY",
-                "COPY OF LAND CERTIFICATE",
-                "COPIES OF VALID SAFE DRINKING WATER & SANITATION CERTIFICATES",
-                "WATER TESTING LAB CERTIFICATE",
-                "COPIES OF SELF AFFIDAVIT",
-              ].map((text, i) => (
+                { text: "COPIES OF AFFILIATION/UPGRADATION LETTER AND RECENT EXTENSION OF AFFILIATION, IF ANY", pdf: null },
+                { text: "COPIES OF SOCIETIES/TRUST/COMPANY REGISTRATION/RENEWAL CERTIFICATE, AS APPLICABLE", pdf: "SOCIETY REGISTRATION (2).pdf" },
+                { text: "COPY OF NO OBJECTION CERTIFICATE (NOC) ISSUED, IF APPLICABLE BY THE STATE GOVT/UT", pdf: null },
+                { text: "COPIES OF RECOGNITION CERTIFICATE UNDER RTE ACT, 2009 AND ITS RENEWAL, IF APPLICABLE", pdf: "RECOGNITION 001 (2).pdf" },
+                { text: "COPY OF VALID BUILDING SAFETY CERTIFICATE AS PER THE NATIONAL BUILDING CODE", pdf: "BUILDING SAFETY CERTIFICATE (1).pdf" },
+                { text: "COPY OF VALID FIRE SAFETY CERTIFICATE ISSUED BY THE COMPETENT AUTHORITY", pdf: "FIRE SAFETY (1).pdf" },
+                { text: "COPY OF LAND CERTIFICATE", pdf: "LAND CERTIFICATE (2).pdf" },
+                { text: "COPIES OF VALID SAFE DRINKING WATER & SANITATION CERTIFICATES", pdf: "SAFE DRINKING WATER & SANITATION (1).pdf" },
+                { text: "WATER TESTING LAB CERTIFICATE", pdf: "WATER TESTING LAB CERTIFICATE (1).pdf" },
+                { text: "COPIES OF SELF AFFIDAVIT", pdf: null },
+              ].map((item, i) => (
                 <tr key={i}>
                   <td className="px-2 md:px-4 py-2 border border-gray-300 text-center whitespace-nowrap">
                     {String(i + 1).padStart(2, "0")}
                   </td>
-                  <td className="px-2 md:px-4 py-2 border border-gray-300 break-words">{text}</td>
+                  <td className="px-2 md:px-4 py-2 border border-gray-300 break-words">{item.text}</td>
                   <td className="px-2 md:px-4 py-2 border border-gray-300 text-center">
-                    <button className="bg-[#FFD300] hover:bg-[#FFC700] text-[#001F48] font-semibold px-2 md:px-4 py-1 rounded text-xs md:text-sm whitespace-nowrap">
-                      View
-                    </button>
+                    {item.pdf ? (
+                      <a
+                        href={`/assets/documents/${item.pdf}`}
+                        download
+                        className="bg-[#FFD300] hover:bg-[#FFC700] text-[#001F48] font-semibold px-2 md:px-4 py-1 rounded text-xs md:text-sm whitespace-nowrap inline-block"
+                      >
+                        Download
+                      </a>
+                    ) : (
+                      <button className="bg-[#FFD300] hover:bg-[#FFC700] text-[#001F48] font-semibold px-2 md:px-4 py-1 rounded text-xs md:text-sm whitespace-nowrap">
+                        View
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}

@@ -6,11 +6,6 @@
       "image": "/assets/discover/classroom.avif"
     },
     {
-      "title": "David & Doris Auditorium",
-      "description": "The Doris David Auditorium is a spacious, air-conditioned hall equipped with a large stage, digital light and sound systems, and modern seating. It serves as the venue for morning assemblies, school events, inter-school competitions, and cultural performances, providing students a platform to express themselves with confidence.",
-      "image": "/assets/discover/auditorium.avif"
-    },
-    {
       "title": "Computer Laboratories",
       "description": "RSJMS maintains two state-of-the-art computer laboratories, equipped with updated systems and multimedia facilities. Students from P1 to P5 learn computer science through structured lessons that combine theory with creative application. The curriculum emphasises problem-solving, responsible use of technology, and innovation.",
       "image": "/assets/discover/computer-lab.avif"
@@ -82,12 +77,6 @@
       "icon": "📚",
       "anchor": "smart-board-classrooms",
       "color": "#EAF4FF"
-    },
-    {
-      "label": "Auditorium",
-      "icon": "🎭",
-      "anchor": "david-doris-auditorium",
-      "color": "#FFF0E5"
     },
     {
       "label": "Computer Labs",
