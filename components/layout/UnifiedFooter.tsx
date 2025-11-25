@@ -2,7 +2,8 @@ import React from 'react';
 
 const UnifiedFooter: React.FC = () => {
   return (
-    <footer className="bg-[#002b5b] text-white footer-ios-fix" style={{ WebkitTransform: 'translateZ(0)', transform: 'translateZ(0)' }}>
+    <div className="ios-footer-wrapper">
+      <footer className="bg-[#002b5b] text-white ios-footer-force-layer">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-white/10">
         <div>
           <h4 className="font-semibold text-lg mb-3 text-white">Doon International School, Jabalpur</h4>
@@ -46,6 +47,7 @@ const UnifiedFooter: React.FC = () => {
         </div>
       </div>
     </footer>
+    </div>
   );
 };
 

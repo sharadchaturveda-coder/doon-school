@@ -460,13 +460,23 @@
   }
 }
 
-@supports (-webkit-touch-callout: none) {
-  /* iPhone Safari ONLY */
-  .footer-ios-fix {
+/* iPhone Safari ONLY */
+@supports (-webkit-touch-callout: none) and (not (translate: none)) {
+  .ios-footer-force-layer {
+    position: relative !important;
+    z-index: 999 !important;
     background-color: #002b5b !important;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    isolation: isolate !important;
+  }
+
+  .ios-footer-wrapper {
+    position: relative !important;
+    z-index: 998 !important;
+    background-color: #002b5b !important;
+    isolation: isolate !important;
   }
 }
