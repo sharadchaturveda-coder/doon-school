@@ -160,7 +160,7 @@ const Header: React.FC = (): JSX.Element => {
     <>
       {/* Main Navigation Bar */}
       <div className={`${shouldForceWhiteBackground() ? 'mobile-header-forced-white' : ''} ${shouldForceScrolled() ? 'mobile-header-forced-scrolled' : ''}`}>
-        <header className={`${pathname === '/' ? 'fixed' : 'sticky'} top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        <header className={`${pathname === '/' ? 'fixed' : 'sticky'} top-0 left-0 right-0 z-50 transition-all duration-300 ios-safari-header-neutralize ${isScrolled
           ? `shadow-lg border-b bg-white border-gray-300 lg:bg-white/90 lg:backdrop-blur-md`
           : pathname === '/'
             ? `bg-transparent shadow-none`

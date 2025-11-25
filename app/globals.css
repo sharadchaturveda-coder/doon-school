@@ -460,6 +460,39 @@
   }
 }
 
+/* iPhone Safari ONLY - neutralize header paint-breaking effects */
+@supports (-webkit-touch-callout: none) {
+  /* Scope narrowly to header to avoid affecting anything else */
+  .ios-safari-header-neutralize {
+    /* keep layout identical; only neutralize visual effects that break compositing */
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+
+    /* prevent accidental GPU compositing toggles from transforms/filters */
+    -webkit-transform: none !important;
+    transform: none !important;
+
+    /* keep fixed positioning and stacking but isolate compositing */
+    position: inherit !important; /* fallback if needed; do not change layout */
+    isolation: isolate !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+  }
+
+  /* Optional narrow wrapper override if header uses dynamic scrolled classes */
+  .ios-safari-header-neutralize .mobile-header-forced-scrolled,
+  .ios-safari-header-neutralize.lg\\:bg-white\\/90 {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+}
+
 /* iPhone Safari ONLY */
 @supports (-webkit-touch-callout: none) and (not (translate: none)) {
   .ios-footer-force-layer {
