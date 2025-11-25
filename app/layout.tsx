@@ -49,7 +49,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <main className="flex-grow">
+        <main className="flex-grow min-h-[100dvh]">
           {children}
         </main>
         <UnifiedFooter />
