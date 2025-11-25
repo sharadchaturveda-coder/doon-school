@@ -157,7 +157,7 @@ components/
 ```
 data/
 ├── site.json            # Site configuration (navigation, contact)
-├── discover.json        # Discover page content
+├── infrastructure.json  # Infrastructure/facilities page content
 └── doon/
     ├── home.json        # Homepage content
     ├── about.json       # About page content

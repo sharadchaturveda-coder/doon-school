@@ -106,7 +106,7 @@ function HeroSection() {
 // Data flows: JSON → Components → UI
 data/
 ├── site.json            # Global configuration
-├── discover.json        # Page-specific content
+├── infrastructure.json  # Infrastructure/facilities page content
 └── doon/
     ├── home.json        # Homepage data
     ├── about.json       # About page data

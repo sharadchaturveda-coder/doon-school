@@ -4,9 +4,10 @@
  * @author Doon International School Development Team
  */
 
-import discoverData from '../data/discover.json';
+import infrastructureData from '../data/infrastructure.json';
 import academicsData from '../data/academics.json';
 import sportsData from '../data/sports.json';
+import discoverDoonData from '../data/doon/discover-doon.json';
 
 /**
  * Fetches discover page data from static JSON file
@@ -30,7 +31,7 @@ import sportsData from '../data/sports.json';
  * ```
  */
 export async function getData(): Promise<any> {
-  return discoverData;
+  return infrastructureData;
 }
 
 /**
@@ -67,4 +68,22 @@ export async function getAcademicsData(): Promise<any> {
  */
 export async function getSportsData(): Promise<any> {
   return sportsData;
+}
+
+/**
+ * Fetches discover doon page data from static JSON file
+ *
+ * This function provides discover doon-specific information,
+ * including hero, main heading, pillars, and final CTA content.
+ *
+ * @returns {Promise<any>} Promise resolving to discover doon page data
+ *
+ * @example
+ * ```typescript
+ * const data = await getDiscoverDoonData();
+ * console.log(data.pillars); // Array of pillar content
+ * ```
+ */
+export async function getDiscoverDoonData(): Promise<any> {
+  return discoverDoonData;
 }

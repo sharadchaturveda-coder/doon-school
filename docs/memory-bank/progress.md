@@ -3,7 +3,7 @@
 ## Current Status Overview
 
 **Project Phase**: Implementation Complete (90%)
-**Last Updated**: November 19, 2025
+**Last Updated**: November 24, 2025
 **Next Milestone**: Memory Bank Initialization → Full Production Readiness
 
 ## What Works (Completed Features)
@@ -18,7 +18,7 @@
 - **Homepage (/)**: Complete with hero, stats, features, news ticker
 - **About (/about)**: Mission, vision, core values, facilities showcase
 - **Admissions (/admissions)**: Application process and requirements
-- **Discover (/discover)**: Interactive facility exploration
+- **Infrastructure (/infrastructure)**: Interactive facility exploration (formerly /discover)
 - **Updates (/updates)**: Latest news and school announcements
 - **Contact/Enquiry**: Working contact forms with email integration
 

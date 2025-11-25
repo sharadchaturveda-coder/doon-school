@@ -26,7 +26,7 @@
         { "name": "Withdrawal Form", "href": "/admissions#withdrawal" }
       ]
     },
-    { "name": "DISCOVER DOON", "href": "/discover" },
+    { "name": "DISCOVER DOON", "href": "/infrastructure" },
     { "name": "ENQUIRY", "href": "https://disjabalpur.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/8", "external": true },
     { "name": "PARENT PORTAL", "href": "https://disjabalpur.schoolpad.in/", "external": true }
   ],
