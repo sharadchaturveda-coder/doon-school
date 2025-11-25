@@ -434,6 +434,16 @@
 /* iOS Safari iframe fixes for footer map */
 @supports (-webkit-touch-callout: none) {
 
+  /* iPhone Safari — neutralize map wrapper compositing triggers */
+  .ios-safari-map-wrapper {
+    overflow: visible !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    transform: translateZ(0) !important;
+  }
+
   /* iOS Safari specific */
   iframe[src*="google.com/maps"] {
     background-color: #0A2A5C !important;
