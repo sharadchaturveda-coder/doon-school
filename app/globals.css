@@ -444,6 +444,16 @@
     transform: translateZ(0) !important;
   }
 
+  /* iPhone Safari — force page background to remain solid */
+  html, body {
+    background-color: #002b5b !important;
+    color-scheme: light !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+  }
+
   /* iOS Safari specific */
   iframe[src*="google.com/maps"] {
     background-color: #0A2A5C !important;
