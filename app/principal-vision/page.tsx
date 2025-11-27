@@ -40,6 +40,48 @@ export default function PrincipalVisionPage() {
         </div>
       </section>
 
+      {/* Director's Message */}
+      <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">
+              Director's Message
+            </h2>
+            <p className="text-lg text-gray-700 font-body leading-relaxed">
+              Our vision for transformative education and holistic development
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl">
+            <p className="text-xl leading-relaxed text-primary mb-8 italic font-medium">
+              "Education, at its essence, is the art of shaping human potential."
+            </p>
+
+            <div className="space-y-6 text-lg leading-relaxed text-gray-700">
+              <p>
+                At Doon International School, we believe that every child arrives with an inner brilliance — and the role of a school is to nurture that brilliance with wisdom, care, and purposeful guidance.
+              </p>
+
+              <p>
+                Our philosophy, "Cultural Roots, Global Growth," reflects our conviction that true progress begins with grounding. A child anchored in values can navigate any horizon with clarity.
+              </p>
+
+              <p>
+                Here, learning is more than academics. It is the cultivation of thought, empathy, expression, and inner strength. We strive to create an environment where curiosity thrives, integrity becomes natural, and children learn to stand tall in a world that is constantly evolving.
+              </p>
+
+              <p>
+                Education for us is a journey of becoming — becoming aware, becoming capable, and becoming individuals who bring purpose and grace into whatever they choose to pursue.
+              </p>
+
+              <p>
+                As we move ahead, our commitment remains unwavering: to shape learners who are rooted in character, elevated in vision, and ready to contribute meaningfully to a global future. We step forward with hope, with responsibility, and with the belief that every child's journey at Doon will lead them towards a life of substance and significance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Principal's Background & Experience */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -135,41 +177,6 @@ export default function PrincipalVisionPage() {
         </div>
       </section>
 
-      {/* Personal Message & Contact */}
-      <section className="py-16 bg-gradient-to-r from-primary to-primary-dark text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-heading font-bold mb-6">
-            A Message from Our Principal
-          </h2>
-          <p className="text-xl mb-8 text-white/90 leading-relaxed">
-            "Education is not merely about preparing students for examinations, but for life itself.
-            Our goal is to create compassionate, capable, and confident global citizens who will
-            contribute positively to society and adapt to an ever-changing world."
-          </p>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8">
-            <p className="text-lg italic text-white/80">
-              — Dr. Rajiv Kumar Singh, Principal
-            </p>
-            <p className="text-sm text-white/60 mt-2">
-              Ed.D. in Educational Leadership, 25+ years of educational excellence
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/admissions"
-              className="inline-block bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
-            >
-              Connect with Us
-            </a>
-            <a
-              href="/about"
-              className="inline-block border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors duration-300"
-            >
-              Our Educational Approach
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

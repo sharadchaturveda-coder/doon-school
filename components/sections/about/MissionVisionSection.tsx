@@ -3,7 +3,7 @@ import Card from '../../ui/card';
 
 export default function MissionVisionSection() {
   return (
-    <section id="vision" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+<section id="vision" className="page-section py-20 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -36,9 +36,7 @@ export default function MissionVisionSection() {
               </div>
               <h2 className="text-4xl font-heading font-bold mb-6">Our Mission</h2>
               <p className="text-lg leading-relaxed text-primary">
-                To provide a nurturing environment that fosters holistic development,
-                empowering students to become confident, responsible global citizens
-                through innovative learning experiences and values-driven education.
+                Our mission is to provide holistic education that nurtures values, intellect, and skills. Through Ramcharitmanas and Bhagavad Gita classes, spiritual sessions, and International Relations/GK programs, we instill moral grounding and diplomatic thinking. With public speaking, foreign language learning, Vedic Maths, robotics, experiential learning, and exposure to national and international competitions, we prepare students for modern competency‑based education. Our unmatched boarding house, nutritionist‑curated meals, and exclusive sports facilities—including shooting, horse riding, athletics, and skating—ensure discipline, collaboration, and resilience. These areas together develop a well‑rounded personality that is focused, disciplined, emotionally strong, humble, and ready to crack competitions and face all challenges of life. We are committed to transparent communication, continuous assessment, and parent partnership, creating an environment where every child grows into a responsible, confident, and globally competitive citizen.
               </p>
             </Card>
           </motion.div>
@@ -60,14 +58,16 @@ export default function MissionVisionSection() {
                   <span className="text-3xl text-white">🔮</span>
                 </div>
               </div>
-              <h2 className="text-4xl font-heading font-bold mb-6">Our Vision</h2>
+              <h2 className="text-4xl font-heading font-bold mb-4">Our Vision</h2>
+              <p className="text-lg leading-relaxed text-primary mb-4 italic">
+                "Rooted in Values, Ready for the World"
+              </p>
               <p className="text-lg leading-relaxed text-primary">
-                To be a leading educational institution that inspires excellence,
-                cultivates creativity, and prepares students to thrive in an ever-changing world,
-                building a foundation for lifelong learning and leadership.
+                To be the most trusted and transformative school in the region, blending cultural roots with global growth. We envision a future where every child from Doon International School is confident, disciplined, and future‑ready—equipped with socio‑emotional intelligence, academic excellence, and exposure to world‑class sports and fine arts, enabling them to thrive as leaders in society and on the global stage.
               </p>
             </Card>
           </motion.div>
+
         </div>
       </div>
     </section>
