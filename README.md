@@ -90,6 +90,7 @@ Doon International School's website showcases the institution's commitment to ex
 - **Server-Side Rendering**: Next.js App Router for optimal SEO and performance
 - **Type Safety**: Full TypeScript implementation with strict type checking
 - **Email Integration**: Automated enquiry processing with Gmail SMTP
+- **Analytics & Tracking**: Google Tag Manager (GTM) for Google Ads conversion tracking
 - **Dynamic Content**: JSON-driven content management system
 - **Performance Monitoring**: Built-in analytics and error tracking
 

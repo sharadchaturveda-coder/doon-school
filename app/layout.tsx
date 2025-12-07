@@ -6,6 +6,7 @@
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import Header from '../components/layout/header';
 import UnifiedFooter from '../components/layout/UnifiedFooter';
@@ -47,6 +48,21 @@ export default function RootLayout({
 }>): JSX.Element {
   return (
     <html lang="en">
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17786194195"
+          strategy="afterInteractive"
+        />
+        <Script id="google-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17786194195');
+          `}
+        </Script>
+      </head>
       <body className={inter.className}>
         <Header />
         <main className="flex-grow min-h-[100dvh]">
