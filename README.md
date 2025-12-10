@@ -78,7 +78,7 @@ Doon International School's website showcases the institution's commitment to ex
 - **Accessibility**: WCAG compliant with proper ARIA labels and keyboard navigation
 
 ### 📱 Pages & Functionality
-- **Homepage**: Hero section, feature highlights, news ticker, campus stats
+- **Homepage**: Hero section, feature highlights, news ticker, campus stats, auto-popup modal, QR registration section
 - **About**: Mission, vision, core values, and comprehensive facilities showcase
 - **Admissions**: Application process, requirements, and contact information
 - **Discover**: Interactive facility exploration and school highlights
@@ -129,8 +129,8 @@ doon-school/
 │   ├── api/               # API routes
 │   └── ...
 ├── components/            # Reusable React components
-│   ├── ui/               # Basic UI components
-│   ├── blocks/           # Composite UI blocks
+│   ├── ui/               # Basic UI components (button, card, modal)
+│   ├── blocks/           # Composite UI blocks (welcome, discover, register)
 │   ├── sections/         # Page sections
 │   └── layout/           # Layout components
 ├── lib/                  # Utility functions
