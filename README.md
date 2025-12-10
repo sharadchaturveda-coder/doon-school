@@ -78,7 +78,7 @@ Doon International School's website showcases the institution's commitment to ex
 - **Accessibility**: WCAG compliant with proper ARIA labels and keyboard navigation
 
 ### 📱 Pages & Functionality
-- **Homepage**: Hero section, feature highlights, news ticker, campus stats, auto-popup modal, QR registration section
+- **Homepage**: Hero section, feature highlights, news ticker, campus stats, auto-popup modal (every reload), QR registration section with interactive scan popup
 - **About**: Mission, vision, core values, and comprehensive facilities showcase
 - **Admissions**: Application process, requirements, and contact information
 - **Discover**: Interactive facility exploration and school highlights

@@ -42,16 +42,12 @@ export default function Home(): JSX.Element {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    // Check if popup has been shown this session
-    const hasShownPopup = sessionStorage.getItem('doonPopupShown');
-    if (!hasShownPopup) {
-      setShowPopup(true);
-    }
+    // Show popup on every homepage load
+    setShowPopup(true);
   }, []);
 
   const handleClosePopup = () => {
     setShowPopup(false);
-    sessionStorage.setItem('doonPopupShown', 'true');
   };
 
   return (

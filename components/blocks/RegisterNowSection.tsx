@@ -61,7 +61,7 @@ export default function RegisterNowSection() {
       </div>
       </div>
 
-      <PopupModal isOpen={isQRModalOpen} onClose={handleQRClose} imageSrc="/images/qrcode.png" />
+      <PopupModal isOpen={isQRModalOpen} onClose={handleQRClose} imageSrc="/images/qrcode.png" size="small" />
     </section>
   );
 }

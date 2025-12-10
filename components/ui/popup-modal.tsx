@@ -7,12 +7,13 @@ interface PopupModalProps {
   isOpen: boolean;
   onClose: () => void;
   imageSrc?: string;
+  size?: 'small' | 'large';
 }
 
 /**
  * PopupModal component that displays the popup.jpg image with a close button and blurred backdrop
  */
-export default function PopupModal({ isOpen, onClose, imageSrc }: PopupModalProps): JSX.Element {
+export default function PopupModal({ isOpen, onClose, imageSrc, size }: PopupModalProps): JSX.Element {
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     // Close modal when clicking the backdrop
     if (e.target === e.currentTarget) {
@@ -38,11 +39,15 @@ export default function PopupModal({ isOpen, onClose, imageSrc }: PopupModalProp
             transition={{ duration: 0.3, ease: 'easeOut' }}
             className="relative"
           >
-            <div className="relative max-w-[80vw] max-h-[80vh] md:max-w-[50vw] md:max-h-[50vh]">
+            <div className="relative">
               <img
                 src={imageSrc || "/images/popup.jpg"}
                 alt="Popup"
-                className="w-full h-full object-contain rounded-lg shadow-2xl"
+                className={`w-auto h-auto object-contain rounded-lg shadow-2xl ${
+                  size === 'small'
+                    ? 'max-w-[70vw] max-h-[70vh] md:max-w-[60vw] md:max-h-[60vh]'
+                    : 'max-w-[90vw] max-h-[95vh] md:max-w-[85vw] md:max-h-[90vh]'
+                }`}
               />
               <button
                 onClick={onClose}
