@@ -15,9 +15,13 @@ import WelcomeSection from '../components/blocks/WelcomeSection';
 import DiscoverDoon from '../components/blocks/discover-doon';
 import AcademicsSection from '../components/sections/home/AcademicsSection';
 import TiltedCarousel from '../components/blocks/TiltedCarousel';
+
+import PopupModal from '../components/ui/popup-modal';
+import RegisterNowSection from '../components/blocks/RegisterNowSection';
 import siteData from '../data/site.json';
 import homeData from '../data/doon/home.json';
 import discoverData from '../data/doon/discover.json';
+import { useState, useEffect } from 'react';
 
 /**
  * Home page component that renders the main landing page for Doon International School
@@ -33,9 +37,26 @@ import discoverData from '../data/doon/discover.json';
  *
  * @returns {JSX.Element} The complete homepage layout
  */
+
 export default function Home(): JSX.Element {
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    // Check if popup has been shown this session
+    const hasShownPopup = sessionStorage.getItem('doonPopupShown');
+    if (!hasShownPopup) {
+      setShowPopup(true);
+    }
+  }, []);
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+    sessionStorage.setItem('doonPopupShown', 'true');
+  };
+
   return (
     <>
+      <PopupModal isOpen={showPopup} onClose={handleClosePopup} />
 
       {/* Hero Section - Keep unchanged */}
       <Hero
@@ -63,6 +84,8 @@ export default function Home(): JSX.Element {
       <NewsTickerSection />
 
       <WelcomeSection />
+
+      <RegisterNowSection />
 
       <DiscoverDoon cards={discoverData.cards as any[]} />
 
