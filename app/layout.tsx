@@ -10,6 +10,7 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '../components/layout/header';
 import UnifiedFooter from '../components/layout/UnifiedFooter';
+import RegistrationSideStrip from '../components/ui/registration-side-strip';
 import siteData from '../data/site.json';
 
 // Configure Inter font with multiple weights for consistent typography
@@ -64,6 +65,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={inter.className}>
+        <RegistrationSideStrip />
         <Header />
         <main className="flex-grow min-h-[100dvh]">
           {children}
