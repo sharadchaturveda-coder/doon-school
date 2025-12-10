@@ -42,8 +42,9 @@ export default function Home(): JSX.Element {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    // Show popup on every homepage load
-    setShowPopup(true);
+    // Show popup on every homepage load with slight delay to prevent flash
+    const timer = setTimeout(() => setShowPopup(true), 200);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleClosePopup = () => {
