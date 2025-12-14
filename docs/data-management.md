@@ -142,8 +142,9 @@ data/
 ### disclosures.json - Mandatory Documents
 
 **Location**: `data/disclosures.json`
-**Purpose**: Official documents for transparency requirements
-**Update Frequency**: As needed (legal requirements)
+**Purpose**: Master registry of all mandatory disclosure documents with detailed metadata
+**Implementation**: The mandatory disclosure page (`app/mandatory-disclosure/page.tsx`) currently uses hardcoded data for display, but disclosures.json serves as the authoritative source and backup registry
+**Update Frequency**: As needed (legal requirements and document additions)
 
 ```json
 [
@@ -155,9 +156,29 @@ data/
     "fileType": "PDF",
     "fileSize": "2.1 MB",
     "category": "Legal Documents"
+  },
+  {
+    "id": "11",
+    "title": "Activity Calendar AY 2025-26",
+    "description": "Complete activity calendar for academic year 2025-26 with co-curricular activities",
+    "documentUrl": "/assets/documents/AY 2025-26 DISJ ACTIVITY CALENDAR.xlsx - AY 2025-26.pdf",
+    "fileType": "PDF",
+    "fileSize": "Unknown",
+    "category": "Academic"
+  },
+  {
+    "id": "12",
+    "title": "Self Certification",
+    "description": "Self certification documents as required by mandatory disclosure guidelines",
+    "documentUrl": "/assets/documents/SELF CERTIFICATION.pdf",
+    "fileType": "PDF",
+    "fileSize": "Unknown",
+    "category": "Legal Documents"
   }
 ]
 ```
+
+**Note**: To sync changes between disclosures.json and the hardcoded arrays in page.tsx, both files must be updated manually. Future enhancement may include dynamic loading from this JSON file.
 
 ### doon/about.json - About Page Content
 

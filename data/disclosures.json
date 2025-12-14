@@ -88,5 +88,23 @@
     "fileType": "PDF",
     "fileSize": "2.8 MB",
     "category": "Policies"
+  },
+  {
+    "id": "11",
+    "title": "Activity Calendar AY 2025-26",
+    "description": "Complete activity calendar for academic year 2025-26 with co-curricular activities",
+    "documentUrl": "/assets/documents/AY 2025-26 DISJ ACTIVITY CALENDAR.xlsx - AY 2025-26.pdf",
+    "fileType": "PDF",
+    "fileSize": "-",
+    "category": "Academic"
+  },
+  {
+    "id": "12",
+    "title": "Self Certification",
+    "description": "Self certification documents as required by mandatory disclosure guidelines",
+    "documentUrl": "/assets/documents/SELF CERTIFICATION.pdf",
+    "fileType": "PDF",
+    "fileSize": "-",
+    "category": "Legal Documents"
   }
 ]

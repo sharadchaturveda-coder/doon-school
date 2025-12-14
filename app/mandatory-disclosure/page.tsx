@@ -124,6 +124,8 @@ MDP(IIM), HGSE
                 { text: "WATER TESTING LAB CERTIFICATE", pdf: "WATER TESTING LAB CERTIFICATE (1).pdf" },
                 { text: "COPIES OF SELF AFFIDAVIT", pdf: null },
                 { text: "COPIES OF SCHOOL MANAGEMENT COMMITTEE", pdf: "SCHOOL MANAGEMENT COMMITTEE.pdf" },
+                { text: "COPIES OF ACTIVITY CALENDAR AY 2025-26", pdf: "AY 2025-26 DISJ ACTIVITY CALENDAR.xlsx - AY 2025-26.pdf" },
+                { text: "COPIES OF SELF CERTIFICATION", pdf: "SELF CERTIFICATION.pdf" },
               ].map((item, i) => (
                 <tr key={i}>
                   <td className="px-2 md:px-4 py-2 border border-gray-300 text-center whitespace-nowrap">
