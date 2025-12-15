@@ -126,6 +126,12 @@ MDP(IIM), HGSE
                 { text: "COPIES OF SCHOOL MANAGEMENT COMMITTEE", pdf: "SCHOOL MANAGEMENT COMMITTEE.pdf" },
                 { text: "COPIES OF ACTIVITY CALENDAR AY 2025-26", pdf: "AY 2025-26 DISJ ACTIVITY CALENDAR.xlsx - AY 2025-26.pdf" },
                 { text: "COPIES OF SELF CERTIFICATION", pdf: "SELF CERTIFICATION.pdf" },
+                { text: "COPIES OF BOOK LIST CLASS I TO VII FOR NEW SESSION 25-26", pdf: "Book LIST CLASS I TO VII for New Session 25-26.pdf" },
+                { text: "COPIES OF DAY BOARDING FEE STRUCTURE 25-26", pdf: "Day boarding fee structure 25-26.pdf" },
+                { text: "COPIES OF DAY SCHOOL FEE STRUCTURE 25-26", pdf: "Day School fee structure 25-26.pdf" },
+                { text: "COPIES OF PRE-PRIMARY BOOK LIST 25-26", pdf: "PRE-PRIMARY BOOK LIST 25-26.pdf" },
+                { text: "COPIES OF SCHOOL MANAGEMENT COMMITTEE NEW", pdf: "SCHOOL MANAGEMENT COMMITTEE NEW.pdf" },
+                { text: "COPIES OF SOCIETY SECTION 27", pdf: "SOCIETY SECTION 27 2_organized.pdf" },
               ].map((item, i) => (
                 <tr key={i}>
                   <td className="px-2 md:px-4 py-2 border border-gray-300 text-center whitespace-nowrap">
