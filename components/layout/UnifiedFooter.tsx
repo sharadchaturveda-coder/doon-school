@@ -8,7 +8,7 @@ const UnifiedFooter: React.FC = () => {
         <div>
           <h4 className="font-semibold text-lg mb-3 text-white">Doon International School, Jabalpur</h4>
           <p className="text-sm opacity-80 leading-relaxed">
-            Affiliated with CBSE, providing quality education and holistic development for academic excellence.
+            Providing quality education and holistic development for academic excellence.
           </p>
         </div>
 
