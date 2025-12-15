@@ -132,6 +132,7 @@ MDP(IIM), HGSE
                 { text: "COPIES OF PRE-PRIMARY BOOK LIST 25-26", pdf: "PRE-PRIMARY BOOK LIST 25-26.pdf" },
                 { text: "COPIES OF SCHOOL MANAGEMENT COMMITTEE NEW", pdf: "SCHOOL MANAGEMENT COMMITTEE NEW.pdf" },
                 { text: "COPIES OF SOCIETY SECTION 27", pdf: "SOCIETY SECTION 27 2_organized.pdf" },
+                { text: "COPIES OF STAFF LIST", pdf: "STAFF LIST.pdf" },
               ].map((item, i) => (
                 <tr key={i}>
                   <td className="px-2 md:px-4 py-2 border border-gray-300 text-center whitespace-nowrap">
