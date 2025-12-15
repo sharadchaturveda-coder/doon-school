@@ -122,7 +122,7 @@ MDP(IIM), HGSE
                 { text: "COPY OF LAND CERTIFICATE", pdf: "LAND CERTIFICATE (2).pdf" },
                 { text: "COPIES OF VALID SAFE DRINKING WATER & SANITATION CERTIFICATES", pdf: "SAFE DRINKING WATER & SANITATION (1).pdf" },
                 { text: "WATER TESTING LAB CERTIFICATE", pdf: "WATER TESTING LAB CERTIFICATE (1).pdf" },
-                { text: "COPIES OF SELF AFFIDAVIT", pdf: null },
+                { text: "COPIES OF SELF AFFIDAVIT", pdf: "SELF AFFIDAVIT.pdf" },
                 { text: "COPIES OF SCHOOL MANAGEMENT COMMITTEE", pdf: "SCHOOL MANAGEMENT COMMITTEE.pdf" },
                 { text: "COPIES OF ACTIVITY CALENDAR AY 2025-26", pdf: "AY 2025-26 DISJ ACTIVITY CALENDAR.xlsx - AY 2025-26.pdf" },
                 { text: "COPIES OF SELF CERTIFICATION", pdf: "SELF CERTIFICATION.pdf" },
