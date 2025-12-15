@@ -43,7 +43,7 @@ export default function RegistrationSideStrip(): JSX.Element {
       {/* Desktop Version */}
       <motion.button
         onClick={handleQROpen}
-        className="hidden md:flex fixed top-1/2 -translate-y-1/2 right-0 w-6 h-48 bg-[#002B6B] text-white text-sm font-medium py-2 rounded-l-md z-20 shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-primary/50 hover:scale-105 items-center justify-center"
+        className="hidden md:flex fixed top-1/2 -translate-y-1/2 right-0 w-6 h-48 bg-[#002B6B] text-white text-sm font-medium py-2 rounded-l-md z-20 shadow-lg transition-all duration-300 hover:shadow-[0_0_16px_rgba(0,43,107,0.5)] items-center justify-center"
         style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
         aria-label="Online Registration"
         whileHover={{ scale: 1.05 }}
@@ -62,4 +62,3 @@ export default function RegistrationSideStrip(): JSX.Element {
     </>
   );
 }
-
