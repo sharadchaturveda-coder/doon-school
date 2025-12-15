@@ -13,19 +13,7 @@
       ]
     },
     { "name": "MANDATORY DISCLOSURE", "href": "/mandatory-disclosure", "shortName": "MANDATORY DISCLOSURES" },
-    {
-      "name": "ADMISSION",
-      "href": "/admissions",
-      "dropdown": [
-        { "name": "Admission Procedure", "href": "/admissions#procedure" },
-        { "name": "Application Form", "href": "/admissions#application" },
-        { "name": "Fee Rules & Regulations", "href": "/admissions#fee-rules" },
-        { "name": "Boarding Fee Structure", "href": "/admissions#boarding-fee" },
-        { "name": "Day School Fee Structure", "href": "/admissions#day-school-fee" },
-        { "name": "Day Boarding Fee Structure", "href": "/admissions#day-boarding-fee" },
-        { "name": "Withdrawal Form", "href": "/admissions#withdrawal" }
-      ]
-    },
+    { "name": "ADMISSION", "href": "/admissions" },
     { "name": "DISCOVER DOON", "href": "/infrastructure" },
     { "name": "ENQUIRY", "href": "https://disjabalpur.schoolpad.in/enquiryManager/onlineOpenAdmissionForm/8", "external": true },
     { "name": "PARENT PORTAL", "href": "https://disjabalpur.schoolpad.in/", "external": true }
